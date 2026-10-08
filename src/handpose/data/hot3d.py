@@ -67,3 +67,25 @@ def iter_clip(path,max_frames=None,size=640,focal=320.):
                 gt[0]=np.nan  # Anatomical wrist convention is not comparable.
                 visibility=hands['right'].get('visibilities_modeled')
             yield dict(frame_id=key,timestamp_ns=int(ts[0]),left=images[0],right=images[1],cameras=cams,ground_truth=gt,visibility=visibility,info=info,T_world_from_left=dest[0].T_world_from_eye)
+
+
+def mano_ground_truth(path,max_frames,model_path='checkpoints/mano_converted'):
+    """21 MANO anatomical joints in left pinhole optical frame (separate GT track)."""
+    import torch,smplx
+    from hand_tracking_toolkit.camera import from_json
+    model=smplx.MANO(model_path,is_rhand=True,use_pca=True,num_pca_comps=15,flat_hand_mean=False)
+    order=[0,13,14,15,16,1,2,3,17,4,5,6,18,10,11,12,19,7,8,9,20]
+    with tarfile.open(path) as tar:
+        read=lambda n:json.load(tar.extractfile(n))
+        shape=read('__hand_shapes.json__')['mano']
+        keys=sorted(n.removesuffix('.info.json') for n in tar.getnames() if n.endswith('.info.json'))[:max_frames]
+        all_gt=[]
+        for key in keys:
+            hand=read(key+'.hands.json').get('right',{});gt=np.full((21,3),np.nan)
+            if hand and hand.get('mano_pose'):
+                d=hand['mano_pose'];xf=torch.tensor(d['wrist_xform'],dtype=torch.float32)[None]
+                with torch.no_grad():o=model(betas=torch.tensor(shape,dtype=torch.float32)[None],hand_pose=torch.tensor(d['thetas'],dtype=torch.float32)[None],global_orient=xf[:,:3],transl=xf[:,3:])
+                joints=torch.cat([o.joints[:,:16],o.vertices[:,[744,320,443,554,671]]],dim=1)[0,order].numpy()
+                cam=from_json(read(key+'.cameras.json')['1201-1']);gt=transform(joints,np.linalg.inv(cam.T_world_from_eye))
+            all_gt.append(gt)
+    return np.stack(all_gt)

@@ -15,7 +15,11 @@ from handpose.evaluation.metrics import evaluate
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument('--manifest',default='data/hot3d/manifest.json'); p.add_argument('--split',choices=['smoke','development','held_out'],default='smoke'); p.add_argument('--model',default='mediapipe'); p.add_argument('--output',required=True)
-    a=p.parse_args(); manifest=json.load(open(a.manifest)); model=create(a.model); out=Path(a.output); out.mkdir(parents=True,exist_ok=True)
+    a=p.parse_args(); manifest=json.load(open(a.manifest)); model=create('mediapipe' if a.model=='umetrack' else a.model); direct=None
+    if a.model=='umetrack':
+        from handpose.models.umetrack_adapter import UmeTrackAdapter
+        direct=UmeTrackAdapter()
+    out=Path(a.output); out.mkdir(parents=True,exist_ok=True)
     all_results=[]
     for entry in manifest:
         if entry['split']!=a.split: continue
@@ -26,6 +30,7 @@ def main():
             start=time.perf_counter()
             observations=[model.predict(sample[k]) for k in ('left','right')]
             pred=reconstruct(*sample['cameras'],*observations,sample['timestamp_ns']) if sample['cameras'] else reconstruct(None,None,[],[],sample['timestamp_ns'])
+            if direct and sample['cameras']: pred=direct.predict_stereo(sample['left'],sample['right'],*sample['cameras'],pred)
             latencies.append(time.perf_counter()-start); preds.append(pred); truths.append(sample['ground_truth']); world.append(sample['T_world_from_left']); visibilities.append(sample['visibility'])
             image=sample['left'].copy()
             gtuv=sample['cameras'][0].project(sample['ground_truth']) if sample['cameras'] else np.full((21,2),np.nan)

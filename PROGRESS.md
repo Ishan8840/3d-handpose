@@ -43,3 +43,37 @@
 - UmeTrack release and official sample data obtained; predicted-crop adaptation
   under development to avoid GT-assisted official crop protocol.
 - 9 local weight-free tests pass. Spatial/temporal ablations running next.
+
+## Spatial model milestone and dataset expansion
+
+- 12 weight-free tests pass. Expanded HOT3D and SHOW3D manifests each contain
+  seven distinct participants, with smoke/development/held-out assignment.
+  Held-out predictions have not been used for model selection.
+- Actual UmeTrack two-view predicted-crop inference: first HOT3D dev sequence
+  22.449 mm observed MPJPE, 85.33% coverage, capped score 33.823 mm.
+- Four-rotation MediaPipe hypothesis search on that dev sequence: 26.596 mm,
+  94.11% coverage, capped score 28.610 mm. Expanded development run underway.
+- Corrected native HOT3D 90-degree camera orientation for ACE: 30-frame smoke
+  stereo 28.019 mm, 99.65% coverage, capped score 28.109 mm. Monocular metric
+  position error remains 105.048 mm despite PA error 7.775 mm. No winner selected.
+- Earlier native-orientation ACE experiments and vertical-baseline dense stereo
+  are failed configurations, not eligible leaderboard candidates.
+- FoundationStereo large checkpoint ran with horizontal rectification on 150 dev
+  frames: conservative depth fusion 26.634 mm vs baseline 27.103 mm, unchanged
+  75.96% coverage. Depth-only surface observations 34.298 mm. One sequence is
+  insufficient evidence that the small fusion improvement generalizes.
+- RTMPose predicted-crop MANO fitting worsened observed error (15.000 ->22.360 mm)
+  while increasing coverage (49.65 ->70.67%). Temporal 0.1-second local-linear
+  refinement gave 13.716 mm/54.39% coverage; requires wider development testing.
+- Supplied MANO archive enables separate 21-joint HOT3D reference evaluation:
+  rotated MediaPipe dev 25.692 mm absolute, wrist14.949 mm, tips37.700 mm,
+  coverage94.35%. Keep distinct from common19 UmeTrack annotation scores.
+- POEM large checkpoint loaded successfully; custom predicted-crop two-camera
+  inference under validation. No POEM accuracy claim yet.
+- User-added LightwheelAI/EgoStandard bucket accessible on VM. Downloaded one
+  547-frame MCAP: actual stereo RGB1920x1456 at30Hz, intrinsics/extrinsics,
+  world hand transforms, bad-frame annotations and operator identity present.
+  Protobuf schema inspector and H264 extraction executed. Hand convention and
+  annotation provenance still require verification before any accuracy score.
+- Primary models' environments differ from some upstream versions; exact
+  dependency/weight locks and portable setup still need consolidation.

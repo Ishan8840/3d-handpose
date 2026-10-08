@@ -79,3 +79,25 @@ def test_end_to_end_weightless(stereo,tmp_path):
 def test_bootstrap_clusters():
     assert sequence_bootstrap([1],[0]) is None
     np.testing.assert_allclose(sequence_bootstrap([2,2,2],[0,1,2]),[2,2])
+
+def test_rotated_camera_projection(stereo):
+    from handpose.geometry.rectification import rotate_clockwise_camera
+    for cam in stereo:
+        rotated,R=rotate_clockwise_camera(cam,640,480)
+        xyz=points();uv=cam.project(xyz)
+        np.testing.assert_allclose(rotated.project(xyz@R.T),np.c_[479-uv[:,1],uv[:,0]],atol=1e-10)
+
+def test_rectified_horizontal_disparity(stereo):
+    import cv2
+    from handpose.geometry.rectification import rectify
+    l,r=stereo; Rl,Rr,Pl,Pr,Q,maps=rectify(l,r,(640,480))
+    xyz=points();a=l.project(xyz);b=r.project(xyz)
+    d=a[:,0]-b[:,0];h=np.c_[a,d,np.ones(len(d))]@Q.T
+    np.testing.assert_allclose(h[:,:3]/h[:,3:],xyz,atol=1e-10)
+
+def test_rotation_and_nonparallel_cameras():
+    from scipy.spatial.transform import Rotation
+    K=np.array([[650.,0,320],[0,620,240],[0,0,1]])
+    T=np.eye(4);T[:3,:3]=Rotation.from_euler('y',7,degrees=True).as_matrix();T[:3,3]=-T[:3,:3]@np.array([.08,.01,0])
+    l,r=Camera(K),Camera(K,T);x=points();p,v=triangulate(l,r,l.project(x),r.project(x))
+    assert v.all();np.testing.assert_allclose(p,x,atol=1e-10)
