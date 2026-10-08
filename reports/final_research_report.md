@@ -320,3 +320,13 @@ EgoStandard unsmoothed WiLoR+MANO integration: 547frames, 81.90% valid output jo
 | OmniHands | 0.249 |
 
 These per-frame timers exclude model startup and input decoding, include mono/lift plus stereo export computation, and ran with concurrent jobs. MANO fitting and temporal refinement add work. Use the dedicated end-to-end CLI profile for the deployable pipeline; no controlled all-model steady-state speed claim is made.
+
+
+## Object-aware follow-up
+
+The controlled 900-frame development/evaluation experiment is documented in
+[the object-aware report](object_aware/report.md). Estimated object collision/contact
+and reference-object-pose diagnostics did not deliver a meaningful absolute MPJPE
+improvement over their matched hand-only refit. Existing WiLoR baselines remain
+unchanged. See the report for the small occluded-fingertip effects, pose ambiguity,
+paired intervals, correlation analysis and runnable inference commands.

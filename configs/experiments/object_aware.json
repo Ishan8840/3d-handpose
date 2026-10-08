@@ -1,0 +1,49 @@
+{
+  "protocol": "HOT3D anatomical MANO21, native left optical, metric, no alignment",
+  "source_split": "configs/datasets/hot3d.json",
+  "frames_per_clip": 150,
+  "preserved_baseline": "outputs/wilor-held/stereo",
+  "mask_input": "supplied SAM2 masks_modal, mask-conditioned experiment; amodal masks forbidden",
+  "object_pose": {
+    "method": "multi-start convex mesh silhouette support fitting",
+    "resolution": 160,
+    "focal_px": 80,
+    "support_directions": 16,
+    "random_starts": 8,
+    "seed": 7,
+    "previous_pose_initializer": true,
+    "maximum_support_cost": 9,
+    "maximum_translation_hypothesis_spread_m": 0.08,
+    "hand_mask_proximity_gate_px": 12
+  },
+  "hand": {
+    "model": "MANO right, predicted median subject shape, WiLoR articulation initialization",
+    "optimizer": "Adam",
+    "steps": 160,
+    "lr": 0.002,
+    "stereo_anchor_weight": 10000,
+    "pose_prior_weight": 0.1,
+    "visibility_weight_inside_object_mask": 0.25,
+    "mesh_voxel_pitch_m": 0.003,
+    "soft_penetration_allowance_m": 0.002,
+    "collision_weight": 100000,
+    "contact_weight": 20000,
+    "contact_surface_sigma_m": 0.008,
+    "contact_surface_gate_m": 0.015,
+    "contact_mask_boundary_gate_px_both_views": 3,
+    "object_weight_development_candidates": [
+      0.25,
+      1.0
+    ],
+    "contact_is_learned_or_calibrated": false,
+    "temporal_hand_optimization": false
+  },
+  "selection": "Minimize mean development capped100mm missing-penalty score across collision/contact; use shared weight to isolate adding contact; freeze before held-out hand runs",
+  "oracle": "reference object transforms only; identical mask, object selection and estimated-pose acceptance; no hand GT",
+  "limitations": [
+    "Existing held-out cohort reused as a controlled regression set, not a fresh confirmation cohort",
+    "Convex silhouette approximation",
+    "Voxelized collision approximation",
+    "ContactOpt-inspired geometric contact, not its learned predictor"
+  ]
+}

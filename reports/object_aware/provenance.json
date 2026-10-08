@@ -1,0 +1,169 @@
+{
+  "dataset_revision": "30fe9674782f32e1e5edba98476b6ff4300132c5",
+  "meshes": {
+    "models_info.json": "351e1b25a250606fa4b7500f5aeb800b55050bf1c638d05ceb464f8ddfb32e2b",
+    "obj_000001.glb": "605ae0f1ccb3529b0d362d9637447ca0a54b9b33cc2e93d019a43687e5093711",
+    "obj_000002.glb": "4f4616dc1b2be598e4332130aee5be906b4ea7ce81d8f6b8cda1e59bd1ae1526",
+    "obj_000003.glb": "e1792253d475b86bb4920ff40d449051fb90d45f60e6b26b05956eed4b6871b5",
+    "obj_000005.glb": "ac73e2a40713a3a0241e6660a21b927c5c645b774dc7a0bef3a7d15602555928",
+    "obj_000007.glb": "a0f8ee0675b1fb06521af00a8e384666f2c2a124797a5ff2228f71a160a9f6ac",
+    "obj_000008.glb": "ad3e559846f6525f9c6def660f146ef21df236137b24393ecf0b1923bafaa88c",
+    "obj_000009.glb": "26b2884fa61a9b9870ae089de04ea9bccdf8eb8e1467bdd185e7d514ae259195",
+    "obj_000010.glb": "321cb27bcaa12c7abf521208c8cd8e0df3f21790ad3379ec36b2166476737aed",
+    "obj_000011.glb": "c067196d4dbf3a2b8cea90d1365d6f22f2c0ebb639181f6564ded7fe46c5f808",
+    "obj_000012.glb": "7522313a01b3461f21f7a0cc9d100b20c9a5766a78bdda6ac36bbd7fc4831619",
+    "obj_000014.glb": "02b034d4e4e00164795b22bfcc525dc54462de6b3a217318c6d545f40adcd23f",
+    "obj_000015.glb": "ed3ac3767202c8da56d30051d766bf7d444d3d356c30671f4bbb2a73e3a1b321",
+    "obj_000016.glb": "d159925fb4606ac3337c29c0eb4a45846ec639bae09971f791626905b9b53f59",
+    "obj_000017.glb": "e1ce5b89e7021b9c9cc6f5a63e895c6c5fc1519fdaedb213d3199b74d48daacc",
+    "obj_000018.glb": "7c6d742b80b6df24b8de08b5f866522a452ddd2151da53073da577d5b4f6fefc",
+    "obj_000019.glb": "7ab52011f82f60e5d06b5582cd874bf6a7b0288489fe3827aec0829dfee71399",
+    "obj_000021.glb": "b998ffc8932f1cacac5259ff8d9bbe8b64eb2f112d29ec8263ebb5f187cf0065",
+    "obj_000022.glb": "ea8e29502cda28210183ae3909c5ffea27d87c20c28808a96cb77eaa002ee434",
+    "obj_000023.glb": "eb6ee406897f946d14da9357d94cbf533e9e7ad663233023df750af4b6b37510",
+    "obj_000024.glb": "f5548e475296967ad9797bc51fa23738648c2def23082dce6fd300c271439b69",
+    "obj_000025.glb": "b687ea0afb43550c8fead1316bb1e917e8b4f358a159a79f4f4b73a63b627829",
+    "obj_000026.glb": "6eb0b38d85d00866bfc5d73e3cdfb40ce354e4e34e92b3c32a00b51acd7670b4",
+    "obj_000027.glb": "b5354f0785c6a4b97dcadb3fe2622e9dc7e2c794bd69d648b72482dc7bdb8e0a",
+    "obj_000028.glb": "2e20d137a3357a30c978447be48134fecc3c294a9f908bf6f1767e5efee7313e",
+    "obj_000030.glb": "6111700b886d58aaa4360dafd30597bc76f94894268db58196e6976d07e8bca4",
+    "obj_000031.glb": "946516d7b944a2b729006e367185b971b80b0bdd2f1136c0cb7dab5f2d114a87"
+  },
+  "clips": [
+    {
+      "clip": "clip-000175",
+      "split": "development",
+      "participant": "P0003",
+      "frames": 150,
+      "objects": [
+        7,
+        9,
+        24,
+        28,
+        30,
+        31
+      ],
+      "paired_mask_frames": {
+        "7": 76,
+        "9": 67,
+        "24": 150,
+        "28": 150,
+        "30": 150,
+        "31": 148
+      }
+    },
+    {
+      "clip": "clip-000648",
+      "split": "held_out",
+      "participant": "P0010",
+      "frames": 150,
+      "objects": [
+        3,
+        5,
+        11,
+        15,
+        18,
+        21
+      ],
+      "paired_mask_frames": {
+        "3": 150,
+        "5": 150,
+        "11": 55,
+        "15": 122,
+        "18": 99,
+        "21": 145
+      }
+    },
+    {
+      "clip": "clip-000838",
+      "split": "development",
+      "participant": "P0013",
+      "frames": 150,
+      "objects": [
+        9,
+        16,
+        22,
+        26,
+        27,
+        30
+      ],
+      "paired_mask_frames": {
+        "9": 108,
+        "16": 150,
+        "22": 86,
+        "26": 117,
+        "27": 125,
+        "30": 110
+      }
+    },
+    {
+      "clip": "clip-001035",
+      "split": "held_out",
+      "participant": "P0017",
+      "frames": 150,
+      "objects": [
+        1,
+        8,
+        16,
+        23,
+        28,
+        31
+      ],
+      "paired_mask_frames": {
+        "1": 145,
+        "8": 58,
+        "16": 150,
+        "23": 111,
+        "28": 149,
+        "31": 120
+      }
+    },
+    {
+      "clip": "clip-001119",
+      "split": "development",
+      "participant": "P0018",
+      "frames": 150,
+      "objects": [
+        11,
+        12,
+        17,
+        18,
+        19,
+        25
+      ],
+      "paired_mask_frames": {
+        "11": 61,
+        "12": 103,
+        "17": 89,
+        "18": 64,
+        "19": 112,
+        "25": 147
+      }
+    },
+    {
+      "clip": "clip-001168",
+      "split": "held_out",
+      "participant": "P0021",
+      "frames": 150,
+      "objects": [
+        2,
+        5,
+        10,
+        12,
+        14,
+        15
+      ],
+      "paired_mask_frames": {
+        "2": 135,
+        "5": 61,
+        "10": 118,
+        "12": 125,
+        "14": 87,
+        "15": 143
+      }
+    }
+  ],
+  "mask_source": "HOT3D supplied SAM2 masks_modal; prompting provenance not established; mask-conditioned evaluation",
+  "coordinate_frame": "native left optical, meters",
+  "reference_pose_file_suffix": "_reference.npz"
+}

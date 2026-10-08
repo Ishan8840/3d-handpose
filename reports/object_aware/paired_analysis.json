@@ -1,0 +1,130 @@
+{
+  "existing_mano_temporal": {
+    "error_pearson_vs_refit": 0.9690621926205972,
+    "paired_delta_mm": -1.2678110491588221,
+    "paired_sequence_ci95": [
+      -2.756301036730703,
+      0.9116658064559903
+    ],
+    "object_error_vs_hand_delta_spearman": -0.17580645161290323,
+    "object_error_correlation_frames": 31,
+    "per_clip_delta_mm": {
+      "clip-000648": -2.7563010367307026,
+      "clip-001035": 0.911665806455991,
+      "clip-001168": -1.4638929667483909
+    },
+    "contact_active_frames": 0
+  },
+  "hand_only_w1": {
+    "error_pearson_vs_refit": 1.0,
+    "paired_delta_mm": 0.0,
+    "paired_sequence_ci95": [
+      0.0,
+      0.0
+    ],
+    "object_error_vs_hand_delta_spearman": null,
+    "object_error_correlation_frames": 31,
+    "per_clip_delta_mm": {
+      "clip-000648": 0.0,
+      "clip-001035": 0.0,
+      "clip-001168": 0.0
+    },
+    "contact_active_frames": 0
+  },
+  "visibility_w1": {
+    "error_pearson_vs_refit": 0.9999922616560482,
+    "paired_delta_mm": 0.0008637556472862333,
+    "paired_sequence_ci95": [
+      -0.010541174164087883,
+      0.008291009480981767
+    ],
+    "object_error_vs_hand_delta_spearman": -0.08612890619920341,
+    "object_error_correlation_frames": 31,
+    "per_clip_delta_mm": {
+      "clip-000648": 0.00829100948098177,
+      "clip-001035": -0.010541174164087884,
+      "clip-001168": 0.003970810767534444
+    },
+    "contact_active_frames": 0
+  },
+  "collision_w0.25": {
+    "error_pearson_vs_refit": 0.999964822563743,
+    "paired_delta_mm": 0.006399724714882426,
+    "paired_sequence_ci95": [
+      -0.021957421790329914,
+      0.04283129791044308
+    ],
+    "object_error_vs_hand_delta_spearman": -0.06060618427965743,
+    "object_error_correlation_frames": 31,
+    "per_clip_delta_mm": {
+      "clip-000648": 0.04283129791044307,
+      "clip-001035": -0.02185663300570305,
+      "clip-001168": -0.021957421790329914
+    },
+    "contact_active_frames": 0
+  },
+  "contact_w0.25": {
+    "error_pearson_vs_refit": 0.9999624216850925,
+    "paired_delta_mm": 0.0009318037285268621,
+    "paired_sequence_ci95": [
+      -0.0420149719167154,
+      0.04257535796259772
+    ],
+    "object_error_vs_hand_delta_spearman": -0.10595363618360562,
+    "object_error_correlation_frames": 31,
+    "per_clip_delta_mm": {
+      "clip-000648": 0.04257535796259771,
+      "clip-001035": -0.02414231903989071,
+      "clip-001168": -0.0420149719167154
+    },
+    "contact_active_frames": 20
+  },
+  "collision_oracle_w0.25": {
+    "error_pearson_vs_refit": 0.9999676658260104,
+    "paired_delta_mm": -0.003574112690803408,
+    "paired_sequence_ci95": [
+      -0.07368051440730136,
+      0.04132171372274248
+    ],
+    "object_error_vs_hand_delta_spearman": 0.20496884099781826,
+    "object_error_correlation_frames": 31,
+    "per_clip_delta_mm": {
+      "clip-000648": 0.04132171372274247,
+      "clip-001035": -0.015042040519859912,
+      "clip-001168": -0.07368051440730138
+    },
+    "contact_active_frames": 0
+  },
+  "collision_oracle_all_w0.25": {
+    "error_pearson_vs_refit": 0.9999319555453997,
+    "paired_delta_mm": 0.010339736394762948,
+    "paired_sequence_ci95": [
+      -0.08899484182627247,
+      0.08154257033016502
+    ],
+    "object_error_vs_hand_delta_spearman": 0.20496884099781826,
+    "object_error_correlation_frames": 31,
+    "per_clip_delta_mm": {
+      "clip-000648": 0.081542570330165,
+      "clip-001035": -0.016661711348934703,
+      "clip-001168": -0.08899484182627246
+    },
+    "contact_active_frames": 0
+  },
+  "contact_oracle_all_w0.25": {
+    "error_pearson_vs_refit": 0.9998899097678783,
+    "paired_delta_mm": -0.020616692227180874,
+    "paired_sequence_ci95": [
+      -0.11378998616257517,
+      0.012971081007408812
+    ],
+    "object_error_vs_hand_delta_spearman": 0.12807364044478767,
+    "object_error_correlation_frames": 31,
+    "per_clip_delta_mm": {
+      "clip-000648": 0.012971081007408807,
+      "clip-001035": -0.001785140028599752,
+      "clip-001168": -0.11378998616257517
+    },
+    "contact_active_frames": 63
+  }
+}

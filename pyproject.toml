@@ -8,6 +8,7 @@ requires-python = ">=3.10,<3.13"
 dependencies = ["numpy==1.26.4", "scipy==1.14.1", "opencv-contrib-python==4.11.0.86", "PyYAML==6.0.2", "matplotlib==3.9.4"]
 [project.optional-dependencies]
 baseline = ["mediapipe==0.10.21"]
+objects = ["trimesh==4.6.8", "rtree==1.4.1"]
 test = ["pytest==8.3.5"]
 [project.scripts]
 handpose-infer = "handpose.inference.cli:main"

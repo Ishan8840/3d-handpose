@@ -316,3 +316,47 @@ Object-aware work remains paused for this audit. No WiLoR model or output change
 - Next hypothesis: stronger stereo-depth trust regions/uncertainty, evaluated on
   additional sequences. Do not use current held-out failures to tune and then
   claim an independent confirmation on the same frames.
+
+## Object-aware controlled experiment (in progress)
+
+- Preserved and reverified WiLoR stereo: 22.891606 mm / 58.1164% on 450 held-out MANO21 frames.
+- Exported all 900 existing frames with official camera transforms, exact metric GLB meshes,
+  SAM2 modal masks, and reference object transforms isolated in separate evaluation files.
+  Amodal reference-rendered masks are excluded from inference.
+- Implemented mask-conditioned multistart convex-silhouette object pose estimation,
+  MANO hand-only/visibility/collision/contact ablations, and explicit object-pose oracles.
+- Contact uses gated geometric soft weights, not ContactOpt's pretrained contact predictor.
+- Object-pose fits expose serious ambiguity; evaluation and development weight selection
+  are running. No architecture replacement or accuracy improvement is claimed yet.
+- Synthetic RLE, metric object translation and missing-mask checks pass; full suite 40 passed.
+  Remote voxel sign/scale sanity check passed (-33 mm inside a 60 mm cube, +6 mm outside).
+
+## Object-aware controlled experiment — completed measurements
+
+- Completed 45 hand/clip executions: eight development configurations × three clips,
+  seven evaluation configurations × three clips. Each uses 150 frames. Preserved all
+  old baselines and copied the new raw artifacts back from the VM.
+- Development chose shared collision/contact weight 0.25 before held-out hand fitting.
+- Evaluation MANO21 / 450 frames: hand-only control25.949567mm; estimated collision
+  and contact ~25.956/25.950mm; reference-pose contact across all selected objects25.929mm.
+  All new ablations have67.69% coverage. RawWiLoR22.891606mm/58.12% and historical
+  MANO+50ms24.266564mm/67.33% remain unchanged. No replacement justified.
+- Paired contact versus control +0.000932mm, sequence95%CI[-0.042015,+0.042575].
+  Broad oracle contact -0.020617mm, CI[-0.113790,+0.012971]. Three sequences only.
+- Occluded-fingertip subset88joints: control20.583mm, predicted contact20.216mm,
+  broad oracle collision19.435mm, broad oracle contact19.758mm. Existing temporal19.754mm.
+- Object poses:156 mask-selected evaluation frames,31 accepted; accepted centroid
+  error46.740mm. Mask-only convex silhouette fitting is ambiguous under occlusion/cropping.
+  Inferred contact active20frames; broad oracle63frames. Geometric weights are not
+  ContactOpt's learned contact predictor and do not establish correct contacts.
+- New versus control joint-error Pearson0.999962; object error versus change Spearman
+  -0.105954 on31 accepted frames. No useful complementary correction demonstrated.
+- GT-free standalone CLI reproduces a150frame collision benchmark within1e-6m;
+  final output-contract and empty-hand preservation checks passed.41 local tests passed.
+- Saved per-joint/depth/tail/coverage/occlusion metrics, paired intervals, object pose
+  metrics, configurations, source provenance, hashes and side-by-side figures.
+- Scope limits: same regression participants, no fresh confirmation clips; supplied SAM2
+  masks; convex object-pose approximation;3mm voxel collision; no learned contact or
+  temporal hand-object fitting. Oracle is a diagnostic, not a theoretical best bound.
+- Recommendation: keep the existing WiLoR pipelines. Better object pose/contact evidence
+  is needed before further large-scale hand-object optimization investment.

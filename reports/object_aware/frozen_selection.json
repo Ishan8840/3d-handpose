@@ -1,0 +1,10 @@
+{
+  "weight": 0.25,
+  "collision": "collision_w0.25",
+  "contact": "contact_w0.25",
+  "criterion": "lowest development mean capped100mm missing-penalty score across collision/contact; shared weight isolates contact addition",
+  "scores": {
+    "0.25": 54.32820861670895,
+    "1": 54.34593022212415
+  }
+}

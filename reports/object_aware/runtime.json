@@ -1,0 +1,141 @@
+{
+  "development": {
+    "collision_oracle_w1": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 31.559396028518677,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "collision_w0.25": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 32.16624402999878,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "collision_w1": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 32.50936770439148,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "contact_oracle_all_w1": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 48.880061864852905,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "contact_w0.25": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 46.911972761154175,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "contact_w1": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 47.7101776599884,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "hand_only_w1": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 29.824196338653564,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "visibility_w1": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 28.768714666366577,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    }
+  },
+  "held_out": {
+    "collision_oracle_all_w0.25": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 40.55175185203552,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "collision_oracle_w0.25": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 36.53772449493408,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "collision_w0.25": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 36.99231767654419,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "contact_oracle_all_w0.25": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 57.35071539878845,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "contact_w0.25": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 40.509336709976196,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "hand_only_w1": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 34.293415784835815,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    },
+    "visibility_w1": {
+      "clips": 3,
+      "frames": 450,
+      "hand_fit_seconds": 33.895867347717285,
+      "excludes": "object-pose estimation, mesh download and SDF preparation"
+    }
+  },
+  "object_pose": {
+    "clip-000175": {
+      "seconds": 165.884996175766,
+      "selected": 150,
+      "accepted": 148,
+      "stride": 1,
+      "orientation_observable": false
+    },
+    "clip-000648": {
+      "seconds": 137.14046359062195,
+      "selected": 98,
+      "accepted": 7,
+      "stride": 1,
+      "orientation_observable": false
+    },
+    "clip-000838": {
+      "seconds": 65.75967192649841,
+      "selected": 5,
+      "accepted": 5,
+      "stride": 1,
+      "orientation_observable": false
+    },
+    "clip-001035": {
+      "seconds": 74.40355110168457,
+      "selected": 26,
+      "accepted": 11,
+      "stride": 1,
+      "orientation_observable": false
+    },
+    "clip-001119": {
+      "seconds": 6.732787847518921,
+      "selected": 1,
+      "accepted": 0,
+      "stride": 1,
+      "orientation_observable": false
+    },
+    "clip-001168": {
+      "seconds": 66.61002397537231,
+      "selected": 32,
+      "accepted": 13,
+      "stride": 1,
+      "orientation_observable": false
+    }
+  },
+  "peak_gpu_memory": "not instrumented for these runs"
+}

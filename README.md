@@ -18,6 +18,58 @@ come from committed experiment JSON, not published paper numbers.
 - [Executed methods and blockers](#execution-matrix-and-remaining-blockers)
 - [Full research report](reports/final_research_report.md)
 
+## Object-aware WiLoR experiment
+
+**No pipeline replacement:** the object-aware prototype did not materially improve
+absolute accuracy. We executed 450 development frames and 450 evaluation frames
+(three participant-separated clips in each split). This reuses the existing held-out
+cohort as a regression test; it is not a fresh confirmation set.
+
+| Pipeline | Absolute MPJPE (mm) | Joint coverage |
+|---|---:|---:|
+| Preserved WiLoR stereo | 22.892 | 58.12% |
+| Existing WiLoR MANO + 50 ms temporal | 24.267 | 67.33% |
+| Controlled MANO refit, hand only | 25.950 | 67.69% |
+| + object-mask visibility | 25.950 | 67.69% |
+| + estimated object pose and collision | 25.956 | 67.69% |
+| + gated contact | 25.950 | 67.69% |
+| Reference object pose, same acceptance | 25.946 | 67.69% |
+| Reference object pose + contact, all selected objects | 25.929 | 67.69% |
+
+The new refit is an ablation control, **not the historical MANO + temporal pipeline**.
+The estimated-object contact change versus that control is **+0.00093 mm**, with
+sequence-bootstrap 95% interval **[-0.042, +0.043] mm**. The all-selected contact
+oracle changes error by **-0.02062 mm**, interval **[-0.114, +0.013] mm**. Neither
+supports a meaningful improvement. Object variants retain the control's coverage.
+
+There is a small targeted benefit: on 88 reference-occluded fingertips, the control
+scores 20.583 mm, estimated-object contact 20.216 mm, and reference-pose collision
+19.435 mm. Adding contact to that oracle worsens it to 19.758 mm. The historical
+temporal pipeline already scores 19.754 mm on those same 88 fingertips. This is
+selected-object geometric occlusion in the left camera, not a complete occlusion label.
+
+Object localization remains weak: only 31/450 evaluation frames pass the pose gate,
+with 46.74 mm mean object-centroid error. Visible-mask fitting can put a cropped or
+occluded object at the wrong pose. Estimated contact is active in only 20 frames;
+the all-selected oracle activates it in 63. Object-pose uncertainty is not calibrated.
+
+The contact variant's joint-error correlation with its hand-only initialization is
+**Pearson 0.999962**; their failures are nearly unchanged. Across the 31 accepted object
+frames, object-centroid error versus hand-error change has Spearman **-0.106**.
+That small, temporally correlated sample provides no reliable relationship to exploit.
+Nonpenetration does not locate a hand that is wrong but remains outside the object,
+and conservative contact gating cannot recover distant depth outliers.
+
+This is **ContactOpt-inspired geometric contact**, not a run of ContactOpt's learned
+contact predictor. It uses supplied SAM2 visible-object masks and exact metric meshes;
+reference-rendered amodal masks are excluded. Reference hand labels are used only for
+scoring. Oracle object poses are explicit diagnostic inputs, not deployable predictions
+or a theoretical upper bound on what object-aware reconstruction could achieve.
+
+[Full results, paired intervals and failure analysis](reports/object_aware/report.md) ·
+[Runnable inference and reproduction](reports/object_aware/README.md) ·
+[Frozen development selection](reports/object_aware/frozen_selection.json).
+
 ## Recommendation
 
 Use **WiLoR observations in both calibrated views → confidence-gated stereo
