@@ -181,3 +181,23 @@ measured milestones. See the delivered comparison and remaining-work sections.
   Preserve native annotations and keep anatomical accuracy evaluation blocked;
   the supplied dataset card does not resolve joint ordering or transform units.
 - Final local regression run:21 tests passed.
+
+## Expanded comparison requested by user — held-out evaluation in progress
+
+- Executed WiLoR, HaMeR, both AnyHand fine-tuned checkpoints, EgoForce hand-only
+  and OmniHands two-view variants on the same450 HOT3D development frames.
+- WiLoR stereo:30.840mm observed MPJPE,51.72% coverage,58.276mm capped score;
+  earlier ACE hybrid25.971mm,50.42%,61.439mm. No held-out winner claimed yet.
+- Executed UA-Fit released ParaFit analytical solver core and equal-objective Adam
+  with predicted WiLoR observations: capped scores55.010 and54.359mm respectively.
+  This does not reproduce UA-Fit's unavailable learned uncertainty checkpoint.
+- Executed Dyn-HaMR's released HMP prior ablation:35.336mm observed error,
+  66.67% coverage,52.454mm capped score. Full Dyn-HaMR is not reproduced.
+- StableHand official cached-feature demo executed; its GT shape conditioning
+  prevents inclusion in the fair predicted-input leaderboard.
+- Development fusion grid completed. Best score54.908mm, observed86.397mm:
+  shared identity failures and added outliers make this unattractive versus Adam/HMP.
+- Error-overlap analysis implemented with regression tests. ACE/WiLoR common-error
+  Spearman0.0685; failure-set Jaccard0.6827; both missing45.79% of eligible slots.
+- Round-two configurations frozen in configs/experiments/expanded_frozen.json
+  before new held-out model executions. SHOW3D WiLoR/HaMeR validation running.

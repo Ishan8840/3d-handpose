@@ -1,0 +1,11 @@
+{
+  "selection_split": "development",
+  "heldout_frames": 450,
+  "heldout_manifest": "configs/datasets/hot3d.json",
+  "warning": "Existing held-out set was evaluated in round one; round-two settings selected only on development. Three participants give wide uncertainty.",
+  "main_candidates": ["ACE hybrid (unchanged)", "WiLoR stereo + MANO Adam", "WiLoR stereo + HMP temporal prior"],
+  "additional_comparisons": ["WiLoR", "HaMeR", "AnyHand WiLoR", "AnyHand HaMeR", "EgoForce hand-only", "OmniHands two-view", "UA-Fit analytical solver core"],
+  "mano_adam": {"iterations": 200, "lr": 0.005, "reprojection_precision": 0.25, "stereo_weight": 10000, "pose_weight": 0.1, "shape": "sequence median predicted WiLoR betas"},
+  "hmp": {"iterations": 100, "lr": 0.01, "latent_weight": 0.00001, "translation_smooth_weight": 0.01, "min_detected_frames": 20},
+  "fusion_decision": "Reject for final selection: best grid score54.908mm is worse than HMP52.454 and MANO Adam54.359; also observed MPJPE86.397mm/P90458.751mm. No held-out tuning."
+}

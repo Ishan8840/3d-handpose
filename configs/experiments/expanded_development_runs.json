@@ -1,0 +1,18 @@
+{
+  "ACE hybrid": "outputs/ace-hybrid-dev",
+  "MediaPipe rotations": "outputs/b0-rotated-expanded-dev",
+  "UmeTrack two-view": "outputs/ume-upright-expanded-dev",
+  "POEM two-view": "outputs/poem-expanded-dev",
+  "WiLoR stereo": "outputs/wilor-dev/stereo",
+  "WiLoR mono": "outputs/wilor-dev/mono",
+  "AnyHand WiLoR stereo": "outputs/anyhand-wilor-dev/stereo",
+  "AnyHand WiLoR mono": "outputs/anyhand-wilor-dev/mono",
+  "HaMeR stereo": "outputs/hamer-dev/stereo",
+  "HaMeR mono": "outputs/hamer-dev/mono",
+  "AnyHand HaMeR stereo": "outputs/anyhand-hamer-dev/stereo",
+  "AnyHand HaMeR mono": "outputs/anyhand-hamer-dev/mono",
+  "EgoForce hand-only stereo": "outputs/egoforce-dev/stereo",
+  "EgoForce hand-only mono": "outputs/egoforce-dev/mono",
+  "OmniHands two-view stereo": "outputs/omni-dev/stereo",
+  "OmniHands two-view lift": "outputs/omni-dev/mono"
+}
