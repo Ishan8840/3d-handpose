@@ -1,128 +1,219 @@
-# Stereo hand-pose research report — interim, incomplete
+# Stereo hand-pose research report
 
-This report contains actual executed measurements. It is not a final model
-selection or a claim that the aspirational accuracy targets were achieved.
-Held-out selection, wider ablations, and independent reproduction remain pending.
+## Outcome and scope
 
-## Protocol and interpretation
+A working stereo inference project and a frozen three-pipeline HOT3D comparison
+were executed on the supplied A100 (40 GB) VM. This is a bounded research round,
+not proof of the most accurate possible pipeline. Several requested extensions
+remain incomplete, as listed below. No published metric is used as an experimental
+result, and no hidden challenge test annotations were accessed.
 
-Coordinates are metric original-left-camera optical (+x right, +y down, +z forward).
-Absolute MPJPE uses no alignment. PA scores are stored separately and never used
-as absolute position accuracy. Coverage below is joint coverage over annotated
-eligible joints; unavailable observations are NaN and incur 100 mm in the capped
-score. Observed errors and coverage must be read together. Rows from different
-clips, annotation conventions, or splits are not directly comparable.
+The lowest common-19 coverage-aware held-out score belongs to **ACE hybrid**.
+Among pipelines that output all 21 anatomical joint slots including wrist, the
+lowest MANO-21 coverage-aware score belongs to **ACE hybrid**. Differences
+must be read with the paired uncertainty intervals and coverage, not just observed
+MPJPE. MANO-reference evaluation is distinct from native UmeTrack annotation.
 
-HOT3D and SHOW3D native UmeTrack scores compare 19 common joints, excluding wrist
-and thumb CMC. A dash for wrist is missing reference information, not zero error.
-Separate MANO-derived 21-joint evaluations are labeled explicitly in their files.
-Public training data is partitioned locally by participant; these are not official
-challenge test results. ACE's reported training includes HOT3D, so benchmark
-contamination cannot be ruled out. Other pretrained data overlap remains under audit.
+## Frozen held-out results
 
-The expanded manifest uses three development and three held-out participants per
-dataset, plus a separate smoke participant. Current sampled clips overrepresent
-pick-up interactions and do not establish performance on every requested activity.
+All three methods use the same 450 frames from three participants: P0010, P0017,
+P0021. Parameters were committed in `3ee7b9d` before held-out execution. The
+primary score is mean min(error,100 mm), with missing annotated joints assigned
+100 mm. Absolute errors use no root, scale, rigid, or Procrustes alignment.
 
-## Completed measurements
+### Native common-19 landmarks
 
-Runtime excludes decoding/model loading unless the associated artifact says
-otherwise. Runs have not yet been standardized for GPU concurrency, so timing
-is diagnostic, not a fair speed leaderboard. A1 means monocular; A2 means
-stereo without epipolar/reprojection gates; A3 retains geometric gates.
+| Model | Abs MPJPE mm | Wrist mm | Tips mm | Joint coverage % | P90 mm | Capped score mm |
+|---|---:|---:|---:|---:|---:|---:|
+| ACE hybrid | 28.28 | — | 25.97 | 57.65 | 53.10 | 58.28 |
+| MediaPipe rotations | 47.80 | — | 38.04 | 23.26 | 88.80 | 84.52 |
+| UmeTrack two-view | 34.65 | — | 41.11 | 22.22 | 67.20 | 84.86 |
 
-| Experiment / sequence | Abs MPJPE mm | Wrist mm | Tips mm | Coverage % | P90 mm | Capped score mm | s/frame |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| ace-upright-development/clip-000175/A1_monocular | 137.77 | — | 139.27 | 100.00 | 158.62 | 100.00 | — |
-| ace-upright-development/clip-000175/A3_stereo_epipolar | 21.31 | — | 28.58 | 93.40 | 38.85 | 26.50 | — |
-| ace-upright-development/clip-000175/A2_stereo_ungated | 22.42 | — | 31.03 | 100.00 | 41.14 | 22.42 | — |
-| ace-upright-development/clip-000838/A1_monocular | 114.94 | — | 116.25 | 68.00 | 134.03 | 97.78 | — |
-| ace-upright-development/clip-000838/A3_stereo_epipolar | 36.87 | — | 41.21 | 57.09 | 50.09 | 60.23 | — |
-| ace-upright-development/clip-000838/A2_stereo_ungated | 259.99 | — | 164.28 | 68.00 | 513.21 | 58.55 | — |
-| ace-upright-smoke/A1_monocular | 105.05 | — | 106.13 | 100.00 | 127.51 | 95.17 | — |
-| ace-upright-smoke/A3_stereo_epipolar | 28.02 | — | 37.14 | 99.65 | 56.85 | 28.11 | — |
-| ace-upright-smoke/A2_stereo_ungated | 28.20 | — | 37.71 | 100.00 | 58.08 | 28.04 | — |
-| b0-dev/clip-000175 | 27.10 | — | 37.94 | 75.96 | 51.03 | 42.45 | 0.11 |
-| b0-rotated-dev/clip-000175 | 26.60 | — | 37.94 | 94.11 | 48.98 | 28.61 | 0.58 |
-| b0-rotated-expanded-dev/clip-000175 | 26.60 | — | 37.94 | 94.11 | 48.98 | 28.61 | 0.54 |
-| b0-rotated-expanded-dev/clip-000838 | 29.17 | — | 30.89 | 45.82 | 34.47 | 62.84 | 0.50 |
-| b0-rotated-expanded-dev/clip-001119 | 629.65 | — | 597.25 | 25.47 | 716.49 | 100.00 | 0.43 |
-| b0-smoke/clip-000000 | 21.87 | — | 31.11 | 28.07 | 41.84 | 78.07 | 0.13 |
-| b0-upright-expanded-dev/clip-000175 | 25.38 | — | 33.66 | 77.37 | 48.87 | 41.23 | 0.12 |
-| b0-upright-expanded-dev/clip-000838 | 18.52 | — | 19.98 | 44.25 | 35.69 | 63.94 | 0.11 |
-| b0-upright-expanded-dev/clip-001119 | 637.91 | — | 585.35 | 9.44 | 736.99 | 100.00 | 0.09 |
-| b1-mpcrop-dev/clip-000175 | 15.00 | — | 15.05 | 49.65 | 28.96 | 57.78 | 0.60 |
-| b1-smoke/clip-000000 | — | — | — | 0.00 | — | 100.00 | 0.69 |
-| b2-dev/clip-000175 | 27.53 | — | 39.76 | 76.25 | 51.99 | 42.14 | 1.10 |
-| poem-smoke | 24.57 | — | 30.49 | 30.00 | 49.52 | 77.37 | 0.07 |
-| show3d-b0-rotated-dev/aria_pick-up-put-down_3b63 | 20.60 | — | 26.95 | 38.09 | 41.89 | 69.74 | 0.76 |
-| show3d-b0-smoke/aria_pick-up-put-down_2170 | — | — | — | 0.00 | — | 100.00 | 0.07 |
-| ume-upright-expanded-dev/clip-000175 | 23.68 | — | 28.49 | 88.67 | 40.71 | 32.33 | 0.14 |
-| ume-upright-expanded-dev/clip-000838 | 19.54 | — | 22.08 | 45.33 | 35.55 | 63.52 | 0.12 |
-| ume-upright-expanded-dev/clip-001119 | 702.74 | — | 698.90 | 14.00 | 894.56 | 100.00 | 0.11 |
-| umetrack-dev/clip-000175 | 22.45 | — | 26.87 | 85.33 | 36.26 | 33.82 | 0.13 |
-| umetrack-smoke/clip-000000 | 24.98 | — | 29.48 | 30.00 | 44.29 | 77.50 | 0.20 |
+### Separate MANO-21 anatomical reference
 
-## Findings and failures
+| Model | Abs MPJPE mm | Wrist mm | Tips mm | Joint coverage % | P90 mm | Capped score mm |
+|---|---:|---:|---:|---:|---:|---:|
+| ACE hybrid | 27.18 | 30.90 | 25.82 | 58.01 | 52.09 | 57.41 |
+| MediaPipe rotations | 46.26 | 36.61 | 38.38 | 23.20 | 86.62 | 84.42 |
+| UmeTrack two-view | 34.83 | — | 40.98 | 20.11 | 67.40 | 86.34 |
 
-- MediaPipe can miss hands and confuse hand side, especially during partial visibility.
-  An inspected expanded-development failure selects the visible left hand while
-  the annotated right hand is largely outside the image, producing >600 mm errors.
-  Such frames remain in scores. Four-orientation search improves first-clip
-  coverage but does not solve identity errors on diverse sequences.
-- RTMDet missed all eligible smoke hands in the independent detector baseline.
-  Predicted MediaPipe crops enable RTMPose to run; this is a distinct assisted
-  detector ablation and still loses considerable coverage.
-- ACE requires correct native-image orientation. Upright smoke stereo gives
-  28.019 mm at 99.65% coverage, while monocular absolute error is 105.048 mm
-  despite PA error 7.775 mm. A visually plausible aligned hand is insufficient.
-- POEM large executes on two views using predicted crops and its released weights.
-  Its smoke coverage is constrained by the crop source. The implementation follows
-  official preprocessing, but an independent official-demo reproduction remains pending.
-- UmeTrack executed on two calibrated views with predicted initial crops. The
-  unknown-user-scale head is used; memory resets because the moving camera frame
-  is not a stationary world frame. This is a two-view adaptation, not the official
-  four-view benchmark. Its wrist convention is not anatomical MANO wrist.
-- MANO fitting on the first RTMPose development clip increases coverage but worsens
-  observed error (15.000 to 22.360 mm). It is not selected as an improvement.
-- FoundationStereo surface-depth samples alone worsen joint accuracy. Conservative
-  fusion on the first development clip changes 27.103 to 26.634 mm at unchanged
-  coverage. This small single-sequence gain does not establish generalization.
-- The initial dense experiment used a vertical baseline and is invalid for the
-  horizontal disparity network. The corrected experiment rotates camera axes,
-  rectifies horizontally, and transforms 3D points back to the original left frame.
-- Short local-linear temporal refinement helps one RTMPose development clip;
-  broader paired evaluation is pending. Camera-frame acceleration includes camera
-  motion and is not a pure world-space articulation smoothness metric.
+![Held-out coverage-aware error and coverage](figures/held_out_comparison.png)
 
-## Dataset additions and blockers
+UmeTrack cannot provide an interchangeable anatomical wrist or thumb CMC; those
+slots remain missing and are penalized in MANO-21 coverage-aware evaluation.
+Eligible annotations can lie outside either image; these difficult frames are
+retained. Visibility-stratified results, where available, are separate diagnostics.
+No model is allowed to improve its observed error by silently deleting evaluated
+frames. Joint coverage is not the same as full-frame tracking coverage; both are
+available in the comparison JSON files.
 
-SHOW3D public hand-v3 annotations and stereo camera calibration are decoded;
-GT projection was checked against the published 2D landmarks. Held-out official
-test annotations are not used. HOT3D/SHOW3D camera views used here are monochrome.
+### Paired uncertainty
 
-LightwheelAI/EgoStandard access was verified by downloading a 547-frame MCAP.
-It includes stereo RGB1920x1456 at30Hz, intrinsics/extrinsics, pose streams,
-bad-frame annotations, and operator identifiers. Embedded schemas do not name
-hand joints. The linked detailed EgoDemo documentation denied access. Native
-poses and timestamps are preserved; no anatomical accuracy score is claimed.
-The inference integration test explicitly records its assumed translation scale.
-Bucket files are mutable, so downloaded bytes are identified by SHA-256.
+- ACE hybrid minus MediaPipe rotations: -26.23 mm; paired sequence-bootstrap 95% CI [-40.04, -16.49].
+- ACE hybrid minus UmeTrack two-view: -26.58 mm; paired sequence-bootstrap 95% CI [-35.23, -14.58].
+- MediaPipe rotations minus UmeTrack two-view: -0.34 mm; paired sequence-bootstrap 95% CI [-7.76, 4.82].
 
-UA-Fit's inspected checkpoint directory says the checkpoint is coming soon.
-The analytical solver has not been reproduced; no UA-Fit result is claimed.
-Additional candidate methods and learned temporal priors have not been benchmarked.
-No new model has been trained and no paid infrastructure was provisioned.
+Negative differences favor the first model. Intervals resample sequences, not
+individual correlated joints. Only three independent clusters are available, so
+these intervals are coarse and cannot support broad state-of-the-art claims.
+An interval containing zero indicates statistical indistinguishability under
+this procedure. Pretrained contamination remains a separate limitation.
 
-## Software and remaining work
+## Development selection and ablations
 
-The package provides tested projection, distortion, coordinate changes, weighted
-triangulation, metrics, stereo video inference, explicit missing outputs, and
-separate model environments. Source commits are in configs/sources.lock.json;
-full environment/checkpoint locking is still being consolidated.
+Development participants P0003, P0013 and P0018 are disjoint from held-out and
+smoke participant P0002. No hyperparameter was tuned using held-out errors.
 
-There is no frozen final architecture yet. Complete the expanded development
-comparisons, verify output joint conventions, tune hybrid/temporal objectives only
-on development data, freeze three configurations, then run held-out comparisons
-with sequence-bootstrap paired uncertainty. Annotation source error and pretrained
-contamination limit any final claim, even after these experiments finish.
+| Model | Abs MPJPE mm | Wrist mm | Tips mm | Joint coverage % | P90 mm | Capped score mm |
+|---|---:|---:|---:|---:|---:|---:|
+| ACE hybrid | 25.97 | — | 31.17 | 50.42 | 41.53 | 61.44 |
+| MediaPipe rotations | 120.18 | — | 103.00 | 55.13 | 610.73 | 63.82 |
+| UmeTrack two-view | 86.65 | — | 89.94 | 49.33 | 70.75 | 65.29 |
+| POEM two-view | 163.70 | — | 160.62 | 60.89 | 654.12 | 68.58 |
+
+MediaPipe, independent RTMDet/RTMPose, confidence fusion, predicted-MediaPipe-crop
+RTMPose, ACE monocular/stereo, POEM large two-view and UmeTrack predicted-crop
+inference were executed. Some simpler baseline comparisons cover fewer development
+sequences; consult the experiment log and individual artifacts for exact scopes.
+They are not silently pooled into the frozen450-frame comparison.
+
+On the two development sequences with ACE observations, robust stereo plus a
+sequence-consistent bone-length term and 0.1 s local-linear temporal refinement
+changed 21.307→20.169mm and 36.869→35.411mm. The third sequence remained missing.
+The strongest tested independent multiview prior was UmeTrack under the available
+predicted-crop protocol; adding its gated prior did not beat the stronger anatomy
+setting. No pose alignment was applied to make priors agree.
+
+MANO fitting of RTMPose observations increased coverage but worsened observed
+error 15.000→22.360mm on the first development sequence. FoundationStereo large
+with correct horizontal rectification changed 27.103→26.634mm under conservative
+surface-depth fusion at unchanged coverage; depth-only samples were worse at
+34.298mm. Neither component was included in the frozen pipelines. These are
+single-sequence ablations, not conclusive universal comparisons.
+
+## Architecture and failure analysis
+
+The ACE hybrid runs released calibrated monocular inference on each view,
+converts normalized landmarks to original pixels, and performs confidence-weighted
+metric triangulation with epipolar, ray-angle, reprojection and cheirality checks.
+Robust optimization balances reprojection, stereo position, and per-sequence
+median bone lengths. Offline local-linear smoothing uses a 0.1 s window and fills
+only bracketed gaps of at most0.1 s. No ground-truth crops, masks, poses, or shapes
+enter this pipeline. The default lightweight CLI remains MediaPipe; ACE is
+explicitly selected with `--model ace`.
+
+Native HOT3D Quest images require a clockwise rotation for ACE. Camera and pixel
+transforms are inverted before output, retaining original-left-camera metric
+coordinates (+x right,+y down,+z forward). A regression against the benchmark
+adapter agreed to within0.000602 mm with identical validity masks.
+
+Wrong-hand identity can dominate error: an inspected development overlay shows
+MediaPipe selecting the visible left hand while the right hand is mostly outside
+the image. UmeTrack and POEM cannot reliably repair the incorrect initialization.
+Unfiltered ACE triangulation increases coverage but produces large depth outliers
+under partial visibility; geometric filtering trades coverage for reliability.
+Small stereo disparity makes depth sensitive to landmark errors. Model surfaces
+and anatomical joint centers also differ, explaining why raw dense surface depth
+is not automatically a better joint constraint. Learned priors can look plausible
+while misplacing the entire hand; ACE's105.048mm monocular smoke error alongside
+7.775mm PA error demonstrates this distinction.
+
+![Inspected held-out failure: image-boundary hand](figures/failures/clip-000648_largest_observed_error_6.jpg)
+
+The example above has 89.71 mm observed common-19 error. Ground truth is red and
+prediction green. The hand is near the image boundary with incomplete evidence.
+Further worst-error, fast-motion and low-visibility overlays are in figures/failures.
+
+## Data, checkpoints and reproducibility
+
+HOT3D public training clips are obtained from the official BOP distribution.
+Official FISHEYE624 projection and UmeTrack skinning are used. SHOW3D public hand-v3
+scenes were downloaded at revision 070d5586edf369dfa17a374b4e9f80d5611577d5;
+provided 2D annotations were checked against projected 3D points. Its baseline
+results are separate from HOT3D; a full three-model SHOW3D comparison remains undone.
+Both of these evaluated stereo streams are monochrome.
+
+EgoStandard's authorized bucket sample contains 547 synchronized RGB stereo frames
+at 1920×1456,30 Hz. Video, intrinsics/extrinsics, timestamps, native hand transforms,
+bad-frame labels and operator IDs were decoded. MediaPipe inference produced all
+547 output rows;20.632% of joint slots had valid stereo estimates. This is not a
+GT coverage or accuracy measurement. The pose joint mapping is undocumented in
+the embedded schemas, linked technical documentation denied access, and the
+translation scale is explicitly marked unverified. No anatomical accuracy score
+is claimed for EgoStandard. Source bytes are hashed because the bucket is mutable.
+
+The supplied MANO archive is stored outside Git. Source revisions are recorded in
+`configs/sources.lock.json`; executed package snapshots and checkpoint hashes are
+in `configs/environments` and `configs/checkpoints.lock.json`. ACE's released
+checkpoint and backbone revisions are fixed in its downloader. Some environments
+use Python 3.12/PyTorch 2.11 rather than original upstream versions; executed
+compatibility fixes are retained. FoundationStereo's torch-hub DINO dependency
+was fetched from a moving reference, so that pilot still has a reproducibility
+gap. Research-model environment setup is partly manual; the clean baseline
+installation and weight-free tests are supported.
+
+ACE lists HOT3D in its training data. This local participant split does not rule
+out pretrained benchmark contamination. Other pretrained dataset overlaps have
+not been exhaustively audited. Annotation/model joint-definition differences and
+potential GT error limit millimeter-level claims.
+
+## Runtime, official reproduction and limitations
+
+Runtime measurements are in each run's metadata or `runtime.json`. ACE totals
+include model loading for both views; detector timings generally exclude decoding
+and initialization. Jobs overlapped during research, so these are not a controlled
+speed comparison and are not placed in a misleading single leaderboard column.
+A standardized isolated runtime and peak-memory comparison remains incomplete.
+
+A fresh 30-frame ACE hybrid run completed in 175.9 seconds, including both model loads, refinement and output encoding. The sampled device-wide GPU-memory peak was 14,606 MiB. This is a cold-start integration profile, not steady-state throughput or an exact allocator peak.
+
+UmeTrack's official known-skeleton example was also executed on 30 frames. It has
+four available cameras and selects two crops, using GT crop guidance and the GT
+subject skeleton. Its native-unit error 9.662 is a reproduction diagnostic only,
+excluded from our two-camera predicted-crop leaderboard.
+
+UA-Fit's inspected checkpoint instructions say its uncertainty checkpoint is
+forthcoming; its analytical solver was not reproduced. POEM's adapted inference
+executed, but an independent official-demo reproduction remains incomplete.
+Additional candidates and learned temporal priors are documented in
+[additional_candidates.md](additional_candidates.md); none has a claimed score.
+No new model was trained or paid infrastructure provisioned.
+
+The remaining work includes authoritative EgoStandard conventions, broader
+manipulation activities and participants, exhaustive pretrained-overlap checks,
+more independent temporal/occlusion evaluation, robust hand identity, released
+UA-Fit weights, further candidates, fully automated heavy-model installs, and
+controlled runtime/VRAM measurements. The aspirational accuracy and coverage
+targets must be assessed from the table above; they are not assumed achieved.
+
+## Inference and artifacts
+
+```bash
+python scripts/run_inference.py --model ace \
+  --left data/example/left.mp4 --right data/example/right.mp4 \
+  --calibration data/example/calibration.json \
+  --timestamps data/example/timestamps.npz --rotate-cw \
+  --anatomy-weight 1 --temporal-seconds 0.1 --output outputs/example-ace
+```
+
+Use `--rotate-cw` only for the corresponding native orientation. Nonzero-distortion
+input must be undistorted first for ACE. Ground truth is not needed. Required
+NPY/NPZ, timestamps, confidence, validity, wrist-pose, metadata and overlay-video
+outputs are generated. Unavailable wrist orientation is NaN, never fabricated.
+Provenance distinguishes stereo observations, multiview model inference, anatomical
+fitting, and temporal reconstruction; original observation masks are preserved.
+
+![Visibility-stratified error and coverage](figures/held-out/visibility.png)
+
+![Error–coverage curves](figures/held-out/error_coverage.png)
+
+Modeled hand visibility is an annotation-derived proxy, not a dedicated per-joint
+occlusion label. Blank bars mean no observed eligible joints, not zero error.
+
+Measured JSON comparisons and per-sequence metrics accompany this report.
+[experiment_metrics.json](experiment_metrics.json) preserves the completed pilot
+measurements and marks invalid configurations explicitly. Dataset split manifests
+and hashes are tracked in configs/datasets. Pilot
+plots and worst-frame indices are under `reports/figures`; the full experimental
+record is in PROGRESS.md and the ignored outputs directory. Large assets remain
+outside Git.

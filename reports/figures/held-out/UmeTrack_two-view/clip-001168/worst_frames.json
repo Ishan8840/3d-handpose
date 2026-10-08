@@ -1,0 +1,52 @@
+[
+  {
+    "frame_index": 149,
+    "observed_mpjpe_mm": 78.05530120476885,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 146,
+    "observed_mpjpe_mm": 37.22065479739144,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 147,
+    "observed_mpjpe_mm": 32.49978971828709,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 136,
+    "observed_mpjpe_mm": 30.529476341737055,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 143,
+    "observed_mpjpe_mm": 27.703483210136454,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 141,
+    "observed_mpjpe_mm": 26.490302210785984,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 142,
+    "observed_mpjpe_mm": 24.64343403817345,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 148,
+    "observed_mpjpe_mm": 23.014829646632432,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 144,
+    "observed_mpjpe_mm": 22.95802826010492,
+    "observed_joints": 19
+  },
+  {
+    "frame_index": 145,
+    "observed_mpjpe_mm": 22.6962712112561,
+    "observed_joints": 19
+  }
+]

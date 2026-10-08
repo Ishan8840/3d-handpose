@@ -1,0 +1,65 @@
+[
+  {
+    "split": "smoke",
+    "participant": "P0002",
+    "sequence": "P0002_210fc0da",
+    "path": "data/hot3d/clip-000000.tar",
+    "sha256": "e78a506d43cf9b3a8fc0bc2b2b95d5222e2959c65d4ae8c2787efdca3a14ee50",
+    "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/main/train_quest3/clip-000000.tar",
+    "max_frames": 30
+  },
+  {
+    "split": "development",
+    "participant": "P0003",
+    "sequence": "P0003_01a10066",
+    "path": "data/hot3d/clip-000175.tar",
+    "sha256": "276c7924f8b871625da83d91e0af08346db178b5c10667c7c707f69f9906545b",
+    "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/main/train_quest3/clip-000175.tar",
+    "max_frames": 150
+  },
+  {
+    "split": "held_out",
+    "participant": "P0010",
+    "sequence": "P0010_086ff32a",
+    "path": "data/hot3d/clip-000648.tar",
+    "sha256": "843ebf812cdcc7a2a3b1021c57232487d835da22960b72c584479731adb28508",
+    "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/main/train_quest3/clip-000648.tar",
+    "max_frames": 150
+  },
+  {
+    "split": "development",
+    "participant": "P0013",
+    "sequence": "P0013_0ec32d10",
+    "path": "data/hot3d/clip-000838.tar",
+    "sha256": "9a1e5c2b1c7c940dda381b4418b03782b843c74986c735032e3cff7cc2808c70",
+    "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/main/train_quest3/clip-000838.tar",
+    "max_frames": 150
+  },
+  {
+    "split": "held_out",
+    "participant": "P0017",
+    "sequence": "P0017_1a07e9e7",
+    "path": "data/hot3d/clip-001035.tar",
+    "sha256": "e0d50755c54f75f236504b106fc76472f75bdcadbf62f104483ad0b646f32e73",
+    "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/main/train_quest3/clip-001035.tar",
+    "max_frames": 150
+  },
+  {
+    "split": "development",
+    "participant": "P0018",
+    "sequence": "P0018_15ad9743",
+    "path": "data/hot3d/clip-001119.tar",
+    "sha256": "7a77fbf316c39f6f5d41aedd518b212829a09af828cda51efbd130a2a4b333ae",
+    "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/main/train_quest3/clip-001119.tar",
+    "max_frames": 150
+  },
+  {
+    "split": "held_out",
+    "participant": "P0021",
+    "sequence": "P0021_03d537b2",
+    "path": "data/hot3d/clip-001168.tar",
+    "sha256": "0fdc84c107e8a6f99d48457519ec3426932540100af78efb0df4f4532ceccbf8",
+    "source_url": "https://huggingface.co/datasets/bop-benchmark/hot3d/resolve/main/train_quest3/clip-001168.tar",
+    "max_frames": 150
+  }
+]

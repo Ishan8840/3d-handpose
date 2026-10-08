@@ -8,8 +8,8 @@ on an arbitrary machine has not been validated.
 
 ## Source checkouts
 
-Clone the upstream repositories into the names used by sources.lock.json and
-checkout their recorded commits. Do not substitute the latest branch. ACE expects
+Run `python scripts/fetch_sources.py hot3d hand_tracking_toolkit rtmlib ace videox poem manotorch pytorch3d umetrack foundationstereo` to clone the recorded revisions.
+Existing checkouts must already match their locks. Do not substitute the latest branch. ACE expects
 VideoX-Fun at `third_party/ace/third_party`; in the executed layout this is a symlink
 to `../videox`. The MANO archive supplied by the user is not part of Git.
 

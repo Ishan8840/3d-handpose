@@ -1,0 +1,44 @@
+{
+  "ACE hybrid": {
+    "visibility_low": {
+      "error_mm": 27.370959094264716,
+      "coverage": 0.24101921470342522
+    },
+    "visibility_partial": {
+      "error_mm": 40.45444021469824,
+      "coverage": 0.3293233082706767
+    },
+    "visibility_high": {
+      "error_mm": 27.04930187199977,
+      "coverage": 0.869198312236287
+    }
+  },
+  "MediaPipe rotations": {
+    "visibility_low": {
+      "error_mm": 12.870860908140951,
+      "coverage": 0.005430242272347535
+    },
+    "visibility_partial": {
+      "error_mm": 74.50068988518072,
+      "coverage": 0.21729323308270676
+    },
+    "visibility_high": {
+      "error_mm": 43.491983626711324,
+      "coverage": 0.3746391294692427
+    }
+  },
+  "UmeTrack two-view": {
+    "visibility_low": {
+      "error_mm": null,
+      "coverage": 0.0
+    },
+    "visibility_partial": {
+      "error_mm": 78.41030507499738,
+      "coverage": 0.1
+    },
+    "visibility_high": {
+      "error_mm": 31.36021863306829,
+      "coverage": 0.3924050632911392
+    }
+  }
+}

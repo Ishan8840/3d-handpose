@@ -1,6 +1,6 @@
 # Progress
 
-## Current phase: 1–2, first real-data baseline
+## Current phase: Phase 7–8 research round delivered; remaining scope below
 
 - Phase 0: Python 3.12 isolated environment installed; package imports; 8 tests pass.
 - Hardware: supplied VM is an A100-SXM4 40 GB container, ~50 GB available disk;
@@ -121,3 +121,42 @@
   73MB example video before running. Missing PyAV dependency installed av16.0.1.
 - Additional model release audit saved; these are unexecuted candidates, not
   fabricated scores or claimed hard blockers.
+
+
+## Delivered frozen comparison and inference validation
+
+- All three frozen pipelines completed 450 identical held-out HOT3D frames from
+  three disjoint participants. Common-19 measured results:
+  ACE hybrid: 28.278 mm absolute / 57.65% joint coverage / capped 58.281 mm.
+  MediaPipe rotations: 47.797 mm absolute / 23.26% joint coverage / capped 84.515 mm.
+  UmeTrack two-view: 34.654 mm absolute / 22.22% joint coverage / capped 84.859 mm.
+- Separate MANO21 reference: ACE27.176mm absolute, wrist30.895mm,
+  tips25.821mm, coverage58.01%, P9052.090mm, capped57.414mm.
+  ACE has the best frozen score. Paired held-out cluster intervals exclude zero
+  versus both comparators; only three clusters and possible HOT3D pretraining
+  contamination limit generalization. Aspirational targets were not achieved.
+- Complete fresh ACE hybrid inference from 30 video frames succeeded after fixing
+  a venv-Python symlink resolution bug. Both model passes, optimization, smoothing,
+  and all8 required output artifacts verified. Runtime175.917s including loading;
+  sampled device-wide GPU peak14,606MiB. No GT used in inference.
+- Local CPU MediaPipe CLI processed the actual 30-frame sample and preserved NaNs
+  for missing joints. Package imports and21 weight-free tests pass, including
+  real-video I/O, environment isolation and participant-split regression tests.
+- 13 checkpoint hashes verified with zero mismatches. Dataset manifests/revisions
+  are tracked under configs/datasets; executed snapshots under configs/environments.
+- Final report, measured JSON comparisons, per-joint/depth/distribution/3D/trajectory
+  plots, error–coverage curves, visibility diagnostics and9 failure overlays saved.
+- SHOW3D three development scenes were evaluated with rotated MediaPipe; later
+  scenes have very low/zero coverage. EgoStandard547-frame stereo inference
+  integration completed; GT joint convention and unit documentation remain absent.
+
+### Explicit remaining work (not claimed complete)
+
+- Authoritative EgoStandard joint/coordinate conventions and quantitative evaluation.
+- Full three-model SHOW3D comparison; more participants and manipulation activities.
+- UA-Fit analytical solver/checkpoint; independent POEM official-demo reproduction.
+- Additional candidate models and learned temporal priors (see release audit).
+- Fully automated clean heavy-model installs; pin FoundationStereo's transient
+  torch-hub dependency if revisiting that excluded pilot.
+- Controlled comparative steady-state runtime/peak-memory measurements.
+- Exhaustive pretrained benchmark-contamination and annotation-uncertainty audits.

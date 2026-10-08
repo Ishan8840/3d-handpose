@@ -101,3 +101,8 @@ def test_rotation_and_nonparallel_cameras():
     T=np.eye(4);T[:3,:3]=Rotation.from_euler('y',7,degrees=True).as_matrix();T[:3,3]=-T[:3,:3]@np.array([.08,.01,0])
     l,r=Camera(K),Camera(K,T);x=points();p,v=triangulate(l,r,l.project(x),r.project(x))
     assert v.all();np.testing.assert_allclose(p,x,atol=1e-10)
+
+def test_reject_nan_camera_translation():
+    T=np.eye(4);T[0,3]=np.nan
+    with pytest.raises(ValueError,match='finite'):
+        Camera(np.eye(3),T)

@@ -1,0 +1,116 @@
+{
+  "ACE hybrid": [
+    {
+      "threshold": 0,
+      "absolute_mpjpe_mm": 28.278161034375266,
+      "joint_coverage": 0.5764912280701754,
+      "capped_error_with_missing_penalty_mm": 58.28088141293653
+    },
+    {
+      "threshold": 0.25,
+      "absolute_mpjpe_mm": 28.257158196982672,
+      "joint_coverage": 0.5676023391812866,
+      "capped_error_with_missing_penalty_mm": 58.90918111527227
+    },
+    {
+      "threshold": 0.5,
+      "absolute_mpjpe_mm": 28.257158196982672,
+      "joint_coverage": 0.5676023391812866,
+      "capped_error_with_missing_penalty_mm": 58.90918111527227
+    },
+    {
+      "threshold": 0.75,
+      "absolute_mpjpe_mm": 28.196728211398863,
+      "joint_coverage": 0.5653801169590643,
+      "capped_error_with_missing_penalty_mm": 59.034443740295096
+    },
+    {
+      "threshold": 0.9,
+      "absolute_mpjpe_mm": 28.120008127275256,
+      "joint_coverage": 0.5631578947368421,
+      "capped_error_with_missing_penalty_mm": 59.15080104543291
+    },
+    {
+      "threshold": 0.95,
+      "absolute_mpjpe_mm": 28.120008127275256,
+      "joint_coverage": 0.5631578947368421,
+      "capped_error_with_missing_penalty_mm": 59.15080104543291
+    }
+  ],
+  "MediaPipe rotations": [
+    {
+      "threshold": 0,
+      "absolute_mpjpe_mm": 47.797384085915056,
+      "joint_coverage": 0.2326315789473684,
+      "capped_error_with_missing_penalty_mm": 84.51536725090456
+    },
+    {
+      "threshold": 0.25,
+      "absolute_mpjpe_mm": 47.797384085915056,
+      "joint_coverage": 0.2326315789473684,
+      "capped_error_with_missing_penalty_mm": 84.51536725090456
+    },
+    {
+      "threshold": 0.5,
+      "absolute_mpjpe_mm": 47.797384085915056,
+      "joint_coverage": 0.2326315789473684,
+      "capped_error_with_missing_penalty_mm": 84.51536725090456
+    },
+    {
+      "threshold": 0.75,
+      "absolute_mpjpe_mm": 39.57813222180113,
+      "joint_coverage": 0.19555555555555557,
+      "capped_error_with_missing_penalty_mm": 87.12006292234398
+    },
+    {
+      "threshold": 0.9,
+      "absolute_mpjpe_mm": 37.53970117754143,
+      "joint_coverage": 0.11508771929824561,
+      "capped_error_with_missing_penalty_mm": 92.18526150183777
+    },
+    {
+      "threshold": 0.95,
+      "absolute_mpjpe_mm": 28.603213308155247,
+      "joint_coverage": 0.05672514619883041,
+      "capped_error_with_missing_penalty_mm": 95.80186157526246
+    }
+  ],
+  "UmeTrack two-view": [
+    {
+      "threshold": 0,
+      "absolute_mpjpe_mm": 34.65372468400332,
+      "joint_coverage": 0.2222222222222222,
+      "capped_error_with_missing_penalty_mm": 84.85919677936604
+    },
+    {
+      "threshold": 0.25,
+      "absolute_mpjpe_mm": 34.65372468400332,
+      "joint_coverage": 0.2222222222222222,
+      "capped_error_with_missing_penalty_mm": 84.85919677936604
+    },
+    {
+      "threshold": 0.5,
+      "absolute_mpjpe_mm": 34.65372468400332,
+      "joint_coverage": 0.2222222222222222,
+      "capped_error_with_missing_penalty_mm": 84.85919677936604
+    },
+    {
+      "threshold": 0.75,
+      "absolute_mpjpe_mm": 34.65372468400332,
+      "joint_coverage": 0.2222222222222222,
+      "capped_error_with_missing_penalty_mm": 84.85919677936604
+    },
+    {
+      "threshold": 0.9,
+      "absolute_mpjpe_mm": 34.65372468400332,
+      "joint_coverage": 0.2222222222222222,
+      "capped_error_with_missing_penalty_mm": 84.85919677936604
+    },
+    {
+      "threshold": 0.95,
+      "absolute_mpjpe_mm": 34.65372468400332,
+      "joint_coverage": 0.2222222222222222,
+      "capped_error_with_missing_penalty_mm": 84.85919677936604
+    }
+  ]
+}

@@ -1,6 +1,11 @@
 # Stereo hand pose research
 
-Research in progress. Working metric stereo baseline; no accuracy winner claimed.
+Working metric stereo inference and an executed, frozen three-pipeline HOT3D comparison.
+ACE hybrid achieved the best held-out coverage-aware score: **27.18 mm absolute
+MPJPE, 30.90 mm wrist error, 58.01% joint coverage** against the separate MANO-21
+reference (450 frames, three participants). The requested accuracy/coverage
+targets were not reached. See [the research report](reports/final_research_report.md)
+for confidence intervals, pretrained-contamination concerns and unfinished work.
 
 Python 3.12:
 
@@ -28,7 +33,8 @@ Outputs use left optical coordinates (+x right, +y down, +z forward), meters.
 Missing joints and unavailable wrist rotation are NaN; validity is explicit.
 Order is wrist then thumb/index/middle/ring/pinky proximal-to-tip, 4 per finger.
 Thumb anatomy is CMC/MCP/IP/tip. Confidence currently comes from MediaPipe's
-handedness classifier; it is not per-joint calibrated uncertainty.
+handedness classifier for the MediaPipe baseline; other models document their
+score semantics in metadata. None is calibrated per-joint uncertainty.
 
 Evaluate matching NPZ predictions and GT with `handpose-evaluate --predictions
 pred.npz --ground-truth gt.npz --output metrics.json`. Both require matching
@@ -83,20 +89,29 @@ Offline ACE stereo inference (separate model environment and released assets):
 python scripts/run_inference.py --model ace \
   --left data/example/left.mp4 --right data/example/right.mp4 \
   --calibration data/example/calibration.json \
-  --timestamps data/example/timestamps.npz \
-  --output outputs/ace-example
+  --timestamps data/example/timestamps.npz --rotate-cw \
+  --anatomy-weight 1 --temporal-seconds 0.1 --output outputs/ace-example
 ```
 
 Use `--rotate-cw` for native HOT3D Quest images. Outputs remain in the original
 left camera frame. `--temporal-seconds 0.1` enables offline local-linear refinement
-with gaps capped at0.1 seconds. This option is under development evaluation.
+with gaps capped at 0.1 seconds. Combined with `--anatomy-weight 1`, these are
+the frozen ACE hybrid settings evaluated on held-out participants.
 `--ace-left-export` and `--ace-right-export` reuse trusted local official ACE
 pickle exports for regression checks; they are not required for inference.
 Nonzero-distortion video must first be undistorted with matching calibration.
 
 `configs/environments/` records the actually executed VM package versions;
-`configs/checkpoints.lock.json` records13 downloaded checkpoint identities.
+`configs/checkpoints.lock.json` records 13 downloaded checkpoint identities.
 These environment snapshots include inherited system packages and are audit
 records, not yet a one-command research-model installer. The baseline installation
 above is the supported clean installation path. Large-model setup remains partly
-manual and is described in the interim research report.
+manual and is described in the research report.
+
+Heavy-model setup details: [docs/model_setup.md](docs/model_setup.md).
+Verify downloaded model bytes with `python scripts/verify_assets.py`; missing
+optional model weights are reported explicitly. Use `--contains ace` to check a
+subset. The complete executed model catalog is `handpose.models.registry.MODEL_SPECS`.
+
+Dataset split identities, revisions and available hashes are tracked under
+`configs/datasets/`. Frozen settings are in `configs/experiments/frozen_hot3d.yaml`.

@@ -1,0 +1,78 @@
+{
+  "dataset": "LightwheelAI/EgoStandard",
+  "source_sha256": "651b0166c38c6385ee7aa13a6ea66e94a4431a6768ebbd45ffeef435e4c8ff5f",
+  "translation_to_meters": 1.0,
+  "convention_source": "unverified assumption",
+  "hand_joint_order": "unverified; native indices preserved; excluded from anatomical accuracy scoring",
+  "frames": 547,
+  "baseline_m": 0.06424987284812328,
+  "session": {
+    "header": {
+      "ts": "1776146626277000000",
+      "sender": "lwego"
+    },
+    "devices": [
+      {
+        "device_type": "head_left_camera",
+        "firmware_version": "v2.20.1",
+        "fps": "30.0",
+        "modality": "rgb",
+        "resolution": {
+          "height": 1456,
+          "width": 1920
+        },
+        "unix_start_time": "1776146626277",
+        "unix_end_time": "1776146644510"
+      },
+      {
+        "device_type": "head_right_camera",
+        "firmware_version": "v2.20.1",
+        "fps": "30.0",
+        "modality": "rgb",
+        "resolution": {
+          "height": 1456,
+          "width": 1920
+        },
+        "unix_start_time": "1776146626277",
+        "unix_end_time": "1776146644510"
+      },
+      {
+        "device_type": "head_depth_camera",
+        "firmware_version": "v2.20.1",
+        "fps": "5.0",
+        "modality": "depth",
+        "resolution": {
+          "height": 240,
+          "width": 320
+        },
+        "unix_start_time": "1776146626277",
+        "unix_end_time": "1776146644510"
+      }
+    ],
+    "global_time": {
+      "start_time_iso": "2026-04-14T06:03:46Z",
+      "end_time_iso": "2026-04-14T06:04:04Z",
+      "timezone": "UTC"
+    },
+    "task_info": {
+      "episode_uuid": "88069a27-c7df-4027-a43f-ba0a60ee2241",
+      "task_name": "wipe the keyboard",
+      "task_description": "Wipe the keyboard surface with a cloth.",
+      "environment_id": "office_x_studio_office_0035",
+      "scene_id": "office_area_x_000089"
+    },
+    "operator": {
+      "collection_method": {
+        "description": "Operator performs the task while intentionally constraining hand motion to approximate robot gripper kinematics.",
+        "paradigm": "robot_gripper_mimic"
+      },
+      "operator_id": "67492b27-e549-477b-a543-36fb6b0fa07a",
+      "operator_info": {
+        "arm_span": 1.73,
+        "height": 1.88,
+        "leg_length": 1.1,
+        "unit": "m"
+      }
+    }
+  }
+}

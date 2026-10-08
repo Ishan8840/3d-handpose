@@ -29,6 +29,8 @@ class Camera:
             raise ValueError("Unsupported camera model: use official HOT3D camera unprojection")
         if self.K.shape != (3, 3) or self.T_camera_from_left.shape != (4, 4):
             raise ValueError("Expected K (3,3), T (4,4)")
+        if not np.isfinite(self.T_camera_from_left).all() or not np.isfinite(self.distortion).all():
+            raise ValueError("Calibration must contain finite transforms and distortion")
         R = self.T_camera_from_left[:3, :3]
         if not np.allclose(R.T @ R, np.eye(3), atol=1e-6) or not np.isclose(np.linalg.det(R), 1):
             raise ValueError("Extrinsic rotation must be proper orthonormal")

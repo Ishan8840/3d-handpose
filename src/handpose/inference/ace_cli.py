@@ -12,6 +12,11 @@ from handpose.inference.cli import save_predictions
 from handpose.temporal.smoothing import smooth
 
 
+def interpreter_path(path):
+    """Keep a venv executable symlink intact so Python locates pyvenv.cfg."""
+    return str(Path(path).absolute())
+
+
 def main(argv=None):
     p=argparse.ArgumentParser()
     for key in ('left','right','calibration','output'):p.add_argument('--'+key,required=True)
@@ -45,7 +50,7 @@ def main(argv=None):
         camera_file=side_dir/'camera.json';camera_file.write_text(json.dumps({'image_width':in_size[0],'image_height':in_size[1],'frames':[{'intrinsics':{'fx':K[0,0],'fy':K[1,1],'cx':K[0,2],'cy':K[1,2]}}]}))
         result=(side_dir/'result').resolve()
         with (side_dir/'inference.log').open('w') as log:
-            subprocess.run([str(Path(a.ace_python).resolve()),'infer_video.py','--video',str(video),'--camera',str(camera_file.resolve()),'--opt','options/ace_ego_hand_k.yml','--ckpt','checkpoints/ace_ego_hand_k.pt','--out',str(result),'--encode_w','640'],cwd=Path(a.ace_root).resolve(),stdout=log,stderr=subprocess.STDOUT,check=True)
+            subprocess.run([interpreter_path(a.ace_python),'infer_video.py','--video',str(video),'--camera',str(camera_file.resolve()),'--opt','options/ace_ego_hand_k.yml','--ckpt','checkpoints/ace_ego_hand_k.pt','--out',str(result),'--encode_w','640'],cwd=Path(a.ace_root).resolve(),stdout=log,stderr=subprocess.STDOUT,check=True)
         exports.append(ACEExport(result/(video.stem+'.pkl'),in_size,a.rotate_cw))
     if counts[0]!=counts[1] or counts[0]==0 or min(fps_values)<=0 or abs(fps_values[0]-fps_values[1])>1e-4:raise ValueError('Mismatched stereo streams')
     ts=np.arange(counts[0],dtype=float)/fps_values[0]*1e9

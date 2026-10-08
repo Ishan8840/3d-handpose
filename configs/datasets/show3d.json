@@ -1,0 +1,65 @@
+[
+  {
+    "split": "smoke",
+    "participant": "ASC023",
+    "sequence": "aria_pick-up-put-down_2170",
+    "path": "data/show3d/scenes/ASC023/aria_pick-up-put-down_2170",
+    "annotations": "data/show3d/hand_pose/v3/scenes/ASC023/aria_pick-up-put-down_2170/hand_pose_umetrack.json",
+    "revision": "070d5586edf369dfa17a374b4e9f80d5611577d5",
+    "max_frames": 30
+  },
+  {
+    "split": "development",
+    "participant": "PGR724",
+    "sequence": "aria_pick-up-put-down_3b63",
+    "path": "data/show3d/scenes/PGR724/aria_pick-up-put-down_3b63",
+    "annotations": "data/show3d/hand_pose/v3/scenes/PGR724/aria_pick-up-put-down_3b63/hand_pose_umetrack.json",
+    "revision": "070d5586edf369dfa17a374b4e9f80d5611577d5",
+    "max_frames": 300
+  },
+  {
+    "split": "held_out",
+    "participant": "SLI325",
+    "sequence": "aria_pick-up-put-down_7a1c",
+    "path": "data/show3d/scenes/SLI325/aria_pick-up-put-down_7a1c",
+    "annotations": "data/show3d/hand_pose/v3/scenes/SLI325/aria_pick-up-put-down_7a1c/hand_pose_umetrack.json",
+    "revision": "070d5586edf369dfa17a374b4e9f80d5611577d5",
+    "max_frames": 300
+  },
+  {
+    "split": "development",
+    "participant": "MHA016",
+    "sequence": "aria_pick-up-put-down_b700",
+    "path": "data/show3d/scenes/MHA016/aria_pick-up-put-down_b700",
+    "annotations": "data/show3d/hand_pose/v3/scenes/MHA016/aria_pick-up-put-down_b700/hand_pose_umetrack.json",
+    "revision": "070d5586edf369dfa17a374b4e9f80d5611577d5",
+    "max_frames": 300
+  },
+  {
+    "split": "held_out",
+    "participant": "YZH016",
+    "sequence": "aria_pick-up-put-down_c780",
+    "path": "data/show3d/scenes/YZH016/aria_pick-up-put-down_c780",
+    "annotations": "data/show3d/hand_pose/v3/scenes/YZH016/aria_pick-up-put-down_c780/hand_pose_umetrack.json",
+    "revision": "070d5586edf369dfa17a374b4e9f80d5611577d5",
+    "max_frames": 300
+  },
+  {
+    "split": "development",
+    "participant": "YTI325",
+    "sequence": "aria_pick-up-put-down_d4b6",
+    "path": "data/show3d/scenes/YTI325/aria_pick-up-put-down_d4b6",
+    "annotations": "data/show3d/hand_pose/v3/scenes/YTI325/aria_pick-up-put-down_d4b6/hand_pose_umetrack.json",
+    "revision": "070d5586edf369dfa17a374b4e9f80d5611577d5",
+    "max_frames": 300
+  },
+  {
+    "split": "held_out",
+    "participant": "ISH822",
+    "sequence": "aria_pick-up-put-down_e0d9",
+    "path": "data/show3d/scenes/ISH822/aria_pick-up-put-down_e0d9",
+    "annotations": "data/show3d/hand_pose/v3/scenes/ISH822/aria_pick-up-put-down_e0d9/hand_pose_umetrack.json",
+    "revision": "070d5586edf369dfa17a374b4e9f80d5611577d5",
+    "max_frames": 300
+  }
+]

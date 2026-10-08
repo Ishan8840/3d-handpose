@@ -1,0 +1,65 @@
+[
+  {
+    "sequence": "clip-000648",
+    "category": "largest_observed_error",
+    "frame": 6,
+    "observed_mpjpe_mm": 89.71345936008882,
+    "image": "clip-000648_largest_observed_error_6.jpg"
+  },
+  {
+    "sequence": "clip-000648",
+    "category": "fast_index_tip_motion",
+    "frame": 112,
+    "observed_mpjpe_mm": 21.908406594267802,
+    "image": "clip-000648_fast_index_tip_motion_112.jpg"
+  },
+  {
+    "sequence": "clip-000648",
+    "category": "lowest_modeled_visibility",
+    "frame": 0,
+    "observed_mpjpe_mm": null,
+    "image": "clip-000648_lowest_modeled_visibility_0.jpg"
+  },
+  {
+    "sequence": "clip-001035",
+    "category": "largest_observed_error",
+    "frame": 52,
+    "observed_mpjpe_mm": 310.4969802860206,
+    "image": "clip-001035_largest_observed_error_52.jpg"
+  },
+  {
+    "sequence": "clip-001035",
+    "category": "fast_index_tip_motion",
+    "frame": 95,
+    "observed_mpjpe_mm": 21.341304447418228,
+    "image": "clip-001035_fast_index_tip_motion_95.jpg"
+  },
+  {
+    "sequence": "clip-001035",
+    "category": "lowest_modeled_visibility",
+    "frame": 122,
+    "observed_mpjpe_mm": null,
+    "image": "clip-001035_lowest_modeled_visibility_122.jpg"
+  },
+  {
+    "sequence": "clip-001168",
+    "category": "largest_observed_error",
+    "frame": 30,
+    "observed_mpjpe_mm": 43.631818739725745,
+    "image": "clip-001168_largest_observed_error_30.jpg"
+  },
+  {
+    "sequence": "clip-001168",
+    "category": "fast_index_tip_motion",
+    "frame": 111,
+    "observed_mpjpe_mm": null,
+    "image": "clip-001168_fast_index_tip_motion_111.jpg"
+  },
+  {
+    "sequence": "clip-001168",
+    "category": "lowest_modeled_visibility",
+    "frame": 77,
+    "observed_mpjpe_mm": null,
+    "image": "clip-001168_lowest_modeled_visibility_77.jpg"
+  }
+]
