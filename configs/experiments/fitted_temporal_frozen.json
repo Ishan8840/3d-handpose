@@ -1,0 +1,9 @@
+{
+  "selection_split": "development",
+  "window_seconds": 0.05,
+  "max_gap_seconds": 0.1,
+  "weighting": "uniform finite fitted joints",
+  "decision": "50ms improves observed error and capped score without changing development coverage; 100ms lowers capped score another0.03mm but increases observed error by9.68mm, rejected. 200ms worsens both.",
+  "post_round_two_extension": true,
+  "held_out_tuning": false
+}

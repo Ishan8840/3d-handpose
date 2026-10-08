@@ -201,3 +201,20 @@ measured milestones. See the delivered comparison and remaining-work sections.
   Spearman0.0685; failure-set Jaccard0.6827; both missing45.79% of eligible slots.
 - Round-two configurations frozen in configs/experiments/expanded_frozen.json
   before new held-out model executions. SHOW3D WiLoR/HaMeR validation running.
+
+### Expanded held-out and cross-dataset checks
+
+- Main held-out450: WiLoR+MANO Adam25.31mm common19 at67.33% coverage,
+  capped46.54mm; ACE28.28mm/57.65%/58.28mm. Anatomical MANO21 for Adam:
+  24.90mm absolute,30.03mm wrist,28.16mm fingertips,P9037.57mm.
+- HMP fills100% but gives55.42mm/P90~145mm; wins100mm-capped score but
+  loses the accuracy comparison. Do not describe filled poses as stereo observations.
+- SHOW3D900frames: WiLoR+MANO Adam21.19mm/79.22%; ACE30.13mm/60.94%.
+- Short fitted-pose temporal extension evaluated on development only:50ms
+  31.737mm/54.079mm capped, versus unsmoothed32.248/54.359.100ms and200ms
+  worsen observed error. Freeze50ms before applying it to held-out archives.
+- Shared held-out failures: ACE/WiLoR Spearman0.210,Jaccard0.638;
+  WiLoR/HaMeR0.517/0.742. Worst-case overlays saved and inspected; cropped
+  hands and failed depth can cause >1m outliers despite plausible image overlap.
+- Working WiLoR+MANO CLI tested on30 real stereo frames; all required outputs
+  verified.26 weight-free regression tests pass. EgoStandard547-frame run underway.
