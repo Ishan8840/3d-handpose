@@ -25,6 +25,10 @@ def save_predictions(predictions, output, metadata):
 
 
 def main():
+    dispatch=argparse.ArgumentParser(add_help=False);dispatch.add_argument('--model',default='mediapipe')
+    if dispatch.parse_known_args()[0].model=='ace':
+        from .ace_cli import main as ace_main
+        return ace_main()
     p=argparse.ArgumentParser()
     for name in ('left','right','calibration','output'): p.add_argument('--'+name,required=True)
     p.add_argument('--model',default='mediapipe'); p.add_argument('--timestamps',help='NPZ with left/right int64 nanoseconds, one per decoded frame')

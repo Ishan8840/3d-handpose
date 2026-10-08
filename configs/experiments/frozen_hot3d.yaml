@@ -1,0 +1,53 @@
+status: frozen_before_held_out_execution
+selection_split: development
+selection_participants: [P0003, P0013, P0018]
+evaluation_participants: [P0010, P0017, P0021]
+frames_per_sequence: 150
+seed: 42
+ground_truth_tracks: [UmeTrack_common19, MANO_anatomical21]
+primary_metric: capped_error_with_missing_penalty_mm
+missing_penalty_mm: 100
+pipelines:
+  ace_hybrid:
+    checkpoint: ace_ego_hand_k
+    input_orientation: clockwise_from_native_quest
+    epipolar_threshold_px: 5
+    reprojection_threshold_px: 8
+    minimum_ray_angle_degrees: 0.5
+    anatomy_weight: 1.0
+    anatomy_scale_m: 0.005
+    stereo_scale_m: 0.01
+    reprojection_scale_px: 2.0
+    loss: soft_l1
+    optimizer_max_nfev: 30
+    bone_length_target: per_sequence_observed_median_without_GT
+    temporal_window_seconds: 0.1
+    maximum_gap_seconds: 0.1
+    multiview_prior_weight: 0.0
+    dense_depth: false
+    mano_fit: false
+  mediapipe_rotated:
+    image_rotations_degrees: [0, 90, 180, 270]
+    handedness_input: mirrored
+    model_complexity: 1
+    detection_confidence: 0.3
+    epipolar_threshold_px: 5
+    reprojection_threshold_px: 8
+    temporal: false
+  umetrack_upright:
+    views: 2
+    crop_initializer: mediapipe_upright_stereo
+    skeleton: generic_predicted_scale
+    memory: reset_per_frame
+    gt_crops: false
+    temporal: false
+selection_rationale:
+  - ACE hybrid improved observed and coverage-aware error on both observable development sequences.
+  - Four-rotation MediaPipe has next-best aggregate coverage-aware score among independently executed baselines.
+  - UmeTrack outperformed POEM under this predicted-crop protocol; its anatomical wrist is unavailable.
+  - Ungated ACE has better capped loss but unacceptable depth outliers on partial visibility; geometric gates retained.
+  - Dense depth and MANO fitting did not establish sufficient improvement to include.
+limitations:
+  - Only three development sequences; no claim of global state-of-the-art accuracy.
+  - ACE training includes HOT3D; pretraining contamination remains possible.
+  - Entirely out-of-view annotated joints remain in the all-frame primary score.

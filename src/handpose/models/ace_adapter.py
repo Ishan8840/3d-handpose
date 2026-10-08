@@ -13,7 +13,7 @@ class ACEExport:
         if not self.data['claim'][index,1]:return []
         # Official projector produces sigmoid-normalized [0,1] x/y coordinates.
         points=self.data['joints_2d'][index,1]*[self.width,self.height]
-        if self.upright: points=np.c_[points[:,1],self.height-1-points[:,0]]
+        if self.upright: points=np.c_[points[:,1],self.width-1-points[:,0]]
         return [Observation(points,np.full(21,self.data['exists_2d'][index,1]))]
     def direct(self,index):
         x=self.data['joints_cam_direct'][index,1].copy()

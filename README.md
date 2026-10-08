@@ -76,3 +76,27 @@ not yet an accuracy benchmark. `handpose.data.egostandard` requires explicit
 joint names and units, validates world-to-camera conversion, and preserves
 unmatched timestamps as missing. Linked EgoDemo technical documentation requires
 separate access not available in the VM's current session.
+
+Offline ACE stereo inference (separate model environment and released assets):
+
+```bash
+python scripts/run_inference.py --model ace \
+  --left data/example/left.mp4 --right data/example/right.mp4 \
+  --calibration data/example/calibration.json \
+  --timestamps data/example/timestamps.npz \
+  --output outputs/ace-example
+```
+
+Use `--rotate-cw` for native HOT3D Quest images. Outputs remain in the original
+left camera frame. `--temporal-seconds 0.1` enables offline local-linear refinement
+with gaps capped at0.1 seconds. This option is under development evaluation.
+`--ace-left-export` and `--ace-right-export` reuse trusted local official ACE
+pickle exports for regression checks; they are not required for inference.
+Nonzero-distortion video must first be undistorted with matching calibration.
+
+`configs/environments/` records the actually executed VM package versions;
+`configs/checkpoints.lock.json` records13 downloaded checkpoint identities.
+These environment snapshots include inherited system packages and are audit
+records, not yet a one-command research-model installer. The baseline installation
+above is the supported clean installation path. Large-model setup remains partly
+manual and is described in the interim research report.

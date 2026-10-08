@@ -35,3 +35,11 @@ def refine_frame(initial,uv_left,uv_right,confidence,left,right,prior=None,prior
     good=(transform(candidate[ids],left.T_camera_from_left)[:,2]>0)&(transform(candidate[ids],right.T_camera_from_left)[:,2]>0)
     if result.success and good.all():return candidate
     return x
+
+
+def refine_sequence(joints,uv_left,uv_right,confidence,cameras,anatomy_weight=1.):
+    lengths={}
+    for edge in EDGES:
+        values=np.linalg.norm(joints[:,edge[0]]-joints[:,edge[1]],axis=-1)
+        lengths[edge]=float(np.median(values[np.isfinite(values)])) if np.isfinite(values).any() else np.nan
+    return np.array([refine_frame(x,l,r,c,*pair,anatomy_weight=anatomy_weight,bone_lengths=lengths) for x,l,r,c,pair in zip(joints,uv_left,uv_right,confidence,cameras)])

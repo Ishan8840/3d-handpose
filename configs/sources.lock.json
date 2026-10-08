@@ -38,5 +38,13 @@
   "umetrack_data": {
     "url": "https://github.com/facebookresearch/UmeTrack_data",
     "commit": "950bda2ab602d0ca5591476e04c993ec6f3cac4f"
+  },
+  "foundationstereo": {
+    "url": "https://github.com/NVlabs/FoundationStereo",
+    "commit": "6e8806816b533e4d13ddbb95ffa907b797060a62"
+  },
+  "manotorch": {
+    "url": "https://github.com/lixiny/manotorch",
+    "commit": "da235c9096a5560e2a09102c20f61abb4d0d2309"
   }
 }
