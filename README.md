@@ -14,6 +14,7 @@ come from committed experiment JSON, not published paper numbers.
 - [ACE alone versus stereo](#ace-ego-hand-alone-versus-stereo)
 - [SHOW3D results](#show3d-cross-dataset-check)
 - [Error overlap](#correlated-errors-and-complementary-information)
+- [How to exploit model complementarity](#how-model-complementarity-could-improve-reconstruction)
 - [Executed methods and blockers](#execution-matrix-and-remaining-blockers)
 - [Full research report](reports/final_research_report.md)
 
@@ -248,6 +249,8 @@ significance tests.
 | WiLoR stereo vs AnyHand WiLoR stereo | 0.55 | 0.76 | 37.23 | 0.60 |
 | HaMeR stereo vs AnyHand HaMeR stereo | 0.46 | 0.75 | 37.93 | 0.56 |
 | WiLoR stereo vs WiLoR MANO Adam | 0.57 | 0.73 | 32.30 | 0.70 |
+| WiLoR MANO analytical LM vs WiLoR MANO Adam | 0.84 | 0.86 | 32.67 | 0.87 |
+| WiLoR MANO Adam vs WiLoR MANO Adam temporal | 0.92 | 0.89 | 32.67 | 0.93 |
 
 ACE and WiLoR provide partly different localization errors, yet often fail on the
 same hard observations. WiLoR, HaMeR and their AnyHand variants share the WiLoR
@@ -285,6 +288,35 @@ and a catastrophic stereo-depth/fit failure onclip 001035 frame 42 exceeding 1m.
 A plausible projected skeleton does not certify depth. The recommendation still
 has serious tails and coverage gaps; no post-hoc GT-based frame deletion was used.
 [Worst-case overlays](reports/expanded_analysis/failures/index.json) retain these cases.
+
+### How model complementarity could improve reconstruction
+
+**These are research proposals, not demonstrated improvements to the selected
+pipeline.** The useful signal is conditional reliability: identify when one method
+is right and another is wrong. Correlation alone does not supply that selector.
+
+| Opportunity | Measured motivation | Proposed next experiment |
+|---|---|---|
+| ACE + WiLoR observation selection | Weak observed-error correlation (0.21), but shared misses remain substantial | Select or weight per-joint 2D hypotheses using geometry and uncertainty before joint stereo fitting |
+| Separate global placement from articulation | MANO Adam residuals have a large common-translation component | Estimate metric palm/wrist position and depth separately from the fitted finger configuration |
+| Use disagreement to flag unreliable observations | Related mesh methods share many failures; disagreement can expose inconsistent predictions | Test disagreement together with reprojection, ray geometry, hand identity and temporal evidence |
+| Keep short temporal refinement | The 50 ms refinement improved point estimates and acceleration error; unsmoothed/smoothed errors correlate at 0.92 | Preserve short, bounded refinement; do not expect smoothing to recover independent missing information |
+
+An inference-time selector could use epipolar and reprojection residuals,
+triangulation uncertainty (especially depth), independent-view agreement, image
+boundary proximity, changes in bone lengths, temporal innovations and right-hand
+identity consistency. **Low reprojection error alone is not sufficient:** a
+plausible image projection can still have severely incorrect metric depth.
+Agreement is also not proof of correctness when models share a detector or prior.
+
+The ACE/WiLoR ground-truth oracle's 54.13 to 45.71 mm capped-score improvement
+shows potential complementary information, not an achievable measured gain from
+these proposals. The tested simple confidence/agreement fusion did not realize
+that gain and was rejected. A new selector must be developed on more independent
+episodes and assessed on a fresh held-out set; only three development and three
+held-out HOT3D sequences were used here. Frames and joints are correlated samples,
+not thousands of independent episodes. The small solver and smoothing improvements
+also have confidence intervals that include zero.
 
 ## Smaller baseline and optimization pilots
 

@@ -85,6 +85,57 @@ predicted-input accuracy result.
 
 '''
 report=report.replace('## Execution matrix and remaining blockers',pilots+'## Execution matrix and remaining blockers')
+# Include fitting/temporal correlations alongside the cross-model comparisons.
+overlap=json.load(open('reports/error_overlap_held.json'))['pairs']
+start=report.index('| Pair | Error Spearman')
+end=report.index('\n\nACE and WiLoR',start)
+pair_names=[
+ 'ACE hybrid vs WiLoR stereo', 'ACE hybrid vs WiLoR MANO Adam',
+ 'WiLoR stereo vs HaMeR stereo', 'WiLoR stereo vs AnyHand WiLoR stereo',
+ 'HaMeR stereo vs AnyHand HaMeR stereo', 'WiLoR stereo vs WiLoR MANO Adam',
+ 'WiLoR MANO analytical LM vs WiLoR MANO Adam',
+ 'WiLoR MANO Adam vs WiLoR MANO Adam temporal',
+]
+lines=['| Pair | Error Spearman | Failure Jaccard | Both missing % | Error-vector cosine |',
+       '|---|---:|---:|---:|---:|']
+for name in pair_names:
+ m=overlap[name]
+ values=[m['error_spearman_common'],m['failure_jaccard'],100*m['both_missing_rate'],m['error_vector_cosine_common']]
+ lines.append('| '+name+' | '+' | '.join(f'{v:.2f}' for v in values)+' |')
+report=report[:start]+'\n'.join(lines)+report[end:]
+
+opportunities="""### How model complementarity could improve reconstruction
+
+**These are research proposals, not demonstrated improvements to the selected
+pipeline.** The useful signal is conditional reliability: identify when one method
+is right and another is wrong. Correlation alone does not supply that selector.
+
+| Opportunity | Measured motivation | Proposed next experiment |
+|---|---|---|
+| ACE + WiLoR observation selection | Weak observed-error correlation (0.21), but shared misses remain substantial | Select or weight per-joint 2D hypotheses using geometry and uncertainty before joint stereo fitting |
+| Separate global placement from articulation | MANO Adam residuals have a large common-translation component | Estimate metric palm/wrist position and depth separately from the fitted finger configuration |
+| Use disagreement to flag unreliable observations | Related mesh methods share many failures; disagreement can expose inconsistent predictions | Test disagreement together with reprojection, ray geometry, hand identity and temporal evidence |
+| Keep short temporal refinement | The 50 ms refinement improved point estimates and acceleration error; unsmoothed/smoothed errors correlate at 0.92 | Preserve short, bounded refinement; do not expect smoothing to recover independent missing information |
+
+An inference-time selector could use epipolar and reprojection residuals,
+triangulation uncertainty (especially depth), independent-view agreement, image
+boundary proximity, changes in bone lengths, temporal innovations and right-hand
+identity consistency. **Low reprojection error alone is not sufficient:** a
+plausible image projection can still have severely incorrect metric depth.
+Agreement is also not proof of correctness when models share a detector or prior.
+
+The ACE/WiLoR ground-truth oracle's 54.13 to 45.71 mm capped-score improvement
+shows potential complementary information, not an achievable measured gain from
+these proposals. The tested simple confidence/agreement fusion did not realize
+that gain and was rejected. A new selector must be developed on more independent
+episodes and assessed on a fresh held-out set; only three development and three
+held-out HOT3D sequences were used here. Frames and joints are correlated samples,
+not thousands of independent episodes. The small solver and smoothing improvements
+also have confidence intervals that include zero.
+
+"""
+report=report.replace('## Smaller baseline and optimization pilots',opportunities+'## Smaller baseline and optimization pilots')
+
 intro='''# Stereo hand-pose research: measured results and inference
 
 Calibrated stereo hand reconstruction in metric camera coordinates, with executable
@@ -101,6 +152,7 @@ come from committed experiment JSON, not published paper numbers.
 - [ACE alone versus stereo](#ace-ego-hand-alone-versus-stereo)
 - [SHOW3D results](#show3d-cross-dataset-check)
 - [Error overlap](#correlated-errors-and-complementary-information)
+- [How to exploit model complementarity](#how-model-complementarity-could-improve-reconstruction)
 - [Executed methods and blockers](#execution-matrix-and-remaining-blockers)
 - [Full research report](reports/final_research_report.md)
 
