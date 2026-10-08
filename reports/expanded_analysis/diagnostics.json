@@ -1,0 +1,538 @@
+{
+  "split": "held_out",
+  "translation_definition": "Per-frame mean joint error; descriptive energy decomposition, never an alignment of predictions",
+  "models": {
+    "ACE hybrid": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 4929,
+      "depth_squared_error_fraction": 0.618223590473285,
+      "common_translation_squared_error_fraction": 0.6942556258043732,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.04175438596491228,
+          "capped_missing_mm": 7.912593950419859
+        },
+        "10": {
+          "accurate_slot_rate": 0.07309941520467836,
+          "capped_missing_mm": 9.797635967363147
+        },
+        "20": {
+          "accurate_slot_rate": 0.24760233918128655,
+          "capped_missing_mm": 18.21428489487281
+        },
+        "50": {
+          "accurate_slot_rate": 0.5106432748538011,
+          "capped_missing_mm": 35.83237324552404
+        },
+        "100": {
+          "accurate_slot_rate": 0.5697076023391813,
+          "capped_missing_mm": 58.28088141293653
+        }
+      }
+    },
+    "MediaPipe rotations": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 1989,
+      "depth_squared_error_fraction": 0.7728628153050856,
+      "common_translation_squared_error_fraction": 0.377260668683737,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.02654970760233918,
+          "capped_missing_mm": 7.9332705183046865
+        },
+        "10": {
+          "accurate_slot_rate": 0.041169590643274856,
+          "capped_missing_mm": 9.86688334325057
+        },
+        "20": {
+          "accurate_slot_rate": 0.10947368421052632,
+          "capped_missing_mm": 19.084844826633937
+        },
+        "50": {
+          "accurate_slot_rate": 0.18011695906432748,
+          "capped_missing_mm": 44.52734403380721
+        },
+        "100": {
+          "accurate_slot_rate": 0.21321637426900586,
+          "capped_missing_mm": 84.51536725090456
+        }
+      }
+    },
+    "UmeTrack two-view": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 1900,
+      "depth_squared_error_fraction": 0.6892382342163985,
+      "common_translation_squared_error_fraction": 0.7578207407823309,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.011578947368421053,
+          "capped_missing_mm": 7.975319957657491
+        },
+        "10": {
+          "accurate_slot_rate": 0.02128654970760234,
+          "capped_missing_mm": 9.943341587412126
+        },
+        "20": {
+          "accurate_slot_rate": 0.08748538011695907,
+          "capped_missing_mm": 19.38943645663967
+        },
+        "50": {
+          "accurate_slot_rate": 0.18678362573099416,
+          "capped_missing_mm": 44.90711798953925
+        },
+        "100": {
+          "accurate_slot_rate": 0.2073684210526316,
+          "capped_missing_mm": 84.85919677936604
+        }
+      }
+    },
+    "WiLoR stereo": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 4977,
+      "depth_squared_error_fraction": 0.48137992387801604,
+      "common_translation_squared_error_fraction": 0.2166885576999756,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.10035087719298245,
+          "capped_missing_mm": 7.757415319592981
+        },
+        "10": {
+          "accurate_slot_rate": 0.1529824561403509,
+          "capped_missing_mm": 9.502298718195666
+        },
+        "20": {
+          "accurate_slot_rate": 0.36760233918128654,
+          "capped_missing_mm": 16.80390244251343
+        },
+        "50": {
+          "accurate_slot_rate": 0.5411695906432749,
+          "capped_missing_mm": 32.34804448550982
+        },
+        "100": {
+          "accurate_slot_rate": 0.5749707602339181,
+          "capped_missing_mm": 54.1255680146914
+        }
+      }
+    },
+    "HaMeR stereo": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 4889,
+      "depth_squared_error_fraction": 0.6574350945016075,
+      "common_translation_squared_error_fraction": 0.44102964527418903,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.08923976608187134,
+          "capped_missing_mm": 7.775366526704768
+        },
+        "10": {
+          "accurate_slot_rate": 0.13461988304093567,
+          "capped_missing_mm": 9.548895400175875
+        },
+        "20": {
+          "accurate_slot_rate": 0.3261988304093567,
+          "capped_missing_mm": 17.175940906065986
+        },
+        "50": {
+          "accurate_slot_rate": 0.5217543859649123,
+          "capped_missing_mm": 33.46238364794551
+        },
+        "100": {
+          "accurate_slot_rate": 0.5621052631578948,
+          "capped_missing_mm": 56.005962775098084
+        }
+      }
+    },
+    "WiLoR MANO analytical LM": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 5757,
+      "depth_squared_error_fraction": 0.6565972740876563,
+      "common_translation_squared_error_fraction": 0.9148815322916324,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.10421052631578948,
+          "capped_missing_mm": 7.7519062112586345
+        },
+        "10": {
+          "accurate_slot_rate": 0.16198830409356726,
+          "capped_missing_mm": 9.483279806766229
+        },
+        "20": {
+          "accurate_slot_rate": 0.408187134502924,
+          "capped_missing_mm": 16.522144977727155
+        },
+        "50": {
+          "accurate_slot_rate": 0.6340350877192983,
+          "capped_missing_mm": 29.894056305677346
+        },
+        "100": {
+          "accurate_slot_rate": 0.6631578947368421,
+          "capped_missing_mm": 47.14478297342447
+        }
+      }
+    },
+    "WiLoR MANO Adam": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 5757,
+      "depth_squared_error_fraction": 0.651806996767675,
+      "common_translation_squared_error_fraction": 0.9451211362131676,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.10713450292397661,
+          "capped_missing_mm": 7.754923154931085
+        },
+        "10": {
+          "accurate_slot_rate": 0.16304093567251463,
+          "capped_missing_mm": 9.48617543600152
+        },
+        "20": {
+          "accurate_slot_rate": 0.415906432748538,
+          "capped_missing_mm": 16.461859958990356
+        },
+        "50": {
+          "accurate_slot_rate": 0.6415204678362573,
+          "capped_missing_mm": 29.434872936052916
+        },
+        "100": {
+          "accurate_slot_rate": 0.6637426900584795,
+          "capped_missing_mm": 46.54258086908002
+        }
+      }
+    },
+    "WiLoR HMP prior": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 8550,
+      "depth_squared_error_fraction": 0.3706907922537059,
+      "common_translation_squared_error_fraction": 0.9173256212125628,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.06923976608187135,
+          "capped_missing_mm": 7.821776115294402
+        },
+        "10": {
+          "accurate_slot_rate": 0.11742690058479532,
+          "capped_missing_mm": 9.636850020305507
+        },
+        "20": {
+          "accurate_slot_rate": 0.37415204678362574,
+          "capped_missing_mm": 17.124141631088527
+        },
+        "50": {
+          "accurate_slot_rate": 0.7077192982456141,
+          "capped_missing_mm": 29.665436841621567
+        },
+        "100": {
+          "accurate_slot_rate": 0.8327485380116959,
+          "capped_missing_mm": 41.050919605232515
+        }
+      }
+    },
+    "AnyHand WiLoR stereo": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 4963,
+      "depth_squared_error_fraction": 0.7246609467006649,
+      "common_translation_squared_error_fraction": 0.4726597085527585,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.08035087719298245,
+          "capped_missing_mm": 7.813499483149194
+        },
+        "10": {
+          "accurate_slot_rate": 0.1297076023391813,
+          "capped_missing_mm": 9.606161834707011
+        },
+        "20": {
+          "accurate_slot_rate": 0.34175438596491226,
+          "capped_missing_mm": 17.139833096205656
+        },
+        "50": {
+          "accurate_slot_rate": 0.5355555555555556,
+          "capped_missing_mm": 33.110228469525
+        },
+        "100": {
+          "accurate_slot_rate": 0.5735672514619883,
+          "capped_missing_mm": 55.009992408035885
+        }
+      }
+    },
+    "AnyHand WiLoR mono": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 6118,
+      "depth_squared_error_fraction": 0.7038686975876389,
+      "common_translation_squared_error_fraction": 0.8850334505616506,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.004912280701754386,
+          "capped_missing_mm": 7.988001818038103
+        },
+        "10": {
+          "accurate_slot_rate": 0.01064327485380117,
+          "capped_missing_mm": 9.972399906856966
+        },
+        "20": {
+          "accurate_slot_rate": 0.07894736842105263,
+          "capped_missing_mm": 19.57962991794876
+        },
+        "50": {
+          "accurate_slot_rate": 0.3350877192982456,
+          "capped_missing_mm": 43.37699318757896
+        },
+        "100": {
+          "accurate_slot_rate": 0.6360233918128655,
+          "capped_missing_mm": 68.06890924403884
+        }
+      }
+    },
+    "AnyHand HaMeR stereo": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 4692,
+      "depth_squared_error_fraction": 0.7499304133488258,
+      "common_translation_squared_error_fraction": 0.44030674609250564,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.060935672514619885,
+          "capped_missing_mm": 7.86313441066648
+        },
+        "10": {
+          "accurate_slot_rate": 0.1080701754385965,
+          "capped_missing_mm": 9.696162671877929
+        },
+        "20": {
+          "accurate_slot_rate": 0.3069005847953216,
+          "capped_missing_mm": 17.561147607445637
+        },
+        "50": {
+          "accurate_slot_rate": 0.5097076023391813,
+          "capped_missing_mm": 34.33659497663849
+        },
+        "100": {
+          "accurate_slot_rate": 0.539766081871345,
+          "capped_missing_mm": 57.77206749484933
+        }
+      }
+    },
+    "AnyHand HaMeR mono": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 6118,
+      "depth_squared_error_fraction": 0.6078434909865527,
+      "common_translation_squared_error_fraction": 0.8010334093312395,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.013216374269005848,
+          "capped_missing_mm": 7.970405986772791
+        },
+        "10": {
+          "accurate_slot_rate": 0.02245614035087719,
+          "capped_missing_mm": 9.936401279052822
+        },
+        "20": {
+          "accurate_slot_rate": 0.11426900584795321,
+          "capped_missing_mm": 19.289319094251365
+        },
+        "50": {
+          "accurate_slot_rate": 0.4398830409356725,
+          "capped_missing_mm": 40.69141892218393
+        },
+        "100": {
+          "accurate_slot_rate": 0.6787134502923977,
+          "capped_missing_mm": 61.03916890739043
+        }
+      }
+    },
+    "EgoForce hand-only stereo": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 3455,
+      "depth_squared_error_fraction": 0.72359241510785,
+      "common_translation_squared_error_fraction": 0.4497202743766808,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.026783625730994153,
+          "capped_missing_mm": 7.9403514741664365
+        },
+        "10": {
+          "accurate_slot_rate": 0.04830409356725146,
+          "capped_missing_mm": 9.866049987869072
+        },
+        "20": {
+          "accurate_slot_rate": 0.14830409356725147,
+          "capped_missing_mm": 18.862034877281854
+        },
+        "50": {
+          "accurate_slot_rate": 0.3039766081871345,
+          "capped_missing_mm": 41.660699999297
+        },
+        "100": {
+          "accurate_slot_rate": 0.3735672514619883,
+          "capped_missing_mm": 74.3146764184717
+        }
+      }
+    },
+    "EgoForce hand-only mono": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 5629,
+      "depth_squared_error_fraction": 0.6446167068488542,
+      "common_translation_squared_error_fraction": 0.9365198174344533,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.02456140350877193,
+          "capped_missing_mm": 7.945662932444086
+        },
+        "10": {
+          "accurate_slot_rate": 0.04456140350877193,
+          "capped_missing_mm": 9.87831172858651
+        },
+        "20": {
+          "accurate_slot_rate": 0.15894736842105264,
+          "capped_missing_mm": 18.859730950008395
+        },
+        "50": {
+          "accurate_slot_rate": 0.3528654970760234,
+          "capped_missing_mm": 40.67810101028517
+        },
+        "100": {
+          "accurate_slot_rate": 0.47578947368421054,
+          "capped_missing_mm": 69.67209127476453
+        }
+      }
+    },
+    "OmniHands two-view stereo": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 4541,
+      "depth_squared_error_fraction": 0.5509572961055896,
+      "common_translation_squared_error_fraction": 0.6935164546742922,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.026198830409356725,
+          "capped_missing_mm": 7.947250393729763
+        },
+        "10": {
+          "accurate_slot_rate": 0.045263157894736845,
+          "capped_missing_mm": 9.877700302771126
+        },
+        "20": {
+          "accurate_slot_rate": 0.20385964912280702,
+          "capped_missing_mm": 18.66306961220632
+        },
+        "50": {
+          "accurate_slot_rate": 0.46830409356725144,
+          "capped_missing_mm": 37.51205112281096
+        },
+        "100": {
+          "accurate_slot_rate": 0.5210526315789473,
+          "capped_missing_mm": 62.27856844742965
+        }
+      }
+    },
+    "OmniHands two-view lift": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 5966,
+      "depth_squared_error_fraction": 0.7324955544037998,
+      "common_translation_squared_error_fraction": 0.9675988637093661,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.0022222222222222222,
+          "capped_missing_mm": 7.994740509437746
+        },
+        "10": {
+          "accurate_slot_rate": 0.0035087719298245615,
+          "capped_missing_mm": 9.988995271715835
+        },
+        "20": {
+          "accurate_slot_rate": 0.023508771929824562,
+          "capped_missing_mm": 19.87167889375641
+        },
+        "50": {
+          "accurate_slot_rate": 0.20140350877192983,
+          "capped_missing_mm": 46.704425419914415
+        },
+        "100": {
+          "accurate_slot_rate": 0.37707602339181284,
+          "capped_missing_mm": 80.84166973724018
+        }
+      }
+    },
+    "WiLoR mono": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 6118,
+      "depth_squared_error_fraction": 0.6798524932007971,
+      "common_translation_squared_error_fraction": 0.7199153128452372,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.025730994152046785,
+          "capped_missing_mm": 7.944293952341537
+        },
+        "10": {
+          "accurate_slot_rate": 0.044444444444444446,
+          "capped_missing_mm": 9.87301302288143
+        },
+        "20": {
+          "accurate_slot_rate": 0.15333333333333332,
+          "capped_missing_mm": 18.8944259289594
+        },
+        "50": {
+          "accurate_slot_rate": 0.487953216374269,
+          "capped_missing_mm": 39.15034799672294
+        },
+        "100": {
+          "accurate_slot_rate": 0.7105263157894737,
+          "capped_missing_mm": 56.959614815950175
+        }
+      }
+    },
+    "HaMeR mono": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 6118,
+      "depth_squared_error_fraction": 0.674145172363958,
+      "common_translation_squared_error_fraction": 0.7930352508805767,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.009005847953216375,
+          "capped_missing_mm": 7.981103112767114
+        },
+        "10": {
+          "accurate_slot_rate": 0.017660818713450294,
+          "capped_missing_mm": 9.95527375096583
+        },
+        "20": {
+          "accurate_slot_rate": 0.1047953216374269,
+          "capped_missing_mm": 19.391456866525882
+        },
+        "50": {
+          "accurate_slot_rate": 0.47497076023391815,
+          "capped_missing_mm": 40.805200097289266
+        },
+        "100": {
+          "accurate_slot_rate": 0.7010526315789474,
+          "capped_missing_mm": 59.046859036643355
+        }
+      }
+    },
+    "WiLoR MANO Adam temporal": {
+      "eligible_joint_slots": 8550,
+      "observed_slots": 5757,
+      "depth_squared_error_fraction": 0.647342002019728,
+      "common_translation_squared_error_fraction": 0.9509815766239781,
+      "thresholds": {
+        "8": {
+          "accurate_slot_rate": 0.1168421052631579,
+          "capped_missing_mm": 7.732020807788732
+        },
+        "10": {
+          "accurate_slot_rate": 0.17812865497076025,
+          "capped_missing_mm": 9.43776235220426
+        },
+        "20": {
+          "accurate_slot_rate": 0.4378947368421053,
+          "capped_missing_mm": 16.218277920792676
+        },
+        "50": {
+          "accurate_slot_rate": 0.643859649122807,
+          "capped_missing_mm": 28.804754557715324
+        },
+        "100": {
+          "accurate_slot_rate": 0.66046783625731,
+          "capped_missing_mm": 46.0476173288149
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "ACE hybrid": "outputs/ace-hybrid-held-out",
+  "MediaPipe rotations": "outputs/mp-held-out",
+  "UmeTrack two-view": "outputs/ume-held-out",
+  "WiLoR stereo": "outputs/wilor-held/stereo",
+  "HaMeR stereo": "outputs/hamer-held/stereo",
+  "WiLoR MANO analytical LM": "outputs/parafit-held/analytic_lm",
+  "WiLoR MANO Adam": "outputs/parafit-held/adam",
+  "WiLoR HMP prior": "outputs/hmp-held",
+  "AnyHand WiLoR stereo": "outputs/anyhand-wilor-held/stereo",
+  "AnyHand WiLoR mono": "outputs/anyhand-wilor-held/mono",
+  "AnyHand HaMeR stereo": "outputs/anyhand-hamer-held/stereo",
+  "AnyHand HaMeR mono": "outputs/anyhand-hamer-held/mono",
+  "EgoForce hand-only stereo": "outputs/egoforce-held/stereo",
+  "EgoForce hand-only mono": "outputs/egoforce-held/mono",
+  "OmniHands two-view stereo": "outputs/omni-held/stereo",
+  "OmniHands two-view lift": "outputs/omni-held/mono",
+  "WiLoR mono": "outputs/wilor-held/mono",
+  "HaMeR mono": "outputs/hamer-held/mono",
+  "WiLoR MANO Adam temporal": "outputs/adam-temporal-held"
+}

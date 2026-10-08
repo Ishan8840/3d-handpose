@@ -1,12 +1,13 @@
 """Render held-out overlays from archived input video and saved predictions/GT."""
-import json
+import argparse,json
 from pathlib import Path
 import cv2
 import numpy as np
 from handpose.geometry.camera import Camera
 from handpose.models.base import EDGES
-camera=Camera(np.array([[320.,0,319.5],[0,320,319.5],[0,0,1]]));out=Path('reports/figures/failures');out.mkdir(parents=True,exist_ok=True);records=[]
-for folder in sorted(Path('outputs/ace-hybrid-held-out').iterdir()):
+parser=argparse.ArgumentParser();parser.add_argument('--root',default='outputs/ace-hybrid-held-out');parser.add_argument('--output',default='reports/figures/failures');args=parser.parse_args()
+camera=Camera(np.array([[320.,0,319.5],[0,320,319.5],[0,0,1]]));out=Path(args.output);out.mkdir(parents=True,exist_ok=True);records=[]
+for folder in sorted(Path(args.root).iterdir()):
     if not folder.is_dir():continue
     pred=np.load(folder/'predictions.npz');gt=np.load(folder/'ground_truth.npz');error=np.linalg.norm(pred['joints_3d']-gt['joints_3d'],axis=-1)*1000
     count=np.isfinite(error).sum(1);score=np.divide(np.nansum(error,axis=1),count,out=np.full(len(error),-1.),where=count>0)

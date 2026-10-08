@@ -26,6 +26,9 @@ def save_predictions(predictions, output, metadata):
 
 def main():
     dispatch=argparse.ArgumentParser(add_help=False);dispatch.add_argument('--model',default='mediapipe')
+    if dispatch.parse_known_args()[0].model in ('wilor','hamer'):
+        from .mesh_cli import main as mesh_main
+        return mesh_main()
     if dispatch.parse_known_args()[0].model=='ace':
         from .ace_cli import main as ace_main
         return ace_main()

@@ -46,5 +46,41 @@
   "manotorch": {
     "url": "https://github.com/lixiny/manotorch",
     "commit": "da235c9096a5560e2a09102c20f61abb4d0d2309"
+  },
+  "wilor": {
+    "url": "https://github.com/rolpotamias/WiLoR.git",
+    "commit": "fcb911312a38fa8badd30d9656a167485d61b8f9"
+  },
+  "hamer": {
+    "url": "https://github.com/geopavlakos/hamer.git",
+    "commit": "3a01849f4148352e9260b69bf28b65d1671a4905"
+  },
+  "egoforce": {
+    "url": "https://github.com/dfki-av/EgoForce.git",
+    "commit": "480ffb358516d0d7f971ec9da99b7bb07635731e"
+  },
+  "omnihands": {
+    "url": "https://github.com/LinDixuan/OmniHands.git",
+    "commit": "935e1f580975263be799ebf56932e27ab18e1a01"
+  },
+  "stablehand": {
+    "url": "https://github.com/huajian-zeng/stablehand.git",
+    "commit": "0471a45e325ffa167cc6a8484d712a21befd3e47"
+  },
+  "dynhamr": {
+    "url": "https://github.com/ZhengdiYu/Dyn-HaMR.git",
+    "commit": "fa9cd7412c205fd15ee4139c8caacf79bf6167e6"
+  },
+  "anyhand": {
+    "url": "https://github.com/chen-si-cs/AnyHand.git",
+    "commit": "de76afabeb49b6d58513ba895755dfdda39f8410"
+  },
+  "egohandicl": {
+    "url": "https://github.com/Nicous20/EgoHandICL.git",
+    "commit": "16e5690224fa718c1ddc40fc2972f6551b584f8b"
+  },
+  "parafit": {
+    "url": "https://github.com/marcilzakour/parafit.git",
+    "commit": "85ecd4639886b3be47aab96f1e6b9faaae0d23eb"
   }
 }

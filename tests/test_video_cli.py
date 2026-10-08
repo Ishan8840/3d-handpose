@@ -1,12 +1,14 @@
 """Weight-free real video decoding/encoding + metric export integration test."""
 import json,sys
+import pytest
 import cv2
 import numpy as np
 from handpose.geometry.camera import Camera
 from handpose.models.base import Observation
 from handpose.inference import cli
 
-def test_video_cli_exports_metric_pose_and_missing_frame(tmp_path,monkeypatch):
+@pytest.mark.parametrize('backend',['mediapipe','wilor'])
+def test_video_cli_exports_metric_pose_and_missing_frame(tmp_path,monkeypatch,backend):
     K=np.array([[120.,0,80],[0,120,60],[0,0,1]])
     T=np.eye(4);T[0,3]=-.1;cameras=[Camera(K),Camera(K,T)]
     xyz=np.random.default_rng(3).normal(0,.02,(21,3));xyz[:,2]+=.6
@@ -23,7 +25,14 @@ def test_video_cli_exports_metric_pose_and_missing_frame(tmp_path,monkeypatch):
             return [Observation(cameras[int(image.mean()>60)].project(xyz),np.ones(21))]
         def close(self):pass
     monkeypatch.setattr(cli,'create',lambda name:Detector())
-    monkeypatch.setattr(sys,'argv',['handpose-infer','--left',str(tmp_path/'left.mp4'),'--right',str(tmp_path/'right.mp4'),'--calibration',str(path),'--output',str(out)])
+    if backend=='wilor':
+        from handpose.inference import mesh_cli
+        class MeshDetector(Detector):
+            checkpoint='synthetic-test';load_status={}
+            def predict(self,image):
+                return [{'observation':o,'mano':{}} for o in super().predict(image)]
+        monkeypatch.setattr(mesh_cli,'MeshRegressor',lambda *args,**kwargs:MeshDetector())
+    monkeypatch.setattr(sys,'argv',['handpose-infer','--model',backend,'--left',str(tmp_path/'left.mp4'),'--right',str(tmp_path/'right.mp4'),'--calibration',str(path),'--output',str(out)])
     cli.main();pred=np.load(out/'predictions.npz')
     np.testing.assert_allclose(pred['joints_3d'][0],xyz,atol=1e-8)
     assert np.isnan(pred['joints_3d'][1]).all() and not pred['validity'][1].any()

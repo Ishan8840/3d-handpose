@@ -1,0 +1,10 @@
+{
+ "wilor":{"repo":"rolpotamias/WiLoR","type":"space","revision":"99fe3d7acff8104ecca1055df7467709506c2fa6"},
+ "anyhand":{"repo":"chen-si-02/AnyHand-Models","type":"model","revision":"7e62890787a701f41c80587de0b92f653d01a7fe"},
+ "egoforce":{"repo":"chris10/EgoForce","type":"model","revision":"5a57b4026babc5b35cb53627c2e1c709e1276b65"},
+ "stablehand":{"repo":"huajian-zeng/stablehand","type":"model","revision":"b523aa8c9875197ec7c5bf90025757ea1fc3de33"},
+ "stablehand_demo":{"repo":"huajian-zeng/stablehand","type":"dataset","revision":"48aa5fdc31100fea1155cfef41344fb8fee5b179"},
+ "omnihands":{"google_drive":"10EZF6qLQuTyrxS0glP23HFOAdiLQ9gy7","asset":"Demo_Multiview.pth"},
+ "dynhamr_hmp":{"google_drive":"1_rp_SMxZA6Gjm6Z49M6hXam9kjMD6-GQ","asset":"HMP model archive"},
+ "egohandicl":{"repo":"Nicous/EgoHandICL","type":"dataset","revision":"191027d0d59a17b32dd020b14054960e247a7851","status":"data files found, usable inference checkpoint not located"}
+}

@@ -93,3 +93,72 @@ The dense component is not included in the frozen final candidates.
 The inspected official checkpoint instructions still indicate a forthcoming
 checkpoint. No substitute weights, fabricated adapter output, or analytical-solver
 result is provided.
+
+## Expanded research environment and checkpoints
+
+The second round used `.venv-extra` (Python3.12, PyTorch2.11.0+cu128 on A100).
+`configs/environments/venv-extra.txt` records installed versions;
+`configs/models/expanded_sources.json` and `expanded_releases.json` pin sources
+and Hugging Face revisions. `expanded_checkpoint_hashes.json` records downloaded
+weight sizes/SHA256. Clean installation on a different GPU remains unverified.
+
+```bash
+python scripts/fetch_sources.py wilor hamer egoforce omnihands anyhand stablehand dynhamr egohandicl parafit
+python3.12 -m venv --system-site-packages .venv-extra
+.venv-extra/bin/python -m pip install --extra-index-url https://download.pytorch.org/whl/cu128 -r configs/environments/venv-extra.txt
+.venv-extra/bin/python -m pip install --no-deps -e third_party/parafit
+```
+
+MMCV2.1.0 was compiled for the A100 with `MAX_JOBS=4`,
+`TORCH_CUDA_ARCH_LIST=8.0`, `--no-build-isolation`; this is required only for the
+optional EgoForce forearm detector. EgoForce reuses the compiled PyTorch3D from
+`.venv-poem`; this explicit dependency is in its adapter. Its vendored MMDetection
+and datapipes source paths are loaded by the adapter, not stock MMDetection.
+Legacy trusted checkpoints require the recorded NumPy/inspect compatibility
+aliases and `TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1`; the adapters apply these locally.
+
+Download only pinned upstream assets and place them as follows:
+
+| Source | Local destination |
+|---|---|
+| WiLoR HF Space `pretrained_models/wilor_final.ckpt`, detector.pt, model_config.yaml | `third_party/wilor/pretrained_models/` |
+| WiLoR mean parameters from the same release | `third_party/wilor/mano_data/mano_mean_params.npz` |
+| Official HaMeR demo archive, `hamer_ckpts` subtree | `checkpoints/hamer/hamer_ckpts/` |
+| AnyHand `anyhand_wilor.ckpt`, `anyhand_hamer.ckpt` | `checkpoints/anyhand/` |
+| EgoForce model_weights.pth and epoch_460.pth | `third_party/egoforce/_DATA/` |
+| OmniHands Demo_Multiview.pth | `third_party/omnihands/checkpoints/` |
+| StableHand dit_hot3d/model.pt and qn/model.pt plus args.json | `third_party/stablehand/save/` |
+| Dyn-HaMR HMP encoder/NeMF weights and normalization files | `checkpoints/dynhamr/hmp_model/` |
+
+The user-supplied MANO assets are required; no model files are committed.
+`checkpoints/mano_converted` comes from the ACE converter above. The ParaFit
+adapter makes a separate sparse-regressor copy under `checkpoints/parafit/models`.
+StableHand's original demo also needs these under its `data_loaders/mano_models`.
+It uses released cached features and GT subject shape: it is **not** a fair
+predicted-input stereo baseline. Its data preprocessing remains unreleased in the
+inspected commit. The HMP experiment is a prior component, not full Dyn-HaMR.
+
+Reproduce measured variants with `scripts/benchmark_mesh_regressor.py`,
+`benchmark_parafit.py`, `benchmark_hmp.py`, and `refine_fitted.py`; their defaults
+and frozen experiment JSON files record all settings. AnyHand is a checkpoint
+override of the corresponding WiLoR/HaMeR adapter. EgoForce `--forearm` uses its
+released forearm detector but retains WiLoR hand detection; this is an adaptation,
+not the exact official tracking/TensorRT demo.
+
+For the recommended GT-free pipeline, run from the repository root:
+
+```bash
+.venv-extra/bin/python scripts/run_inference.py \
+  --model wilor --mano-fit adam --temporal-seconds .05 \
+  --left data/example/left.mp4 --right data/example/right.mp4 \
+  --calibration data/example/calibration.json --output outputs/example-wilor
+```
+
+Add `--rotate-cw` only for sideways native HOT3D images. Add `--timestamps` for
+an NPZ of synchronized `left`/`right` nanosecond timestamps. Undistort fisheye video
+and provide its corresponding pinhole calibration first. Outputs always use the
+original left optical camera frame in meters. `original_observation_type` retains
+the initial stereo mask; fitted/temporal points are classified separately. Wrist
+rotation is currently unavailable (NaN); MANO parameters saved by this CLI are
+initializers, not fitted output parameters. HMP requires per-frame camera/world
+tracking and is not the recommended generic stereo-video CLI.

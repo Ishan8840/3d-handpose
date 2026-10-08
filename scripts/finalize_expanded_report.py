@@ -1,4 +1,17 @@
-# Expanded stereo hand-pose research report
+"""Build the expanded report exclusively from executed comparison artifacts."""
+import json,shutil
+from pathlib import Path
+load=lambda p:json.loads(Path(p).read_text())
+held=load('reports/expanded_held_comparison/comparison.json');mano=load('reports/expanded_held_mano21/comparison.json');dev=load('reports/expanded_development_comparison/comparison.json');show=load('reports/expanded_show3d_comparison/comparison.json');overlap=load('reports/error_overlap_held.json');diag=load('reports/expanded_analysis/diagnostics.json')
+selected='WiLoR MANO Adam temporal'
+fmt=lambda x:'—' if x is None else f'{x:.2f}'
+def table(models):
+ lines=['| Method | Abs MPJPE mm | Wrist mm | Tips mm | Coverage % | P90 mm | Capped100 mm |','|---|---:|---:|---:|---:|---:|---:|']
+ for n,m in models.items():lines.append('| '+n+' | '+' | '.join(fmt(x) for x in [m['absolute_mpjpe_mm'],m['wrist_mm'],m['fingertips_mm'],100*m['joint_coverage'],m['p90_mm'],m['capped_error_with_missing_penalty_mm']])+' |')
+ return '\n'.join(lines)
+key_names=[selected,'WiLoR MANO Adam','WiLoR MANO analytical LM','WiLoR stereo','HaMeR stereo','ACE hybrid','WiLoR HMP prior']
+ci=mano['paired']['ACE hybrid minus '+selected];m=mano['models'][selected]
+text=f'''# Expanded stereo hand-pose research report
 
 ## Recommendation
 
@@ -9,11 +22,11 @@ engineering choice across several metrics, not the winner of every individual
 metric or proof of global state of the art.
 
 On450 held-out HOT3D frames from three participants, the anatomical MANO-21
-reference gives **24.27mm absolute MPJPE,
-29.94mm wrist error, 26.98mm fingertip error,
-67.33% joint coverage and 35.64mm P90**.
-Median error is14.60mm. Complete21-joint frame coverage is also
-67.33%. **The requested sub10mm and95% coverage
+reference gives **{m['absolute_mpjpe_mm']:.2f}mm absolute MPJPE,
+{m['wrist_mm']:.2f}mm wrist error, {m['fingertips_mm']:.2f}mm fingertip error,
+{100*m['joint_coverage']:.2f}% joint coverage and {m['p90_mm']:.2f}mm P90**.
+Median error is{m['median_mm']:.2f}mm. Complete21-joint frame coverage is also
+{100*m['frame_coverage_all_eligible']:.2f}%. **The requested sub10mm and95% coverage
 targets were not achieved.** Wrist orientation remains unavailable in the CLI.
 
 Raw WiLoR stereo has lower observed MPJPE on fewer joints; HaMeR stereo has
@@ -49,50 +62,22 @@ weights. Complete checkpoint training-participant provenance is not established.
 
 ## Anatomical MANO-21 held-out comparison
 
-| Method | Abs MPJPE mm | Wrist mm | Tips mm | Coverage % | P90 mm | Capped100 mm |
-|---|---:|---:|---:|---:|---:|---:|
-| WiLoR MANO Adam temporal | 24.27 | 29.94 | 26.98 | 67.33 | 35.64 | 45.69 |
-| WiLoR MANO Adam | 24.90 | 30.03 | 28.16 | 67.33 | 37.57 | 46.22 |
-| WiLoR MANO analytical LM | 24.98 | 27.44 | 28.82 | 67.33 | 40.17 | 46.61 |
-| WiLoR stereo | 22.89 | 21.38 | 30.96 | 58.12 | 40.93 | 53.75 |
-| HaMeR stereo | 23.05 | 18.74 | 24.90 | 57.23 | 44.87 | 55.37 |
-| ACE hybrid | 27.18 | 30.90 | 25.82 | 58.01 | 52.09 | 57.41 |
-| WiLoR HMP prior | 55.36 | 64.70 | 58.17 | 100.00 | 144.70 | 41.28 |
+{table({n:mano['models'][n] for n in key_names})}
 
 Relative to ACE, the recommendation improves the capped score by
-11.72mm; paired sequence-bootstrap95% CI
-[6.68,15.04]mm
+{ci['mean_paired_delta_mm']:.2f}mm; paired sequence-bootstrap95% CI
+[{ci['sequence_bootstrap_95ci'][0]:.2f},{ci['sequence_bootstrap_95ci'][1]:.2f}]mm
 for ACE minus recommended. Only three clusters are available: intervals are
 coarse and cannot establish broad generalization. Full paired comparisons,
 including differences statistically indistinguishable from zero, are in
 [the anatomical comparison JSON](expanded_held_mano21/comparison.json).
 
-The recommendation's PA-MPJPE is8.79mm, reported separately;
+The recommendation's PA-MPJPE is{m['pa_mpjpe_mm']:.2f}mm, reported separately;
 it is **not** its absolute positional accuracy.
 
 ## All executed expanded held-out variants: common19
 
-| Method | Abs MPJPE mm | Wrist mm | Tips mm | Coverage % | P90 mm | Capped100 mm |
-|---|---:|---:|---:|---:|---:|---:|
-| ACE hybrid | 28.28 | — | 25.97 | 57.65 | 53.10 | 58.28 |
-| MediaPipe rotations | 47.80 | — | 38.04 | 23.26 | 88.80 | 84.52 |
-| UmeTrack two-view | 34.65 | — | 41.11 | 22.22 | 67.20 | 84.86 |
-| WiLoR stereo | 23.91 | — | 30.84 | 58.21 | 42.90 | 54.13 |
-| HaMeR stereo | 24.23 | — | 24.97 | 57.18 | 46.65 | 56.01 |
-| WiLoR MANO analytical LM | 25.69 | — | 28.78 | 67.33 | 41.73 | 47.14 |
-| WiLoR MANO Adam | 25.31 | — | 28.18 | 67.33 | 38.41 | 46.54 |
-| WiLoR HMP prior | 55.42 | — | 58.33 | 100.00 | 146.93 | 41.05 |
-| AnyHand WiLoR stereo | 24.89 | — | 34.22 | 58.05 | 45.22 | 55.01 |
-| AnyHand WiLoR mono | 57.50 | — | 61.96 | 71.56 | 102.82 | 68.07 |
-| AnyHand HaMeR stereo | 26.53 | — | 38.96 | 54.88 | 44.21 | 57.77 |
-| AnyHand HaMeR mono | 47.11 | — | 51.57 | 71.56 | 84.16 | 61.04 |
-| EgoForce hand-only stereo | 55.95 | — | 59.16 | 40.41 | 86.23 | 74.31 |
-| EgoForce hand-only mono | 82.93 | — | 87.62 | 65.84 | 236.40 | 69.67 |
-| OmniHands two-view stereo | 29.92 | — | 36.12 | 53.11 | 53.98 | 62.28 |
-| OmniHands two-view lift | 103.86 | — | 108.19 | 69.78 | 190.26 | 80.84 |
-| WiLoR mono | 39.93 | — | 44.17 | 71.56 | 69.77 | 56.96 |
-| HaMeR mono | 44.04 | — | 50.07 | 71.56 | 71.36 | 59.05 |
-| WiLoR MANO Adam temporal | 24.68 | — | 26.93 | 67.33 | 36.28 | 46.05 |
+{table(held['models'])}
 
 POEM was measured on development but did not advance. The original RTMPose,
 MediaPipe/RTMPose fusion and dense-stereo pilots cover smaller subsets and are
@@ -104,29 +89,7 @@ monocular and its released network does not consume the stereo calibration.
 
 ## Development results and what improved
 
-| Method | Abs MPJPE mm | Wrist mm | Tips mm | Coverage % | P90 mm | Capped100 mm |
-|---|---:|---:|---:|---:|---:|---:|
-| ACE hybrid | 25.97 | — | 31.17 | 50.42 | 41.53 | 61.44 |
-| MediaPipe rotations | 120.18 | — | 103.00 | 55.13 | 610.73 | 63.82 |
-| UmeTrack two-view | 86.65 | — | 89.94 | 49.33 | 70.75 | 65.29 |
-| POEM two-view | 163.70 | — | 160.62 | 60.89 | 654.12 | 68.58 |
-| WiLoR stereo | 30.84 | — | 34.47 | 51.72 | 38.42 | 58.28 |
-| WiLoR mono | 96.18 | — | 100.83 | 57.33 | 141.70 | 75.62 |
-| AnyHand WiLoR stereo | 37.98 | — | 42.70 | 51.50 | 44.19 | 60.16 |
-| AnyHand WiLoR mono | 108.40 | — | 114.45 | 57.33 | 173.61 | 83.46 |
-| HaMeR stereo | 34.06 | — | 33.85 | 50.98 | 40.76 | 59.27 |
-| HaMeR mono | 100.39 | — | 106.25 | 57.33 | 151.65 | 79.75 |
-| AnyHand HaMeR stereo | 36.86 | — | 35.74 | 51.13 | 41.06 | 59.39 |
-| AnyHand HaMeR mono | 94.95 | — | 100.78 | 57.33 | 133.13 | 78.59 |
-| EgoForce hand-only stereo | 36.20 | — | 44.93 | 47.53 | 52.56 | 64.17 |
-| EgoForce hand-only mono | 61.56 | — | 65.81 | 55.54 | 58.39 | 62.04 |
-| OmniHands two-view stereo | 39.80 | — | 41.53 | 49.39 | 53.52 | 64.49 |
-| OmniHands two-view lift | 111.45 | — | 117.64 | 56.22 | 148.41 | 88.88 |
-| WiLoR MANO analytical LM | 33.46 | — | 35.48 | 54.89 | 37.34 | 55.01 |
-| WiLoR MANO Adam | 32.25 | — | 33.01 | 54.89 | 27.01 | 54.36 |
-| WiLoR HMP prior | 35.34 | — | 35.55 | 66.67 | 107.17 | 52.45 |
-| EgoForce forearm stereo | 33.84 | — | 40.40 | 46.32 | 49.31 | 64.74 |
-| EgoForce forearm mono | 50.80 | — | 53.66 | 54.06 | 49.96 | 60.95 |
+{table(dev['models'])}
 
 The analytical ParaFit solver is the released UA-Fit optimizer core, initialized
 with predicted WiLoR pose/shape and observations. Adam uses the same measured2D,
@@ -173,15 +136,7 @@ using predicted crops and each frame's official camera transforms. Configuration
 were transferred from HOT3D. This is an external development check, not the
 unexecuted SHOW3D held-out partition; its annotation convention is separate.
 
-| Method | Abs MPJPE mm | Wrist mm | Tips mm | Coverage % | P90 mm | Capped100 mm |
-|---|---:|---:|---:|---:|---:|---:|
-| MediaPipe rotations | 20.49 | — | 26.88 | 13.50 | 41.57 | 89.26 |
-| ACE hybrid | 30.13 | — | 33.39 | 60.94 | 58.77 | 57.40 |
-| WiLoR stereo | 20.70 | — | 22.65 | 60.19 | 36.95 | 51.28 |
-| HaMeR stereo | 20.51 | — | 23.22 | 58.10 | 37.30 | 52.90 |
-| WiLoR MANO analytical LM | 22.03 | — | 23.61 | 79.22 | 39.43 | 37.30 |
-| WiLoR MANO Adam | 21.19 | — | 22.95 | 79.22 | 38.83 | 36.65 |
-| WiLoR MANO Adam temporal | 19.53 | — | 20.47 | 82.78 | 35.57 | 32.79 |
+{table(show['models'])}
 
 ## Correlated errors and complementary information
 
@@ -194,13 +149,10 @@ significance tests.
 
 | Pair | Error Spearman | Failure Jaccard | Both missing % | Error-vector cosine |
 |---|---:|---:|---:|---:|
-| ACE hybrid vs WiLoR stereo | 0.21 | 0.64 | 32.87 | 0.28 |
-| ACE hybrid vs WiLoR MANO Adam | 0.24 | 0.63 | 29.75 | 0.31 |
-| WiLoR stereo vs HaMeR stereo | 0.52 | 0.74 | 36.89 | 0.61 |
-| WiLoR stereo vs AnyHand WiLoR stereo | 0.55 | 0.76 | 37.23 | 0.60 |
-| HaMeR stereo vs AnyHand HaMeR stereo | 0.46 | 0.75 | 37.93 | 0.56 |
-| WiLoR stereo vs WiLoR MANO Adam | 0.57 | 0.73 | 32.30 | 0.70 |
-
+'''
+for pair in ['ACE hybrid vs WiLoR stereo','ACE hybrid vs WiLoR MANO Adam','WiLoR stereo vs HaMeR stereo','WiLoR stereo vs AnyHand WiLoR stereo','HaMeR stereo vs AnyHand HaMeR stereo','WiLoR stereo vs WiLoR MANO Adam']:
+ d=overlap['pairs'][pair];text+='| '+pair+' | '+' | '.join(fmt(x) for x in [d['error_spearman_common'],d['failure_jaccard'],100*d['both_missing_rate'],d['error_vector_cosine_common']])+' |\n'
+text+='''
 ACE and WiLoR provide partly different localization errors, yet often fail on the
 same hard observations. WiLoR, HaMeR and their AnyHand variants share the WiLoR
 hand detector/crop protocol here; correlated misses therefore cannot be attributed
@@ -221,11 +173,10 @@ and per-joint overlap statistics are in[the overlap JSON](error_overlap_held.jso
 
 ![Accuracy counting every annotated slot](expanded_analysis/accuracy_coverage.png)
 
-- WiLoR MANO Adam temporal: 43.79% of all annotated common19 slots within20mm, counting misses as failures.
-- WiLoR stereo: 36.76% of all annotated common19 slots within20mm, counting misses as failures.
-- ACE hybrid: 24.76% of all annotated common19 slots within20mm, counting misses as failures.
-- WiLoR HMP prior: 37.42% of all annotated common19 slots within20mm, counting misses as failures.
-
+'''
+for n in [selected,'WiLoR stereo','ACE hybrid','WiLoR HMP prior']:
+ d=diag['models'][n];text+=f"- {n}: {100*d['thresholds']['20']['accurate_slot_rate']:.2f}% of all annotated common19 slots within20mm, counting misses as failures.\n"
+text+='''
 The per-frame mean error decomposition finds that much of MANO-fitting residual
 energy is shared translation, rather than independent finger distortion. For
 unsmoothed MANO Adam,94.5% of squared error is in this common component and65.2%
@@ -267,9 +218,9 @@ does not resolve joint semantics. No access restrictions were bypassed.
 ## Inference and reproducibility
 
 ```bash
-.venv-extra/bin/python scripts/run_inference.py \
-  --model wilor --mano-fit adam --temporal-seconds .05 \
-  --left data/example/left.mp4 --right data/example/right.mp4 \
+.venv-extra/bin/python scripts/run_inference.py \\
+  --model wilor --mano-fit adam --temporal-seconds .05 \\
+  --left data/example/left.mp4 --right data/example/right.mp4 \\
   --calibration data/example/calibration.json --output outputs/example-wilor
 ```
 
@@ -305,18 +256,21 @@ participants and verify pretrained-data overlap before generalizing this ranking
 A broader dense-depth or learned temporal study is justified only with accurate
 visible-surface association and explicit missing-frame scoring. EgoStandard needs
 authoritative joint/coordinate documentation before anatomical benchmarking.
-
-Dedicated final30-frame CLI: exit0, wall time25.85s, peak sampled device memory[3368]MiB (cold process, includes startup).
-
-EgoStandard unsmoothed WiLoR+MANO integration: 547frames, 81.90% valid output joint slots. No GT accuracy is inferred from this coverage.
-
-### Recorded expanded-run timing (not controlled speed ranking)
-
-| Method | Mean seconds/frame, both reconstruction variants |
-|---|---:|
-| WiLoR | 0.113 |
-| HaMeR | 0.124 |
-| EgoForce hand-only | 0.230 |
-| OmniHands | 0.249 |
-
-These per-frame timers exclude model startup and input decoding, include mono/lift plus stereo export computation, and ran with concurrent jobs. MANO fitting and temporal refinement add work. Use the dedicated end-to-end CLI profile for the deployable pipeline; no controlled all-model steady-state speed claim is made.
+'''
+profile=Path('outputs/wilor-final-profile.json')
+if profile.exists():
+ p=load(profile);text+=f"\nDedicated final30-frame CLI: exit{p['exit_code']}, wall time{p['elapsed_seconds']:.2f}s, peak sampled device memory{p['peak_sampled_device_memory_MiB']}MiB (cold process, includes startup).\n"
+ego=Path('outputs/egostandard-wilor-adam/metadata.json')
+if ego.exists():
+ import numpy as np
+ q=np.load(ego.parent/'predictions.npz');text+=f"\nEgoStandard unsmoothed WiLoR+MANO integration: {len(q['timestamps'])}frames, {100*q['validity'].mean():.2f}% valid output joint slots. No GT accuracy is inferred from this coverage.\n"
+text+='\n### Recorded expanded-run timing (not controlled speed ranking)\n\n| Method | Mean seconds/frame, both reconstruction variants |\n|---|---:|\n'
+for name,root in [('WiLoR','outputs/wilor-held/stereo'),('HaMeR','outputs/hamer-held/stereo'),('EgoForce hand-only','outputs/egoforce-held/stereo'),('OmniHands','outputs/omni-held/stereo')]:
+ values=[load(p).get('seconds_per_frame_both_methods') for p in Path(root).glob('*/metadata.json')]
+ values=[v for v in values if v is not None]
+ if values:text+=f'| {name} | {sum(values)/len(values):.3f} |\n'
+text+='\nThese per-frame timers exclude model startup and input decoding, include mono/lift plus stereo export computation, and ran with concurrent jobs. MANO fitting and temporal refinement add work. Use the dedicated end-to-end CLI profile for the deployable pipeline; no controlled all-model steady-state speed claim is made.\n'
+old=Path('reports/round_one_research_report.md')
+if not old.exists():shutil.copy2('reports/final_research_report.md',old)
+Path('reports/final_research_report.md').write_text(text)
+print('Wrote expanded measured report')

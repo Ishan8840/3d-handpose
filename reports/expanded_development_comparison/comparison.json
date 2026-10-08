@@ -55,7 +55,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.5016374269005848,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0025730994152046785
+        "temporal_fill_only": 0.0025730994152046785,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -265,7 +266,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.551345029239766,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -475,7 +477,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.0,
         "multiview_model": 0.49333333333333335,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -685,7 +688,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.0,
         "multiview_model": 0.6088888888888889,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -895,7 +899,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.5171929824561403,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -1105,7 +1110,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.0,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -1315,7 +1321,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.5149707602339181,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -1525,7 +1532,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.0,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -1735,7 +1743,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.5098245614035087,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -1945,7 +1954,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.0,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -2155,7 +2165,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.5113450292397661,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -2365,7 +2376,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.0,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -2575,7 +2587,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.4753216374269006,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -2785,7 +2798,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.0,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -2995,7 +3009,8 @@
       "provenance_coverage": {
         "direct_stereo_initial": 0.49391812865497076,
         "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -3204,8 +3219,9 @@
       },
       "provenance_coverage": {
         "direct_stereo_initial": 0.0,
-        "multiview_model": 0.0,
-        "temporal_fill_only": 0.0
+        "multiview_model": 0.5622222222222222,
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
       },
       "per_sequence": {
         "P0003_01a10066": {
@@ -3363,6 +3379,1061 @@
         68.26292002367114,
         100.0
       ]
+    },
+    "WiLoR MANO analytical LM": {
+      "absolute_mpjpe_mm": 33.46269914265761,
+      "wrist_relative_mpjpe_mm": null,
+      "pa_mpjpe_mm": 10.156973196990306,
+      "wrist_mm": null,
+      "fingertips_mm": 35.47748929512642,
+      "joint_coverage": 0.5488888888888889,
+      "frame_coverage_any": 0.5488888888888889,
+      "frame_coverage_all_eligible": 0.5488888888888889,
+      "eligible_joints": 8550,
+      "observed_joints": 4693,
+      "per_joint_mm": [
+        null,
+        null,
+        28.71435259448842,
+        33.21661617052826,
+        31.65285834417462,
+        33.825589476200136,
+        28.11931020461139,
+        25.536569582410227,
+        28.679163039772927,
+        36.38546018774501,
+        29.923231054119665,
+        27.744826126947732,
+        29.764969588614065,
+        33.645677374335605,
+        34.26680025323375,
+        34.42926060199981,
+        38.74645616892196,
+        36.29993322059394,
+        37.54847894620045,
+        38.74773144144815,
+        48.54399933414853
+      ],
+      "median_mm": 11.687813460173214,
+      "p90_mm": 37.33831484031972,
+      "p95_mm": 61.726717314689836,
+      "capped_error_with_missing_penalty_mm": 55.009654998897915,
+      "missing_penalty_mm": 100.0,
+      "depth_mae_mm": 17.622126621017824,
+      "lateral_error_mm": 25.08784128012327,
+      "tracking_discontinuities": 378,
+      "by_depth": {
+        "0-0.3m": 517.3669420460301,
+        "0.3-0.5m": 15.008561017976083,
+        "0.5-0.8m": 17.989614098078178,
+        "0.8-2.0m": null
+      },
+      "provenance_coverage": {
+        "direct_stereo_initial": 0.5167251461988304,
+        "multiview_model": 0.0,
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.03216374269005848
+      },
+      "per_sequence": {
+        "P0003_01a10066": {
+          "absolute_mpjpe_mm": 13.560328568807744,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 9.522998286305,
+          "wrist_mm": null,
+          "fingertips_mm": 16.807385494194868,
+          "joint_coverage": 1.0,
+          "frame_coverage_any": 1.0,
+          "frame_coverage_all_eligible": 1.0,
+          "eligible_joints": 2850,
+          "observed_joints": 2850,
+          "per_joint_mm": [
+            null,
+            null,
+            8.21693930839935,
+            10.258189992663,
+            11.588563396918655,
+            11.151943726431893,
+            7.498006308144287,
+            5.804067269663544,
+            9.764654126542215,
+            15.45027534660819,
+            9.15829097600695,
+            8.114299221303797,
+            9.94032351235865,
+            12.69939325397928,
+            15.56002821036273,
+            16.646115274849787,
+            22.17097596828087,
+            13.900421076246355,
+            18.32647564041497,
+            20.824869731298673,
+            30.57241046687394
+          ],
+          "median_mm": 9.915254308912724,
+          "p90_mm": 27.935661437653316,
+          "p95_mm": 40.50085500015861,
+          "capped_error_with_missing_penalty_mm": 13.560328568807744,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 10.382809144802284,
+          "lateral_error_mm": 7.061869745074588,
+          "tracking_discontinuities": 0,
+          "acceleration_error_m_s2": 12.917117631164746,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 13.524185105500122,
+            "0.5-0.8m": 65.02862031886264,
+            "0.8-2.0m": null
+          }
+        },
+        "P0013_0ec32d10": {
+          "absolute_mpjpe_mm": 17.884576321888005,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 9.630690698319599,
+          "wrist_mm": null,
+          "fingertips_mm": 19.479855217540994,
+          "joint_coverage": 0.5866666666666667,
+          "frame_coverage_any": 0.5866666666666667,
+          "frame_coverage_all_eligible": 0.5866666666666667,
+          "eligible_joints": 2850,
+          "observed_joints": 1672,
+          "per_joint_mm": [
+            null,
+            null,
+            9.910690389932807,
+            19.21769950286701,
+            14.104585685647544,
+            17.632739858061097,
+            11.469609219306506,
+            9.850026754922304,
+            11.620811005961558,
+            19.051971772225702,
+            16.192107950817807,
+            14.043809084996854,
+            16.564051505972145,
+            17.06906909028828,
+            18.609986589710175,
+            19.07441418160155,
+            21.82605770387868,
+            23.610130981747435,
+            22.825530752680276,
+            23.84988789900932,
+            33.28377018624503
+          ],
+          "median_mm": 13.675064772570838,
+          "p90_mm": 31.574011559762724,
+          "p95_mm": 43.00298161189015,
+          "capped_error_with_missing_penalty_mm": 51.46863642788601,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 14.224455636011275,
+          "lateral_error_mm": 9.13750388817628,
+          "tracking_discontinuities": 42,
+          "acceleration_error_m_s2": 11.091372396964015,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 17.92540531906369,
+            "0.5-0.8m": 17.75558919150711,
+            "0.8-2.0m": null
+          }
+        },
+        "P0018_15ad9743": {
+          "absolute_mpjpe_mm": 517.4882985099026,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 25.869095028747804,
+          "wrist_mm": null,
+          "fingertips_mm": 503.0671969581542,
+          "joint_coverage": 0.06,
+          "frame_coverage_any": 0.06,
+          "frame_coverage_all_eligible": 0.06,
+          "eligible_joints": 2850,
+          "observed_joints": 171,
+          "per_joint_mm": [
+            null,
+            null,
+            554.1959378071832,
+            552.7353487743039,
+            537.6408845707053,
+            570.0497704608083,
+            534.604784779822,
+            507.79113799695904,
+            510.7137537019961,
+            554.7882053806585,
+            510.26543603272756,
+            488.8857745200885,
+            489.2513810009252,
+            544.8328048242927,
+            499.1351790110925,
+            480.9512921650609,
+            480.4483556155853,
+            533.703201961775,
+            501.8729163792667,
+            483.12989680334147,
+            497.28160990155925
+          ],
+          "median_mm": 520.9716892773234,
+          "p90_mm": 601.729632036767,
+          "p95_mm": 612.7506157585677,
+          "capped_error_with_missing_penalty_mm": 100.0,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 171.4990897446742,
+          "lateral_error_mm": 481.47955469663856,
+          "tracking_discontinuities": 336,
+          "acceleration_error_m_s2": null,
+          "by_depth": {
+            "0-0.3m": 517.3669420460301,
+            "0.3-0.5m": 538.1188973682489,
+            "0.5-0.8m": null,
+            "0.8-2.0m": null
+          }
+        }
+      },
+      "capped_score_sequence_bootstrap_95ci": [
+        13.560328568807744,
+        100.0
+      ]
+    },
+    "WiLoR MANO Adam": {
+      "absolute_mpjpe_mm": 32.24814493354465,
+      "wrist_relative_mpjpe_mm": null,
+      "pa_mpjpe_mm": 7.878080286552439,
+      "wrist_mm": null,
+      "fingertips_mm": 33.005041473059045,
+      "joint_coverage": 0.5488888888888889,
+      "frame_coverage_any": 0.5488888888888889,
+      "frame_coverage_all_eligible": 0.5488888888888889,
+      "eligible_joints": 8550,
+      "observed_joints": 4693,
+      "per_joint_mm": [
+        null,
+        null,
+        28.98715573550013,
+        32.04264415463387,
+        30.938483194082238,
+        31.924507836614012,
+        28.010782666496482,
+        26.630532184217795,
+        28.339501588066717,
+        35.99789947965913,
+        29.880491627962144,
+        28.711160457881505,
+        30.255954157559636,
+        33.8103320828316,
+        32.365819910965214,
+        32.90196442446572,
+        33.97629334721665,
+        35.80271546366679,
+        34.68924816461108,
+        35.93429218254775,
+        41.514975078369964
+      ],
+      "median_mm": 11.758779300094249,
+      "p90_mm": 27.013087159299747,
+      "p95_mm": 49.24856309335932,
+      "capped_error_with_missing_penalty_mm": 54.359321839743814,
+      "missing_penalty_mm": 100.0,
+      "depth_mae_mm": 16.492360421500063,
+      "lateral_error_mm": 24.72505043010987,
+      "tracking_discontinuities": 378,
+      "by_depth": {
+        "0-0.3m": 517.3634002494804,
+        "0.3-0.5m": 13.721715037747964,
+        "0.5-0.8m": 17.002529431261166,
+        "0.8-2.0m": null
+      },
+      "provenance_coverage": {
+        "direct_stereo_initial": 0.5167251461988304,
+        "multiview_model": 0.0,
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.03216374269005848
+      },
+      "per_sequence": {
+        "P0003_01a10066": {
+          "absolute_mpjpe_mm": 12.224657382061176,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 7.3509680723177375,
+          "wrist_mm": null,
+          "fingertips_mm": 13.854056693258773,
+          "joint_coverage": 1.0,
+          "frame_coverage_any": 1.0,
+          "frame_coverage_all_eligible": 1.0,
+          "eligible_joints": 2850,
+          "observed_joints": 2850,
+          "per_joint_mm": [
+            null,
+            null,
+            9.665853872314731,
+            10.23800593265892,
+            12.103590633599076,
+            11.162386630731268,
+            7.976539034800195,
+            7.10238336394258,
+            9.468130663956854,
+            15.343743731068711,
+            8.993313368235574,
+            8.424736979928305,
+            9.668210440121138,
+            12.896394997242744,
+            12.216708883809694,
+            13.539969636557847,
+            14.490757454942871,
+            14.006439879055884,
+            14.30140485604928,
+            17.130325626472757,
+            23.53959427367392
+          ],
+          "median_mm": 9.9653920993131,
+          "p90_mm": 21.979646492768506,
+          "p95_mm": 27.816274144632587,
+          "capped_error_with_missing_penalty_mm": 12.224657382061176,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 9.020659369070419,
+          "lateral_error_mm": 6.831579095024224,
+          "tracking_discontinuities": 0,
+          "acceleration_error_m_s2": 10.641678248416737,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 12.199508037499148,
+            "0.5-0.8m": 48.037324038386345,
+            "0.8-2.0m": null
+          }
+        },
+        "P0013_0ec32d10": {
+          "absolute_mpjpe_mm": 16.750661834014203,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 7.17969152142819,
+          "wrist_mm": null,
+          "fingertips_mm": 17.340374841881783,
+          "joint_coverage": 0.5866666666666667,
+          "frame_coverage_any": 0.5866666666666667,
+          "frame_coverage_all_eligible": 0.5866666666666667,
+          "eligible_joints": 2850,
+          "observed_joints": 1672,
+          "per_joint_mm": [
+            null,
+            null,
+            8.812218440285372,
+            16.981919536219106,
+            12.697055105077153,
+            12.44873172904618,
+            11.045364540582291,
+            10.715476821750514,
+            10.872681238836542,
+            18.35612778466268,
+            16.234247633579113,
+            15.4589661301981,
+            17.61519667416563,
+            17.41069516922346,
+            18.682897824296937,
+            19.098030272922088,
+            20.453930427103565,
+            22.255897673907576,
+            21.93741931272668,
+            22.122707767460852,
+            25.063010764226018
+          ],
+          "median_mm": 13.548697959919664,
+          "p90_mm": 25.01075562169113,
+          "p95_mm": 38.12772198469308,
+          "capped_error_with_missing_penalty_mm": 50.85330813717027,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 13.165146252759662,
+          "lateral_error_mm": 8.527863629458837,
+          "tracking_discontinuities": 42,
+          "acceleration_error_m_s2": 8.854613162515646,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 16.7198105073378,
+            "0.5-0.8m": 16.84812746804164,
+            "0.8-2.0m": null
+          }
+        },
+        "P0018_15ad9743": {
+          "absolute_mpjpe_mm": 517.5038833203448,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 23.491974005012352,
+          "wrist_mm": null,
+          "fingertips_mm": 505.35375041901887,
+          "joint_coverage": 0.06,
+          "frame_coverage_any": 0.06,
+          "frame_coverage_all_eligible": 0.06,
+          "eligible_joints": 2850,
+          "observed_joints": 171,
+          "per_joint_mm": [
+            null,
+            null,
+            548.274907008468,
+            542.7136996787162,
+            523.2139894057404,
+            568.3896720975453,
+            527.79893153704,
+            507.7135538440404,
+            513.6490381823706,
+            552.731151862798,
+            511.4300705684834,
+            496.3952296277835,
+            496.9835337302759,
+            542.727955553481,
+            501.9729085443135,
+            490.57367814913454,
+            490.9538845484407,
+            531.5317491514943,
+            499.1711854146219,
+            484.38033795353635,
+            501.96830622826684
+          ],
+          "median_mm": 519.7174471047241,
+          "p90_mm": 598.2527504575969,
+          "p95_mm": 610.7068025810763,
+          "capped_error_with_missing_penalty_mm": 100.0,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 173.5534720563446,
+          "lateral_error_mm": 481.32206584345846,
+          "tracking_discontinuities": 336,
+          "acceleration_error_m_s2": null,
+          "by_depth": {
+            "0-0.3m": 517.3634002494804,
+            "0.3-0.5m": 541.386005367287,
+            "0.5-0.8m": null,
+            "0.8-2.0m": null
+          }
+        }
+      },
+      "capped_score_sequence_bootstrap_95ci": [
+        12.224657382061176,
+        100.0
+      ]
+    },
+    "WiLoR HMP prior": {
+      "absolute_mpjpe_mm": 35.33634716734912,
+      "wrist_relative_mpjpe_mm": null,
+      "pa_mpjpe_mm": 9.969491645305736,
+      "wrist_mm": null,
+      "fingertips_mm": 35.55076095359943,
+      "joint_coverage": 0.6666666666666666,
+      "frame_coverage_any": 0.6666666666666666,
+      "frame_coverage_all_eligible": 0.6666666666666666,
+      "eligible_joints": 8550,
+      "observed_joints": 5700,
+      "per_joint_mm": [
+        null,
+        null,
+        27.819694268615585,
+        29.31066174573867,
+        23.548821457355036,
+        32.200419592333574,
+        28.08667788045224,
+        26.04114091148985,
+        26.232804103652235,
+        39.67266189208109,
+        34.55292084041409,
+        33.334447867390864,
+        35.05879958784747,
+        37.74748272307229,
+        40.00618797691436,
+        41.27719167281555,
+        43.69485506803286,
+        37.538764410909316,
+        41.78973792147932,
+        44.25880170792945,
+        49.21852455110956
+      ],
+      "median_mm": 15.517793583309025,
+      "p90_mm": 107.16964141892974,
+      "p95_mm": 159.3355439744933,
+      "capped_error_with_missing_penalty_mm": 52.4544870765637,
+      "missing_penalty_mm": 100.0,
+      "depth_mae_mm": 27.24163039835158,
+      "lateral_error_mm": 20.09093264232405,
+      "tracking_discontinuities": 0,
+      "by_depth": {
+        "0-0.3m": 145.25093361716847,
+        "0.3-0.5m": 33.892330965615685,
+        "0.5-0.8m": 16.50313241764012,
+        "0.8-2.0m": null
+      },
+      "provenance_coverage": {
+        "direct_stereo_initial": 0.5033918128654971,
+        "multiview_model": 0.0,
+        "temporal_fill_only": 0.1632748538011696,
+        "anatomical_fill": 0.0
+      },
+      "per_sequence": {
+        "P0003_01a10066": {
+          "absolute_mpjpe_mm": 15.432130737861252,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 10.068840099940012,
+          "wrist_mm": null,
+          "fingertips_mm": 18.17690885623649,
+          "joint_coverage": 1.0,
+          "frame_coverage_any": 1.0,
+          "frame_coverage_all_eligible": 1.0,
+          "eligible_joints": 2850,
+          "observed_joints": 2850,
+          "per_joint_mm": [
+            null,
+            null,
+            10.579251573676347,
+            12.578285048523181,
+            11.602331319783424,
+            12.414428348578724,
+            10.125213631137331,
+            9.652513564678069,
+            12.21603204657062,
+            17.64655938646281,
+            12.758019296951758,
+            11.517971693411946,
+            12.471131453934898,
+            13.232757765164061,
+            19.10383691566404,
+            21.725781109174918,
+            23.839209685523457,
+            11.426017695931693,
+            17.502539558782672,
+            22.062764150043805,
+            30.755839775370053
+          ],
+          "median_mm": 12.102547129602584,
+          "p90_mm": 30.248891153588247,
+          "p95_mm": 39.1342787948953,
+          "capped_error_with_missing_penalty_mm": 15.432130737861252,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 12.331284070749673,
+          "lateral_error_mm": 7.588441016455508,
+          "tracking_discontinuities": 0,
+          "acceleration_error_m_s2": 10.971556596164652,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 15.399176527517517,
+            "0.5-0.8m": 62.358926267343804,
+            "0.8-2.0m": null
+          }
+        },
+        "P0013_0ec32d10": {
+          "absolute_mpjpe_mm": 55.240563596837006,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 9.87014319067146,
+          "wrist_mm": null,
+          "fingertips_mm": 52.92461305096237,
+          "joint_coverage": 1.0,
+          "frame_coverage_any": 1.0,
+          "frame_coverage_all_eligible": 1.0,
+          "eligible_joints": 2850,
+          "observed_joints": 2850,
+          "per_joint_mm": [
+            null,
+            null,
+            45.060136963554825,
+            46.043038442954156,
+            35.49531159492665,
+            51.98641083608843,
+            46.04814212976715,
+            42.42976825830164,
+            40.24957616073384,
+            61.698764397699364,
+            56.34782238387642,
+            55.150924041369784,
+            57.64646772176002,
+            62.26220768098051,
+            60.90853903816467,
+            60.82860223645616,
+            63.55050045054227,
+            63.65151112588691,
+            66.07693628417599,
+            66.45483926581511,
+            67.68120932684909
+          ],
+          "median_mm": 22.230604087678948,
+          "p90_mm": 159.33654960272094,
+          "p95_mm": 174.96507371187187,
+          "capped_error_with_missing_penalty_mm": 41.93133049182984,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 42.15197672595349,
+          "lateral_error_mm": 32.59342426819259,
+          "tracking_discontinuities": 0,
+          "acceleration_error_m_s2": 9.920761953320268,
+          "by_depth": {
+            "0-0.3m": 145.25093361716847,
+            "0.3-0.5m": 56.682683124725855,
+            "0.5-0.8m": 16.2749941397809,
+            "0.8-2.0m": null
+          }
+        },
+        "P0018_15ad9743": {
+          "absolute_mpjpe_mm": null,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": null,
+          "wrist_mm": null,
+          "fingertips_mm": null,
+          "joint_coverage": 0.0,
+          "frame_coverage_any": 0.0,
+          "frame_coverage_all_eligible": 0.0,
+          "eligible_joints": 2850,
+          "observed_joints": 0,
+          "per_joint_mm": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "median_mm": null,
+          "p90_mm": null,
+          "p95_mm": null,
+          "capped_error_with_missing_penalty_mm": 100.0,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": null,
+          "lateral_error_mm": null,
+          "tracking_discontinuities": 0,
+          "acceleration_error_m_s2": null,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": null,
+            "0.5-0.8m": null,
+            "0.8-2.0m": null
+          }
+        }
+      },
+      "capped_score_sequence_bootstrap_95ci": [
+        15.432130737861254,
+        100.0
+      ]
+    },
+    "EgoForce forearm stereo": {
+      "absolute_mpjpe_mm": 33.84345965044812,
+      "wrist_relative_mpjpe_mm": null,
+      "pa_mpjpe_mm": 17.654844461755488,
+      "wrist_mm": null,
+      "fingertips_mm": 40.402282537342124,
+      "joint_coverage": 0.4631578947368421,
+      "frame_coverage_any": 0.5533333333333333,
+      "frame_coverage_all_eligible": 0.20444444444444446,
+      "eligible_joints": 8550,
+      "observed_joints": 3960,
+      "per_joint_mm": [
+        null,
+        null,
+        24.95091251250861,
+        47.22838998495187,
+        25.21554648744526,
+        23.07674984315511,
+        18.70356514183218,
+        28.34656083749398,
+        31.759260541181906,
+        22.050253439301535,
+        29.10542029722699,
+        32.35265912516431,
+        38.20666953870608,
+        24.381825602816484,
+        40.02311190528201,
+        63.81433013112083,
+        46.047533365210825,
+        26.612821397257395,
+        32.14410039760831,
+        36.37480553369508,
+        69.4548214068966
+      ],
+      "median_mm": 17.243769617449626,
+      "p90_mm": 49.31212564990435,
+      "p95_mm": 69.16284947281109,
+      "capped_error_with_missing_penalty_mm": 64.74058226240818,
+      "missing_penalty_mm": 100.0,
+      "depth_mae_mm": 24.976586621588215,
+      "lateral_error_mm": 19.461905073180844,
+      "tracking_discontinuities": 640,
+      "by_depth": {
+        "0-0.3m": 673.4572512973211,
+        "0.3-0.5m": 26.743943385938184,
+        "0.5-0.8m": 24.286196001478174,
+        "0.8-2.0m": null
+      },
+      "provenance_coverage": {
+        "direct_stereo_initial": 0.4631578947368421,
+        "multiview_model": 0.0,
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
+      },
+      "per_sequence": {
+        "P0003_01a10066": {
+          "absolute_mpjpe_mm": 22.92955005460754,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 17.150470766408937,
+          "wrist_mm": null,
+          "fingertips_mm": 33.288754226859574,
+          "joint_coverage": 0.8821052631578947,
+          "frame_coverage_any": 1.0,
+          "frame_coverage_all_eligible": 0.2733333333333333,
+          "eligible_joints": 2850,
+          "observed_joints": 2514,
+          "per_joint_mm": [
+            null,
+            null,
+            14.515325168718807,
+            15.325935712620772,
+            18.827812495608924,
+            10.388758724590783,
+            13.171261152714138,
+            21.377337156789885,
+            24.18695473502303,
+            11.956255678498577,
+            17.026058978783226,
+            24.574358665930244,
+            39.786107036629026,
+            14.880337029777579,
+            25.041310920462237,
+            37.019371435954035,
+            41.957324665379936,
+            19.097452253353968,
+            28.330942889686483,
+            34.633540994765404,
+            54.0067764938248
+          ],
+          "median_mm": 16.39564861456182,
+          "p90_mm": 47.40120245150231,
+          "p95_mm": 62.210781167441795,
+          "capped_error_with_missing_penalty_mm": 31.697803740279593,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 18.90232994465318,
+          "lateral_error_mm": 10.827033328998727,
+          "tracking_discontinuities": 378,
+          "acceleration_error_m_s2": 26.41815465086449,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 22.915480322813632,
+            "0.5-0.8m": 40.601133187753746,
+            "0.8-2.0m": null
+          }
+        },
+        "P0013_0ec32d10": {
+          "absolute_mpjpe_mm": 32.100604669365715,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 18.3902543203817,
+          "wrist_mm": null,
+          "fingertips_mm": 35.329964221946064,
+          "joint_coverage": 0.4905263157894737,
+          "frame_coverage_any": 0.5866666666666667,
+          "frame_coverage_all_eligible": 0.34,
+          "eligible_joints": 2850,
+          "observed_joints": 1398,
+          "per_joint_mm": [
+            null,
+            null,
+            14.384718018910043,
+            21.724373315755216,
+            20.381437712425225,
+            14.749989035942178,
+            22.108832748146543,
+            16.801507455199417,
+            15.68667451773577,
+            20.31399789501253,
+            25.71878521250447,
+            46.783453398216984,
+            36.129601048286865,
+            23.443163460933242,
+            48.96931765566176,
+            110.25892520274327,
+            43.82498399096922,
+            21.531418890114946,
+            21.25218629646102,
+            23.31359278462783,
+            64.64648962261495
+          ],
+          "median_mm": 18.256919606808644,
+          "p90_mm": 46.44395929030121,
+          "p95_mm": 63.01795863411744,
+          "capped_error_with_missing_penalty_mm": 62.523943046944936,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 25.643611865149698,
+          "lateral_error_mm": 17.29189723887799,
+          "tracking_discontinuities": 146,
+          "acceleration_error_m_s2": 24.7410554085057,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 35.26532745646748,
+            "0.5-0.8m": 24.20462131554679,
+            "0.8-2.0m": null
+          }
+        },
+        "P0018_15ad9743": {
+          "absolute_mpjpe_mm": 656.2201260566234,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 23.891164859353637,
+          "wrist_mm": null,
+          "fingertips_mm": 575.5666413699108,
+          "joint_coverage": 0.016842105263157894,
+          "frame_coverage_any": 0.07333333333333333,
+          "frame_coverage_all_eligible": 0.0,
+          "eligible_joints": 2850,
+          "observed_joints": 48,
+          "per_joint_mm": [
+            null,
+            null,
+            810.9722134751687,
+            1726.5471325113208,
+            459.6428509100558,
+            657.0848721263629,
+            577.4059862279005,
+            670.0099091316528,
+            600.2760217506793,
+            566.791864166407,
+            433.97695110051154,
+            null,
+            null,
+            505.8354439909335,
+            452.6094082479715,
+            null,
+            589.8409259974044,
+            468.1262838514747,
+            438.9975825487911,
+            572.7430595652547,
+            653.7864964462432
+          ],
+          "median_mm": 519.6233457152429,
+          "p90_mm": 914.8915629279757,
+          "p95_mm": 1455.8287362094868,
+          "capped_error_with_missing_penalty_mm": 100.0,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 323.6886698573325,
+          "lateral_error_mm": 534.91479084879,
+          "tracking_discontinuities": 116,
+          "acceleration_error_m_s2": null,
+          "by_depth": {
+            "0-0.3m": 673.4572512973211,
+            "0.3-0.5m": 397.6632474461547,
+            "0.5-0.8m": null,
+            "0.8-2.0m": null
+          }
+        }
+      },
+      "capped_score_sequence_bootstrap_95ci": [
+        31.697803740279593,
+        100.0
+      ]
+    },
+    "EgoForce forearm mono": {
+      "absolute_mpjpe_mm": 50.79650751668444,
+      "wrist_relative_mpjpe_mm": null,
+      "pa_mpjpe_mm": 9.298916701035981,
+      "wrist_mm": null,
+      "fingertips_mm": 53.66216341274764,
+      "joint_coverage": 0.5405847953216374,
+      "frame_coverage_any": 0.5444444444444444,
+      "frame_coverage_all_eligible": 0.5377777777777778,
+      "eligible_joints": 8550,
+      "observed_joints": 4622,
+      "per_joint_mm": [
+        null,
+        null,
+        46.71861686237868,
+        51.952002342430866,
+        55.626338470456425,
+        45.28562379669689,
+        45.7255147186792,
+        45.69650695868853,
+        45.119869313737155,
+        48.99313581784134,
+        47.092996542932596,
+        46.545539747274496,
+        49.2651854197859,
+        50.5219985899853,
+        51.857597003405296,
+        51.635208502305666,
+        55.56951524567011,
+        52.23843142852009,
+        56.08578923704581,
+        56.45034809605514,
+        62.72990861408864
+      ],
+      "median_mm": 21.1392868381455,
+      "p90_mm": 49.96420307628277,
+      "p95_mm": 341.28948762764065,
+      "capped_error_with_missing_penalty_mm": 60.945499547217835,
+      "missing_penalty_mm": 100.0,
+      "depth_mae_mm": 27.502264254456406,
+      "lateral_error_mm": 37.706857692809606,
+      "tracking_discontinuities": 486,
+      "by_depth": {
+        "0-0.3m": 462.7292686513877,
+        "0.3-0.5m": 30.834780532957563,
+        "0.5-0.8m": 33.640139755227,
+        "0.8-2.0m": null
+      },
+      "provenance_coverage": {
+        "direct_stereo_initial": 0.0,
+        "multiview_model": 0.0,
+        "temporal_fill_only": 0.0,
+        "anatomical_fill": 0.0
+      },
+      "per_sequence": {
+        "P0003_01a10066": {
+          "absolute_mpjpe_mm": 20.2305534607516,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 8.488234775731485,
+          "wrist_mm": null,
+          "fingertips_mm": 23.548206762850924,
+          "joint_coverage": 1.0,
+          "frame_coverage_any": 1.0,
+          "frame_coverage_all_eligible": 1.0,
+          "eligible_joints": 2850,
+          "observed_joints": 2850,
+          "per_joint_mm": [
+            null,
+            null,
+            19.751232453789306,
+            19.672402470922126,
+            21.41075024956507,
+            14.590204149867635,
+            14.445076810394415,
+            16.77436964423253,
+            16.11216527545828,
+            15.67768228746465,
+            16.507497828380988,
+            16.743626809186402,
+            18.891889826815255,
+            19.195889040512167,
+            18.653158392847953,
+            21.2764863914549,
+            26.440830224947952,
+            20.545705719249103,
+            24.74748066046747,
+            28.058669281256105,
+            34.88539823746805
+          ],
+          "median_mm": 17.351721301382092,
+          "p90_mm": 36.926074941155676,
+          "p95_mm": 43.776237723172805,
+          "capped_error_with_missing_penalty_mm": 20.2305534607516,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 14.772116433713014,
+          "lateral_error_mm": 11.339232688848075,
+          "tracking_discontinuities": 0,
+          "acceleration_error_m_s2": 14.804245984729675,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 20.20960318696968,
+            "0.5-0.8m": 50.06374332620574,
+            "0.8-2.0m": null
+          }
+        },
+        "P0013_0ec32d10": {
+          "absolute_mpjpe_mm": 41.25881832185211,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 8.25619540245426,
+          "wrist_mm": null,
+          "fingertips_mm": 50.37908545824456,
+          "joint_coverage": 0.5308771929824562,
+          "frame_coverage_any": 0.54,
+          "frame_coverage_all_eligible": 0.5266666666666666,
+          "eligible_joints": 2850,
+          "observed_joints": 1513,
+          "per_joint_mm": [
+            null,
+            null,
+            31.197131944072893,
+            45.698708374390826,
+            56.70002586554167,
+            28.51122973660671,
+            32.95771518019119,
+            33.463544369100774,
+            39.793881064594075,
+            36.433226856896994,
+            33.58410713961218,
+            36.411946049917326,
+            48.416874365791514,
+            33.530877702195596,
+            44.14254963849754,
+            47.78072685085354,
+            53.47755306628953,
+            36.31209008126864,
+            44.25998532732228,
+            47.15093975480244,
+            53.507092929006
+          ],
+          "median_mm": 27.130163029510936,
+          "p90_mm": 47.68047411725907,
+          "p95_mm": 57.252464510082895,
+          "capped_error_with_missing_penalty_mm": 62.605945180901905,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 28.797100873933495,
+          "lateral_error_mm": 25.00591313505641,
+          "tracking_discontinuities": 108,
+          "acceleration_error_m_s2": 12.014833068586313,
+          "by_depth": {
+            "0-0.3m": null,
+            "0.3-0.5m": 44.04509734158681,
+            "0.5-0.8m": 33.558430284724615,
+            "0.8-2.0m": null
+          }
+        },
+        "P0018_15ad9743": {
+          "absolute_mpjpe_mm": 442.85632532050647,
+          "wrist_relative_mpjpe_mm": null,
+          "pa_mpjpe_mm": 24.31081172756864,
+          "wrist_mm": null,
+          "fingertips_mm": 421.3344506315749,
+          "joint_coverage": 0.09087719298245614,
+          "frame_coverage_any": 0.09333333333333334,
+          "frame_coverage_all_eligible": 0.08666666666666667,
+          "eligible_joints": 2850,
+          "observed_joints": 259,
+          "per_joint_mm": [
+            null,
+            null,
+            423.2404004219903,
+            433.091302642536,
+            443.8142801263706,
+            468.820629351805,
+            452.9199325603412,
+            424.6054099405336,
+            412.59945898091223,
+            477.71533199155925,
+            451.0235015461509,
+            423.03417137616253,
+            404.94666413248973,
+            483.25100597885296,
+            451.7054242017069,
+            425.64804302105824,
+            404.54334043480617,
+            482.8110145835745,
+            459.429403470234,
+            441.2737703668299,
+            440.768509483296
+          ],
+          "median_mm": 431.73158245586427,
+          "p90_mm": 607.0419351659783,
+          "p95_mm": 639.9677165260972,
+          "capped_error_with_missing_penalty_mm": 100.0,
+          "missing_penalty_mm": 100.0,
+          "depth_mae_mm": 160.0189958523322,
+          "lateral_error_mm": 402.0476313498401,
+          "tracking_discontinuities": 378,
+          "acceleration_error_m_s2": 151.4864450211817,
+          "by_depth": {
+            "0-0.3m": 462.7292686513877,
+            "0.3-0.5m": 355.49817859517407,
+            "0.5-0.8m": null,
+            "0.8-2.0m": null
+          }
+        }
+      },
+      "capped_score_sequence_bootstrap_95ci": [
+        20.2305534607516,
+        100.0
+      ]
     }
   },
   "paired": {
@@ -3486,6 +4557,46 @@
       ],
       "negative_favors": "a"
     },
+    "ACE hybrid minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 6.4289719115358395,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        11.650633423390447
+      ],
+      "negative_favors": "a"
+    },
+    "ACE hybrid minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 7.079305070689941,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        12.986304610137017
+      ],
+      "negative_favors": "a"
+    },
+    "ACE hybrid minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 8.98413983387006,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        17.173588247273237
+      ],
+      "negative_favors": "a"
+    },
+    "ACE hybrid minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -3.3019553519744202,
+      "sequence_bootstrap_95ci": [
+        -6.486841748081401,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "ACE hybrid minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 0.4931273632159236,
+      "sequence_bootstrap_95ci": [
+        -3.5010264417988237,
+        4.980408531446596
+      ],
+      "negative_favors": "a"
+    },
     "MediaPipe rotations minus UmeTrack two-view": {
       "mean_paired_delta_mm": -1.4698665761164265,
       "sequence_bootstrap_95ci": [
@@ -3598,6 +4709,46 @@
       ],
       "negative_favors": "a"
     },
+    "MediaPipe rotations minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 8.80574213970359,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        15.049579878211281
+      ],
+      "negative_favors": "a"
+    },
+    "MediaPipe rotations minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 9.456075298857693,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        16.38525106495785
+      ],
+      "negative_favors": "a"
+    },
+    "MediaPipe rotations minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 11.36091006203781,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        20.904952476955657
+      ],
+      "negative_favors": "a"
+    },
+    "MediaPipe rotations minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -0.92518512380667,
+      "sequence_bootstrap_95ci": [
+        -3.087895293260568,
+        0.31233992184055825
+      ],
+      "negative_favors": "a"
+    },
+    "MediaPipe rotations minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 2.8698975913836744,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        8.379354986267428
+      ],
+      "negative_favors": "a"
+    },
     "UmeTrack two-view minus POEM two-view": {
       "mean_paired_delta_mm": -3.294974169872214,
       "sequence_bootstrap_95ci": [
@@ -3702,6 +4853,46 @@
       ],
       "negative_favors": "a"
     },
+    "UmeTrack two-view minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 10.275608715820017,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        18.770898171614757
+      ],
+      "negative_favors": "a"
+    },
+    "UmeTrack two-view minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 10.92594187497412,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        20.106569358361327
+      ],
+      "negative_favors": "a"
+    },
+    "UmeTrack two-view minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 12.830776638154235,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        21.593233911901454
+      ],
+      "negative_favors": "a"
+    },
+    "UmeTrack two-view minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": 0.5446814523097562,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        1.00062135678636
+      ],
+      "negative_favors": "a"
+    },
+    "UmeTrack two-view minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 4.339764167500101,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        12.100673279670904
+      ],
+      "negative_favors": "a"
+    },
     "POEM two-view minus WiLoR stereo": {
       "mean_paired_delta_mm": 10.304206531560627,
       "sequence_bootstrap_95ci": [
@@ -3798,6 +4989,46 @@
       ],
       "negative_favors": "a"
     },
+    "POEM two-view minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 13.57058288569223,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        22.45283974254957
+      ],
+      "negative_favors": "a"
+    },
+    "POEM two-view minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 14.220916044846332,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        23.788510929296134
+      ],
+      "negative_favors": "a"
+    },
+    "POEM two-view minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 16.12575080802645,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        27.79621485058329
+      ],
+      "negative_favors": "a"
+    },
+    "POEM two-view minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": 3.83965562218197,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        7.20360229546819
+      ],
+      "negative_favors": "a"
+    },
+    "POEM two-view minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 7.634738337372314,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        15.782614850605714
+      ],
+      "negative_favors": "a"
+    },
     "WiLoR stereo minus WiLoR mono": {
       "mean_paired_delta_mm": -17.340159934895834,
       "sequence_bootstrap_95ci": [
@@ -3886,6 +5117,46 @@
       ],
       "negative_favors": "a"
     },
+    "WiLoR stereo minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 3.266376354131602,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        8.171892268389401
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR stereo minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 3.9167095132857037,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        9.50756345513597
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR stereo minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 5.821544276465821,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        11.164542730061573
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR stereo minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -6.464550909378658,
+      "sequence_bootstrap_95ci": [
+        -9.96558290308245,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR stereo minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": -2.669468194188314,
+      "sequence_bootstrap_95ci": [
+        -9.510071959010489,
+        1.5016673764455466
+      ],
+      "negative_favors": "a"
+    },
     "WiLoR mono minus AnyHand WiLoR stereo": {
       "mean_paired_delta_mm": 15.454747816401499,
       "sequence_bootstrap_95ci": [
@@ -3966,6 +5237,46 @@
       ],
       "negative_favors": "a"
     },
+    "WiLoR mono minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 20.606536289027435,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        34.20616348460478
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR mono minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 21.25686944818154,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        34.821491775320524
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR mono minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 23.161704211361656,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        43.743469420660944
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR mono minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": 10.875609025517177,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        23.15085686554585
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR mono minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 14.67069174070752,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        23.068854731588885
+      ],
+      "negative_favors": "a"
+    },
     "AnyHand WiLoR stereo minus AnyHand WiLoR mono": {
       "mean_paired_delta_mm": -23.302999234606908,
       "sequence_bootstrap_95ci": [
@@ -4038,6 +5349,46 @@
       ],
       "negative_favors": "a"
     },
+    "AnyHand WiLoR stereo minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 5.1517884726259355,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        12.657792981832483
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand WiLoR stereo minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 5.802121631780039,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        13.993464168579052
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand WiLoR stereo minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 7.706956394960157,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        12.334878372101493
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand WiLoR stereo minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -4.579138790884323,
+      "sequence_bootstrap_95ci": [
+        -8.257734183013604,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand WiLoR stereo minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": -0.7840560756939787,
+      "sequence_bootstrap_95ci": [
+        -8.33973631697057,
+        5.987568089888631
+      ],
+      "negative_favors": "a"
+    },
     "AnyHand WiLoR mono minus HaMeR stereo": {
       "mean_paired_delta_mm": 24.19648229239464,
       "sequence_bootstrap_95ci": [
@@ -4102,6 +5453,46 @@
       ],
       "negative_favors": "a"
     },
+    "AnyHand WiLoR mono minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 28.454787707232846,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        43.0845732222751
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand WiLoR mono minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 29.105120866386947,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        44.42024440902167
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand WiLoR mono minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 31.009955629567074,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        51.81709583547961
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand WiLoR mono minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": 18.723860443722586,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        31.224483280364517
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand WiLoR mono minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 22.518943158912933,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        36.41434833033125
+      ],
+      "negative_favors": "a"
+    },
     "HaMeR stereo minus HaMeR mono": {
       "mean_paired_delta_mm": -20.477392887467676,
       "sequence_bootstrap_95ci": [
@@ -4158,6 +5549,46 @@
       ],
       "negative_favors": "a"
     },
+    "HaMeR stereo minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 4.258305414838208,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        10.291113444524225
+      ],
+      "negative_favors": "a"
+    },
+    "HaMeR stereo minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 4.90863857399231,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        11.626784631270793
+      ],
+      "negative_favors": "a"
+    },
+    "HaMeR stereo minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 6.813473337172428,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        12.021108736046568
+      ],
+      "negative_favors": "a"
+    },
+    "HaMeR stereo minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -5.472621848672052,
+      "sequence_bootstrap_95ci": [
+        -8.571503819068528,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "HaMeR stereo minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": -1.6775391334817076,
+      "sequence_bootstrap_95ci": [
+        -8.653505953025494,
+        3.6208885525803702
+      ],
+      "negative_favors": "a"
+    },
     "HaMeR mono minus AnyHand HaMeR stereo": {
       "mean_paired_delta_mm": 20.353619200273428,
       "sequence_bootstrap_95ci": [
@@ -4206,6 +5637,46 @@
       ],
       "negative_favors": "a"
     },
+    "HaMeR mono minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 24.735698302305885,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        38.30907442601753
+      ],
+      "negative_favors": "a"
+    },
+    "HaMeR mono minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 25.386031461459986,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        38.92440271673327
+      ],
+      "negative_favors": "a"
+    },
+    "HaMeR mono minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 27.290866224640105,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        47.846380362073695
+      ],
+      "negative_favors": "a"
+    },
+    "HaMeR mono minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": 15.00477103879562,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        27.2537678069586
+      ],
+      "negative_favors": "a"
+    },
+    "HaMeR mono minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 18.799853753985964,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        29.227795588956262
+      ],
+      "negative_favors": "a"
+    },
     "AnyHand HaMeR stereo minus AnyHand HaMeR mono": {
       "mean_paired_delta_mm": -19.199591431656764,
       "sequence_bootstrap_95ci": [
@@ -4246,6 +5717,46 @@
       ],
       "negative_favors": "a"
     },
+    "AnyHand HaMeR stereo minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 4.382079102032455,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        8.758829957625593
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand HaMeR stereo minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 5.0324122611865585,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        10.094501144372163
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand HaMeR stereo minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 6.937247024366675,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        13.924713284527941
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand HaMeR stereo minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -5.348848161477803,
+      "sequence_bootstrap_95ci": [
+        -9.378645213846257,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand HaMeR stereo minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": -1.5537654462874602,
+      "sequence_bootstrap_95ci": [
+        -6.7499014045441195,
+        2.0886050656817403
+      ],
+      "negative_favors": "a"
+    },
     "AnyHand HaMeR mono minus EgoForce hand-only stereo": {
       "mean_paired_delta_mm": 14.426101085281116,
       "sequence_bootstrap_95ci": [
@@ -4278,6 +5789,46 @@
       ],
       "negative_favors": "a"
     },
+    "AnyHand HaMeR mono minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 23.58167053368922,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        35.406021359403496
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand HaMeR mono minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 24.232003692843318,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        36.74169254615006
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand HaMeR mono minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 26.136838456023437,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        44.87629617772032
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand HaMeR mono minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": 13.850743270178956,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        24.283683622605228
+      ],
+      "negative_favors": "a"
+    },
+    "AnyHand HaMeR mono minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 17.645825985369303,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        28.735796467459643
+      ],
+      "negative_favors": "a"
+    },
     "EgoForce hand-only stereo minus EgoForce hand-only mono": {
       "mean_paired_delta_mm": 2.1249808441721947,
       "sequence_bootstrap_95ci": [
@@ -4302,6 +5853,46 @@
       ],
       "negative_favors": "a"
     },
+    "EgoForce hand-only stereo minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 9.155569448408102,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        17.419463032157303
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce hand-only stereo minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 9.805902607562203,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        18.755134218903873
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce hand-only stereo minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 11.71073737074232,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        19.58455124912317
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce hand-only stereo minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -0.5753578151021592,
+      "sequence_bootstrap_95ci": [
+        -1.0080613059919303,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce hand-only stereo minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 3.2197249000881847,
+      "sequence_bootstrap_95ci": [
+        -1.0900634399488935,
+        10.749238140213448
+      ],
+      "negative_favors": "a"
+    },
     "EgoForce hand-only mono minus OmniHands two-view stereo": {
       "mean_paired_delta_mm": -2.4463747540149767,
       "sequence_bootstrap_95ci": [
@@ -4318,11 +5909,211 @@
       ],
       "negative_favors": "a"
     },
+    "EgoForce hand-only mono minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 7.0305886042359065,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        11.281300065682077
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce hand-only mono minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 7.680921763390008,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        11.896628356397814
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce hand-only mono minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 9.585756526570124,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        20.818606001738242
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce hand-only mono minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -2.7003386592743537,
+      "sequence_bootstrap_95ci": [
+        -8.327009424446208,
+        0.2259934466231457
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce hand-only mono minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 1.09474405591599,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        3.140240855081788
+      ],
+      "negative_favors": "a"
+    },
     "OmniHands two-view stereo minus OmniHands two-view lift": {
       "mean_paired_delta_mm": -24.394157277170134,
       "sequence_bootstrap_95ci": [
         -36.82084677734813,
         0.0
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view stereo minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 9.476963358250883,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        17.88174467751527
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view stereo minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 10.127296517404986,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        19.21741586426184
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view stereo minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 12.032131280585103,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        20.086451333293542
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view stereo minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -0.25396390525937695,
+      "sequence_bootstrap_95ci": [
+        -0.5061612218215542,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view stereo minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 3.5411188099309676,
+      "sequence_bootstrap_95ci": [
+        -0.5881633557785176,
+        11.21151978557142
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view lift minus WiLoR MANO analytical LM": {
+      "mean_paired_delta_mm": 33.87112063542102,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        54.7025914548634
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view lift minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 34.521453794575116,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        56.038262641609975
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view lift minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 36.426288557755235,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        56.44807638745582
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view lift minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": 24.140193371910758,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        36.56511628339155
+      ],
+      "negative_favors": "a"
+    },
+    "OmniHands two-view lift minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 27.935276087101098,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        48.03236656291955
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR MANO analytical LM minus WiLoR MANO Adam": {
+      "mean_paired_delta_mm": 0.6503331591541018,
+      "sequence_bootstrap_95ci": [
+        0.0,
+        1.3356711867465685
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR MANO analytical LM minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 2.5551679223342196,
+      "sequence_bootstrap_95ci": [
+        -1.8718021690535085,
+        9.537305936056166
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR MANO analytical LM minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -9.730927263510258,
+      "sequence_bootstrap_95ci": [
+        -18.13747517147185,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR MANO analytical LM minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": -5.935844548319916,
+      "sequence_bootstrap_95ci": [
+        -11.137308753015894,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR MANO Adam minus WiLoR HMP prior": {
+      "mean_paired_delta_mm": 1.9048347631801177,
+      "sequence_bootstrap_95ci": [
+        -3.2074733558000768,
+        8.92197764534043
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR MANO Adam minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -10.381260422664361,
+      "sequence_bootstrap_95ci": [
+        -19.473146358218422,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR MANO Adam minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": -6.586177707474017,
+      "sequence_bootstrap_95ci": [
+        -11.75263704373163,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR HMP prior minus EgoForce forearm stereo": {
+      "mean_paired_delta_mm": -12.286095185844479,
+      "sequence_bootstrap_95ci": [
+        -20.592612555115096,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "WiLoR HMP prior minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": -8.491012470654136,
+      "sequence_bootstrap_95ci": [
+        -20.67461468907206,
+        0.0
+      ],
+      "negative_favors": "a"
+    },
+    "EgoForce forearm stereo minus EgoForce forearm mono": {
+      "mean_paired_delta_mm": 3.795082715190344,
+      "sequence_bootstrap_95ci": [
+        -0.08200213395696324,
+        11.467250279527995
       ],
       "negative_favors": "a"
     }

@@ -1,28 +1,21 @@
-# Additional candidate release audit
+# Expanded candidate execution audit
 
-These are release checks, not benchmark results. None of the candidates below
-has been included in the frozen held-out comparison. Published metrics are not
-substituted for measured stereo metric errors.
+This supersedes the first-round release-only audit. Measured results and protocol
+limits are in [the final report](final_research_report.md).
 
-- [EgoForce](https://github.com/dfki-av/EgoForce) provides inference/evaluation
-  entry points and a model-weight download script. Its installation includes
-  MMCV, TensorRT, AnyCalib, PyTorch3D and camera-specific support. This is a
-  promising independent metric-position baseline; it has not been installed here.
-- [WiLoR](https://github.com/rolpotamias/WiLoR) documents detector and reconstruction
-  checkpoint downloads and full-image demo inference. The supplied MANO files
-  address its hand-model dependency. No execution result is claimed.
-- [HaMeR](https://github.com/geopavlakos/hamer) provides the official reconstruction
-  implementation. Its 3D output/crop-camera translation must be verified against
-  calibrated camera coordinates before comparing absolute error.
-- [OmniHands](https://github.com/LinDixuan/OmniHands) and
-  [EgoHandICL](https://github.com/Nicous20/EgoHandICL) repositories were inspected.
-  A complete usable checkpoint/inference combination has not been verified by
-  execution. Placeholder documentation is not evidence of a working release.
-- [AnyHand](https://arxiv.org/abs/2603.25726) describes a synthetic RGB/RGB-D dataset;
-  a specific fine-tuned checkpoint has not been selected or executed here.
-- [Dyn-HaMR checkpoint repository](https://huggingface.co/Zhengdi/Dyn-HaMR/tree/main)
-  was identified. Its temporal pipeline has not been reproduced. StableHand was
-  not integrated.
+| Candidate | Executed status |
+|---|---|
+| WiLoR | Released detector/mesh checkpoint, calibrated mono/stereo, HOT3D development+held-out and SHOW3D; GT-free CLI and EgoStandard inference |
+| HaMeR | Released mesh checkpoint with predicted WiLoR detector crops; same HOT3D and SHOW3D comparisons |
+| AnyHand | Both WiLoR and HaMeR fine-tuned checkpoint overrides; development+held-out |
+| EgoForce | Released HALO, official camera solver, hand-only development+held-out; released forearm detector added in a development ablation; adapted hand detection |
+| OmniHands | Released two-view checkpoint, predicted crops, stereo/lift variants; development+held-out |
+| StableHand | Official cached-feature clip002736 demo executed. Uses GT subject shape; preprocessing TODO remains in inspected README; excluded from fair comparison |
+| Dyn-HaMR | Released HMP prior and actual latent fitting executed development+held-out; full Dyn-HaMR tracker not reproduced |
+| EgoHandICL | Inspected pinned source and HF dataset release. Inference references missing `handicl.egohandicl_new` and `/checkpoints/icl_arctic.pth`; usable released inference checkpoint not located. No execution claimed |
+| UA-Fit / ParaFit | Released analytic solver core executed against a matched Adam objective. Full UA-Fit learned uncertainty checkpoint not located |
 
-These remain uncompleted research candidates, not proven hardware or access
-blockers. The report's claims are limited to the methods actually executed.
+Exact source commits, weight hashes and HF revisions are in
+`configs/models/expanded_sources.json`, `expanded_checkpoint_hashes.json`, and
+`expanded_releases.json`. Existing model environments and compatibility changes
+are documented in `docs/model_setup.md`.

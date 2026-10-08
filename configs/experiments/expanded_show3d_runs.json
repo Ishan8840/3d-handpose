@@ -1,0 +1,9 @@
+{
+  "MediaPipe rotations": "outputs/show3d-expanded-dev",
+  "ACE hybrid": "outputs/ace-show3d-dev",
+  "WiLoR stereo": "outputs/wilor-show3d-dev/stereo",
+  "HaMeR stereo": "outputs/hamer-show3d-dev/stereo",
+  "WiLoR MANO analytical LM": "outputs/parafit-show3d-dev/analytic_lm",
+  "WiLoR MANO Adam": "outputs/parafit-show3d-dev/adam",
+  "WiLoR MANO Adam temporal": "outputs/adam-temporal-show3d"
+}

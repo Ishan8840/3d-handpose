@@ -18,3 +18,6 @@ MODEL_SPECS = {
     'foundationstereo': {'interface':'rectified_stereo_depth','environment':'.venv','runner':'scripts/benchmark_dense.py','executable':True},
     'uafit': {'interface':'analytical_mano','executable':False,'reason':'Released uncertainty checkpoint not located in inspected official checkpoint instructions'},
 }
+
+MODEL_SPECS.update({name: {"interface":"predicted_crop_mesh_stereo", "environment":".venv-extra", "runner":"scripts/benchmark_mesh_regressor.py --model "+name, "executable":True} for name in ("wilor","hamer","egoforce","omni")})
+MODEL_SPECS.update({"parafit":{"interface":"analytical_solver_component", "environment":".venv-extra", "runner":"scripts/benchmark_parafit.py", "executable":True}, "hmp":{"interface":"learned_temporal_prior_component", "environment":".venv-extra", "runner":"scripts/benchmark_hmp.py", "executable":True}, "stablehand":{"interface":"official_cached_feature_demo_GT_shape", "environment":".venv-extra", "runner":"scripts/stablehand_official_demo.py", "executable":True}})

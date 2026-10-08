@@ -14,5 +14,11 @@
   "EgoForce hand-only stereo": "outputs/egoforce-dev/stereo",
   "EgoForce hand-only mono": "outputs/egoforce-dev/mono",
   "OmniHands two-view stereo": "outputs/omni-dev/stereo",
-  "OmniHands two-view lift": "outputs/omni-dev/mono"
+  "OmniHands two-view lift": "outputs/omni-dev/mono",
+  "WiLoR MANO analytical LM": "outputs/parafit-dev/analytic_lm",
+  "WiLoR MANO Adam": "outputs/parafit-dev/adam",
+  "WiLoR HMP prior": "outputs/hmp-dev",
+  "EgoForce forearm stereo": "outputs/egoforce-arm-dev/stereo",
+  "EgoForce forearm mono": "outputs/egoforce-arm-dev/mono",
+  "WiLoR MANO Adam temporal": "outputs/adam-temporal-dev-05"
 }

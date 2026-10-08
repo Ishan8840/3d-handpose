@@ -14,11 +14,11 @@ from handpose.geometry.translation import translation_from_rays
 from handpose.geometry.rectification import rotate_clockwise_camera
 
 p=argparse.ArgumentParser();p.add_argument('--model',choices=['wilor','hamer','egoforce','omni'],default='wilor');p.add_argument('--manifest',default='configs/datasets/hot3d.json');p.add_argument('--split',default='smoke');p.add_argument('--output',required=True);p.add_argument('--max-frames',type=int)
-p.add_argument('--checkpoint')
+p.add_argument('--checkpoint');p.add_argument('--forearm',action='store_true')
 a=p.parse_args();base=Path.cwd()
 if a.model=='egoforce':
     from handpose.models.egoforce_adapter import EgoForce
-    model=EgoForce(base)
+    model=EgoForce(base,forearm=a.forearm)
 elif a.model=='omni':
     from handpose.models.omnihands_adapter import OmniHands
     model=OmniHands(base)
@@ -68,7 +68,7 @@ for e in entries:
     for kind,ps in preds.items():
         out=Path(a.output)/kind/Path(e['path']).stem;out.mkdir(parents=True,exist_ok=True)
         metadata=dict(model=a.model,checkpoint=model.checkpoint,split=a.split,detector='WiLoR YOLO conf0.3 right class1',observation_code=1 if kind=='stereo' else (4 if a.model=='omni' else 2),
-                      crop_source='predicted',landmarks='native learned 2D head' if a.model=='egoforce' else 'projected from reconstructed mesh, not independent heatmaps',
+                      crop_source='predicted',forearm_detector=a.forearm,landmarks='native learned 2D head' if a.model=='egoforce' else 'projected from reconstructed mesh, not independent heatmaps',
                       translation='official ray-space solver' if a.model=='egoforce' else 'least squares known-intrinsic rays and metric oriented MANO joints',
                       input_views=2 if a.model=='omni' or kind=='stereo' else 1,
                       checkpoint_load=model.load_status,seconds_per_frame_both_methods=float(np.mean(durations)))

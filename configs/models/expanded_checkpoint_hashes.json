@@ -1,0 +1,92 @@
+[
+  {
+    "path": "third_party/wilor/pretrained_models/detector.pt",
+    "size": 53582271,
+    "sha256": "5ef3df44e42d2db52d4ffe91f83a22ce9925e2acc9abebf453f2c5d22e380033"
+  },
+  {
+    "path": "third_party/wilor/pretrained_models/wilor_final.ckpt",
+    "size": 2564989533,
+    "sha256": "3e97aafc7dd08d883a4cc5a027df61fdb6fda6136dbd1319405413862ada6bb2"
+  },
+  {
+    "path": "third_party/wilor/pretrained_models/dataset_config.yaml",
+    "size": 1893,
+    "sha256": "9bb36eed313451b118ed76885a0bdaacbe6d6301f22ce2b19f9411c136b3c5b8"
+  },
+  {
+    "path": "third_party/wilor/pretrained_models/model_config.yaml",
+    "size": 2228,
+    "sha256": "64e75699eb7f1234ee16ba1bbb983db35e03f584fe4bd524559432b1efec3d2c"
+  },
+  {
+    "path": "checkpoints/anyhand/anyhand_wilor.ckpt",
+    "size": 2565031198,
+    "sha256": "9709eca6e77fb77d2cfcf6ee641660f98dca6941e9fc1cf7a5be19fe62164b77"
+  },
+  {
+    "path": "checkpoints/anyhand/anyhand_hamer.ckpt",
+    "size": 2689571020,
+    "sha256": "ae8d1f592ec9a8b5389cc16c49d5d4fd024696cb554c7d6f4fab6d83d5156f07"
+  },
+  {
+    "path": "checkpoints/hamer/hamer_ckpts/checkpoints/hamer.ckpt",
+    "size": 2689536166,
+    "sha256": "e5cc06f294d88a92dee24e603480aab04de532b49f0e08200804ee7d90e16f53"
+  },
+  {
+    "path": "third_party/egoforce/_DATA/epoch_460.pth",
+    "size": 175673166,
+    "sha256": "157b1ab907b89d24a781bd030bdbfbf6ab5428619d162dcf948a6f5b044ea4f7"
+  },
+  {
+    "path": "third_party/egoforce/_DATA/model_weights.pth",
+    "size": 3021671106,
+    "sha256": "722fe84ba2b6ab3569c3a95000c61a9a77c7b3a41cc76585f891b8bc4fe82870"
+  },
+  {
+    "path": "third_party/egoforce/_DATA/detector.torchscript",
+    "size": 106977758,
+    "sha256": "6d0fc83591d0a48d9869bfc41f90e32b40fe6b6ee0881b1aed0ccd1d3e1ecbeb"
+  },
+  {
+    "path": "third_party/omnihands/checkpoints/Demo_Multiview.pth",
+    "size": 3011262039,
+    "sha256": "82a75ff233eafb9304620a447db127bc70da8cd181e66fae99b5753f9fefd524"
+  },
+  {
+    "path": "third_party/stablehand/save/qn/model.pt",
+    "size": 18008562,
+    "sha256": "26c01b09c81c23e89a4e27bc07d19e98cb1564146cf5a6b57b2fa798275ea9f1"
+  },
+  {
+    "path": "third_party/stablehand/save/dit_hot3d/model.pt",
+    "size": 282797714,
+    "sha256": "4bf4abbee9085ebe6f14299bbe96d3eb964021165d180b67114a96b9da551036"
+  },
+  {
+    "path": "checkpoints/dynhamr/hmp_model/results/model/global_encoder.pth",
+    "size": 16944962,
+    "sha256": "53ea55a05bad9816e087d9296b4aa40cc5133139417156e3faffdc3ff9957f54"
+  },
+  {
+    "path": "checkpoints/dynhamr/hmp_model/results/model/nemf.pth",
+    "size": 92620900,
+    "sha256": "cbb9d5bae07de807c13f02128b18e1b7b5f31e6626bdda16b800e636753004ff"
+  },
+  {
+    "path": "checkpoints/dynhamr/hmp_model/results/model/local_encoder.pth",
+    "size": 161190688,
+    "sha256": "89db49f42b98986121ff0b2152b89c045f6d66945434bf38e6f21981e70ea82b"
+  },
+  {
+    "path": "checkpoints/dynhamr/hmp_model/std-neutral-128-30fps.pt",
+    "size": 5756,
+    "sha256": "e1da9a50afbc1015e9fc846edbd4457a46e3594d85265020ed20ba61546a126a"
+  },
+  {
+    "path": "checkpoints/dynhamr/hmp_model/mean-neutral-128-30fps.pt",
+    "size": 5834,
+    "sha256": "f895ea3e9913dcf0daeab06c770d44bdcd1e780a887f2ef8046157688fd0f431"
+  }
+]

@@ -1,6 +1,6 @@
 # Progress
 
-## Current phase: Phase 7–8 research round delivered; remaining scope below
+## Current phase: expanded Phase 7–8 comparison and inference delivered; remaining scope below
 
 Entries below are chronological; early pending items are superseded by later
 measured milestones. See the delivered comparison and remaining-work sections.
@@ -218,3 +218,28 @@ measured milestones. See the delivered comparison and remaining-work sections.
   hands and failed depth can cause >1m outliers despite plausible image overlap.
 - Working WiLoR+MANO CLI tested on30 real stereo frames; all required outputs
   verified.26 weight-free regression tests pass. EgoStandard547-frame run underway.
+
+
+### Expanded round delivered
+
+- Recommended accuracy/coverage compromise: WiLoR projected2D stereo observations,
+  gated metric triangulation, predicted-shape MANO Adam fitting, ±50ms local
+  temporal refinement. HMP still wins the100mm-capped score; it is rejected as
+  the positional-accuracy recommendation because its observed errors are much larger.
+- Anatomical21 held-out450:24.267mm absolute MPJPE,29.940mm wrist,
+  26.983mm fingertips,67.333% full-joint/frame coverage,P9035.636mm.
+  No sub10mm or95% coverage claim. Raw WiLoR and HaMeR win some individual metrics.
+- SHOW3D900frames:19.527mm common-landmark MPJPE,82.778% joint coverage.
+- EgoStandard547frames: GT-free WiLoR+MANO inference completed,81.90% valid
+  output slots. No anatomical accuracy score without verified joint/pose semantics.
+- Final30-frame GT-free temporal CLI profile:25.845s cold-process wall time,
+  peak sampled device-wide memory3368MiB; exit0. Timing is not model steady state.
+- Error overlap heatmaps, threshold curves, per-sequence/per-joint statistics,
+  nine inspected failure overlays, pinned extra sources/checkpoint hashes and
+  executed environment snapshot saved. Report explicitly separates full runs,
+  adaptations, component ablations and unavailable full reproductions.
+- Tests26 pass, including both real-video CLI paths without weights.
+- Remaining research: fresh held-out participants, authoritative EgoStandard
+  conventions, full UA-Fit learned uncertainty, full Dyn-HaMR/StableHand adaptation,
+  missing EgoHandICL inference release, broader dense-depth studies and calibrated
+  per-joint uncertainty. These are not reported as completed.

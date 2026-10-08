@@ -8,7 +8,7 @@ p=argparse.ArgumentParser();p.add_argument('--manifest',default='data/hot3d/mani
 entries=[e for e in json.load(open(a.manifest)) if e['split']==a.split];runs=json.load(open(a.runs));reference={};predictions={};summary={};ids=[]
 for e in entries:ids.extend([e['sequence']]*e['max_frames'])
 for name,root in runs.items():
-    ps=[];gs=[];persequence=[];provenance_counts={'direct_stereo_initial':0,'multiview_model':0,'temporal_fill_only':0};eligible_count=0
+    ps=[];gs=[];persequence=[];provenance_counts={'direct_stereo_initial':0,'multiview_model':0,'temporal_fill_only':0,'anatomical_fill':0};eligible_count=0
     for e in entries:
         folder=Path(root)/Path(e['path']).stem;pred=np.load(folder/'predictions.npz');gt=np.load(folder/('ground_truth_mano21.npz' if a.mano21 else 'ground_truth.npz'))
         if len(pred['timestamps'])!=e['max_frames'] or not np.array_equal(pred['timestamps'],gt['timestamps']) or not np.array_equal(pred['frame_ids'],gt['frame_ids']):raise ValueError('Mismatched frames')
@@ -16,7 +16,9 @@ for name,root in runs.items():
         original=pred['original_observation_type'] if 'original_observation_type' in pred else pred['observation_type']
         provenance_counts['direct_stereo_initial']+=int(((original==1)&eligible&pred['validity']).sum())
         provenance_counts['multiview_model']+=int(((original==4)&eligible&pred['validity']).sum())
-        provenance_counts['temporal_fill_only']+=int(((original==0)&eligible&pred['validity']).sum())
+        pre_temporal=pred['pre_temporal_observation_type'] if 'pre_temporal_observation_type' in pred else np.where(pred['observation_type']==5,5,original)
+        provenance_counts['temporal_fill_only']+=int(((pre_temporal==0)&eligible&pred['validity']).sum())
+        provenance_counts['anatomical_fill']+=int(((pre_temporal==5)&(original==0)&eligible&pred['validity']).sum())
         key=e['sequence'];r=(gt['joints_3d'],gt['timestamps'])
         if key in reference:
             if not np.allclose(reference[key][0],r[0],equal_nan=True) or not np.array_equal(reference[key][1],r[1]):raise ValueError('Ground truth differs between methods')

@@ -34,7 +34,7 @@ class MeshRegressor:
                 cfg=get_config(str(weights.parent.parent/'model_config.yaml'),update_cachedir=True)
                 klass=models.HAMER
             if checkpoint is not None:
-                weights=Path(checkpoint).absolute()
+                weights=Path(checkpoint) if Path(checkpoint).is_absolute() else base/checkpoint
             self.checkpoint=str(weights)
             cfg.defrost();cfg.MODEL.BBOX_SHAPE=[192,256]
             cfg.MODEL.BACKBONE.pop('PRETRAINED_WEIGHTS',None)

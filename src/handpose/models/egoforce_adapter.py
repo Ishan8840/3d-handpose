@@ -10,7 +10,7 @@ from .base import Observation
 
 
 class EgoForce:
-    def __init__(self,root='.'):
+    def __init__(self,root='.',forearm=False):
         import torch
         self.torch=torch;self.base=Path(root).absolute()
         source=self.base/'third_party/egoforce';sys.path.insert(0,str(source))
@@ -31,6 +31,11 @@ class EgoForce:
         self.model.load_state_dict(torch.load(config.POSE_3D.CHECKPOINT_PATH,map_location='cpu',weights_only=False),strict=True)
         self.model=self.model.cuda().eval();self.limb=LimbModel(config,device='cuda',use_pose_pca=False)
         self.detector=YOLO(str(self.base/'third_party/wilor/pretrained_models/detector.pt')).to('cuda')
+        self.arm_detector=None
+        if forearm:
+            sys.path[:0]=[str(source/'thirdparty/mmdetection'),str(source/'thirdparty/datapipes')]
+            from mmdet.apis import DetInferencer
+            self.arm_detector=DetInferencer(str(source/'demo/rtmdet_tiny_8xb32-300e_combined_cutmix.py'),weights=config.DETECTION.HAND_ARM_PATH,device='cuda')
         self.loader_cls=DemoHandArmLoader;self.camera_cls=PinholeCameraModel
         self.get_limb=get_limb;self.solve=compute_camera_space_mesh
         self.checkpoint=config.POSE_3D.CHECKPOINT_PATH;self.load_status={'strict':True}
@@ -42,13 +47,21 @@ class EgoForce:
         K=camera.K
         cam=self.camera_cls((K[0,0],K[1,1]),K[:2,2],image.shape[1],image.shape[0])
         loader=self.loader_cls(self.config,cam,undistort_inp=True,hand_type='right')
+        arms=[]
+        if self.arm_detector is not None and len(boxes):
+            detections=self.arm_detector(image[:,:,::-1].copy(),return_vis=False)['predictions'][0]
+            arms=[np.asarray(b) for b,label,score in zip(detections['bboxes'],detections['labels'],detections['scores']) if label==1 and score>=.3]
         for box in boxes:
             center=(box[:2]+box[2:4])/2;size=max(box[2]-box[0],box[3]-box[1])*1.5
             bbox=np.r_[center-size/2,center+size/2]
             bbox[[0,2]]=bbox[[0,2]].clip(0,image.shape[1]-1)
             bbox[[1,3]]=bbox[[1,3]].clip(0,image.shape[0]-1)
             if min(bbox[2:]-bbox[:2])<3:continue
-            data,meta=loader.transform(image[:,:,::-1].copy(),{'hand':{'bbox':bbox,'keypoint':np.zeros((21,2))}})
+            inputs={'hand':{'bbox':bbox,'keypoint':np.zeros((21,2))}}
+            if arms:
+                arm=min(arms,key=lambda b:np.linalg.norm((b[:2]+b[2:])/2-center))
+                inputs['arm']={'bbox':arm,'keypoint':np.zeros((2,2))}
+            data,meta=loader.transform(image[:,:,::-1].copy(),inputs)
             data={k:v.cuda()[None,None].contiguous() for k,v in data.items() if torch.is_tensor(v)}
             meta={k:v.cuda()[None] for k,v in meta.items()}
             with torch.inference_mode():

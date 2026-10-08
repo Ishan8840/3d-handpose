@@ -6,11 +6,12 @@ import numpy as np
 import torch
 from scipy.sparse import csr_matrix
 from handpose.data.hot3d import iter_clip
+from handpose.data.show3d import iter_scene
 from handpose.models.base import Prediction
 from handpose.inference.cli import save_predictions
 from handpose.evaluation.metrics import evaluate
 
-p=argparse.ArgumentParser();p.add_argument('--source',default='outputs/wilor-dev/stereo');p.add_argument('--output',default='outputs/parafit-dev');p.add_argument('--split',default='development');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--source',default='outputs/wilor-dev/stereo');p.add_argument('--output',default='outputs/parafit-dev');p.add_argument('--split',default='development');p.add_argument('--manifest',default='configs/datasets/hot3d.json');a=p.parse_args()
 sys.path.insert(0,str(Path('third_party/manotorch').absolute()))
 if not hasattr(inspect,'getargspec'):inspect.getargspec=inspect.getfullargspec
 for k,v in [('bool',bool),('int',int),('float',float),('complex',complex),('object',object),('unicode',str),('str',str)]:
@@ -29,13 +30,14 @@ for side in ('LEFT','RIGHT'):
         with target.open('wb') as f:pickle.dump(asset,f)
 tensor=lambda x:torch.tensor(x,dtype=torch.float32,device='cuda')
 rotation=np.array([[0,1,0],[-1,0,0],[0,0,1]],float)
-for e in json.load(open('configs/datasets/hot3d.json')):
+for e in json.load(open(a.manifest)):
     if e['split']!=a.split:continue
+    rotation=np.eye(3) if 'annotations' in e else np.array([[0,1,0],[-1,0,0],[0,0,1]],float)
     source=Path(a.source)/Path(e['path']).stem;obs=np.load(source/'predictions.npz')
     params=json.loads((source/'mano_parameters.json').read_text())
     eligible=(obs['validity'].sum(-1)>=6)&np.array([bool(p) for p in params])
     ids=np.flatnonzero(eligible)
-    samples=list(iter_clip(e['path'],e['max_frames']))
+    samples=list(iter_scene(e['path'],e['annotations'],e['max_frames'])) if 'annotations' in e else list(iter_clip(e['path'],e['max_frames']))
     for solver_name in ('analytic_lm','adam'):
         result=np.full_like(obs['joints_3d'],np.nan);start=time.perf_counter();losses=[]
         if len(ids):
@@ -80,6 +82,7 @@ for e in json.load(open('configs/datasets/hot3d.json')):
         out=Path(a.output)/solver_name/source.name;out.mkdir(parents=True,exist_ok=True)
         predictions=[Prediction(int(t),x,l,r,c,np.isfinite(x).all(-1),np.full((3,3),np.nan)) for t,x,l,r,c in zip(obs['timestamps'],result,obs['joints_2d_left'],obs['joints_2d_right'],obs['confidence'])]
         save_predictions(predictions,out,{'model':'UA-Fit parafit solver core + WiLoR observations','solver':solver_name,'observation_code':5,'learned_uncertainty':False,'shape':'median predicted WiLoR beta','joint_convention':'kinematic+smplx tips','seconds':time.perf_counter()-start,'iterations':30 if solver_name=='analytic_lm' else 200,'final_cost':losses})
+        saved=dict(np.load(out/'predictions.npz'));saved['original_observation_type']=obs['observation_type'];np.savez_compressed(out/'predictions.npz',**saved)
         shutil.copy2(source/'ground_truth.npz',out/'ground_truth.npz')
         gt=np.load(out/'ground_truth.npz');m=evaluate(result,gt['joints_3d'],timestamps_ns=obs['timestamps'])
         (out/'metrics.json').write_text(json.dumps(m,indent=2,allow_nan=False));print(source.name,solver_name,m['absolute_mpjpe_mm'],m['joint_coverage'],flush=True)

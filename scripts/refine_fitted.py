@@ -13,7 +13,7 @@ for source in sorted(Path(a.source).iterdir()):
  out=Path(a.output)/source.name
  preds=[Prediction(int(t),x,l,r,np.where(np.isfinite(x).all(-1),c,0),np.isfinite(x).all(-1),np.full((3,3),np.nan)) for t,x,l,r,c in zip(q['timestamps'],xyz,q['joints_2d_left'],q['joints_2d_right'],q['confidence'])]
  save_predictions(preds,out,{'model':'WiLoR MANO Adam temporal','window_seconds':a.window,'max_gap_seconds':.1,'weighting':'uniform among finite fitted joints; scores not calibrated'})
- arrays=dict(np.load(out/'predictions.npz'));arrays.update(observation_type=types,original_observation_type=q['original_observation_type'] if 'original_observation_type' in q else q['observation_type']);np.savez_compressed(out/'predictions.npz',**arrays)
+ arrays=dict(np.load(out/'predictions.npz'));arrays.update(pre_temporal_observation_type=q['observation_type'],observation_type=types,original_observation_type=q['original_observation_type'] if 'original_observation_type' in q else q['observation_type']);np.savez_compressed(out/'predictions.npz',**arrays)
  for name in ('ground_truth.npz','ground_truth_mano21.npz'):
   if (source/name).exists():shutil.copy2(source/name,out/name)
  gt=np.load(out/'ground_truth.npz')['joints_3d'];ps.append(xyz);gs.append(gt)

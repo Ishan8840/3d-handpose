@@ -1,3 +1,9 @@
+> **Expanded benchmark update:** the recommended accuracy/coverage compromise is
+> WiLoR stereo + MANO Adam fitting + 50ms local temporal refinement. See
+> [the measured report](reports/final_research_report.md) and
+> [model setup](docs/model_setup.md). The original ACE comparison is retained as
+> a prior round; the sub-10mm and >95% targets are not achieved.
+
 # Stereo hand pose research
 
 Working metric stereo inference and an executed, frozen three-pipeline HOT3D comparison.
