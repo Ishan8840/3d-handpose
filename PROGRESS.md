@@ -243,3 +243,47 @@ measured milestones. See the delivered comparison and remaining-work sections.
   conventions, full UA-Fit learned uncertainty, full Dyn-HaMR/StableHand adaptation,
   missing EgoHandICL inference release, broader dense-depth studies and calibrated
   per-joint uncertainty. These are not reported as completed.
+
+
+## ACE reproduction audit (local experiments completed, 2026-10-08)
+
+Object-aware work remains paused for this audit. No WiLoR model or output changed.
+
+- Reproduced all prior baseline archive scores and stored source hashes in
+  reports/object_aware/baseline_verification.json.
+- Corrected the historical 107.48 mm common19 result's label: it used ACE's
+  auxiliary direct-3D diagnostic, not final MANO output. Historical files retained.
+- Official final MANO decode: held-out 450 frames / 3 sequences = 111.0816 mm
+  absolute MANO21, 114.0131 mm wrist, 17.4193 mm wrist-relative, 72% coverage.
+  Development 450 frames / 3 sequences = 136.9550 mm, 56% coverage.
+- Six fresh official K-given executions, same first81 frames of3 held-out clips:
+  640px =108.1845 mm; 480px =142.3082 mm. Both77.3663% coverage.
+  Resolution paired delta +34.4526 mm, sequence-bootstrap95% CI[20.3749,78.9775].
+  Fresh640 versus archived sameframes +0.3557 mm, CI[-1.5651,2.1318].
+- Implemented MPJPE-p, PA-p, EPE2D-p, GO-p, CT-p, recall, F1 and FAcc.
+  After official HOT3D left shapedirs correction, archived held-out bimanual
+  MPJPE-p=22.399035 mm, CT-p=0.120381 m,
+  recall=95.0841%, F1=97.4801%.
+- Published evaluator/splits/rectification remain unreleased. Exact author
+  parity is NOT claimed. Bbox, side-order and canonical mean-pose sensitivities
+  are explicit. Public training clips may overlap ACE training recordings.
+- Official OVR624 numerical lens round trips, clockwise orientation, metric
+  scale, timestamps, GT joint order and MANO shape-root frame conversion checked.
+  Right-hand reference/mesh-transform disagreement <1.5e-7 m. Left reference
+  uses official toolkit shape correction; ACE prediction decoder is unmodified.
+- Final MANO wrist-depth bias: archived +91.9517 mm, fresh640 +89.8324 mm,
+  fresh480 +105.8025 mm. Root-relative articulation errors are much smaller.
+  Genuine local localization weakness persists; domain shift versus broader
+  model weakness cannot be separated without authors' prepared test inputs.
+- Failed setup attempts: incomplete source archive extracted before transfer
+  completion (retried after completion); missing librosa dependency installed;
+  one truncated public clip download retried and hash verified; OVR624 lacks
+  inverse projection, so camera check uses a documented numerical inverse.
+  None of these failures is counted as a successful model run.
+- Raw predictions, decoded arrays, videos and logs backed up locally; SHA256
+  manifest, environment snapshot, per-sequence metrics, paired intervals and
+  depth plots saved. Technical report: reports/ace_audit/report.md.
+- Tests:33 passed. WiLoR remains22.8916 mm raw stereo and24.2666 mm MANO-temporal
+  on the original held-out MANO21 track. No replacement justified.
+- Remaining: author-level parity needs original prepared inputs, recording
+  manifests and evaluator. Object-aware optimization has not been started.

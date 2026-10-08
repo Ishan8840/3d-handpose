@@ -107,17 +107,45 @@ These three configurations use the **same 450 held-out HOT3D frames and common
 
 | ACE configuration | Absolute MPJPE mm | PA-MPJPE mm, aligned | Joint coverage % |
 |---|---:|---:|---:|
-| ACE direct monocular | 107.48 | 8.69 | 72.00 |
+| ACE auxiliary direct-3D head (historical diagnostic) | 107.48 | 8.69 | 72.00 |
 | ACE gated stereo | 30.03 | 13.74 | 56.76 |
 | ACE hybrid | 28.28 | 12.75 | 57.65 |
 
-Standalone ACE predicts a much better aligned hand configuration than absolute
+The historical ACE auxiliary head predicts a much better aligned hand configuration than absolute
 metric placement: **107.48 mm absolute error versus 8.69 mm after Procrustes
 alignment**. Alignment changes translation, rotation and scale, so this gap must
 not be attributed entirely to depth. ACE's 2D observations remain useful: calibrated
 stereo reduces absolute error to **30.03 mm**, then spatial/temporal refinement
 to **28.28 mm**. This conclusion applies to the tested checkpoint and protocol.
 [Machine-readable ACE results and source hashes](reports/ace_standalone_held.json).
+
+**Reproduction audit correction:** the 107.48 mm entry decoded
+`joints_cam_direct`, which bypasses ACE's final MANO and camera-translation
+decoder. It should not have been presented as the complete official output.
+Rescoring the final decoder on the same 450 frames with anatomical **MANO-21**
+gives 111.08 mm absolute MPJPE, 114.01 mm wrist error, 17.42 mm wrist-relative
+MPJPE, and 72.00% coverage. Thus the output-selection mismatch does not by itself
+explain the placement problem. The 19- and 21-joint numbers remain separate.
+[Audit measurements](reports/ace_audit/saved_decode.json) and
+[paper-protocol scoring](reports/ace_audit/paper_protocol.json) preserve the
+historical outputs. The paper's penalized wrist-relative metrics are not absolute
+MPJPE. WiLoR's baseline is unchanged.
+
+Fresh K-given inference on **three sequences × 81 identical frames** confirms
+the placement problem:
+
+| Input | Absolute MANO-21 MPJPE mm | Wrist mm | Wrist-relative MPJPE mm | Coverage % |
+|---|---:|---:|---:|---:|
+| 640×640, 81 frames | 108.18 | 113.62 | 16.45 | 77.37 |
+| 480×480, 81 frames | 142.31 | 135.29 | 18.69 | 77.37 |
+
+On shared observed joints, 480 pixels worsens error by **34.45 mm**
+(three-sequence bootstrap 95% interval: +20.37 to +78.98 mm). Fresh 640-pixel
+inference differs from archived predictions by only +0.36 mm on this subset.
+The 480-pixel run follows the paper's stated input size but does not reproduce
+its undisclosed split or rectification. Dataset/pretraining overlap is unknown;
+exact parity with the unreleased author evaluator is not claimed.
+[Full ACE audit, published-metric comparisons, coordinate checks and limitations](reports/ace_audit/report.md).
 
 ## All executed expanded held-out variants: common19
 

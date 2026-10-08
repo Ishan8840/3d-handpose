@@ -1,0 +1,314 @@
+{
+  "protocol": "ACE appendix A.1 reimplementation; author parity unverified",
+  "sequences": {
+    "clip-000175": {
+      "TP": 300,
+      "FP": 0,
+      "FN": 0,
+      "recall": 1.0,
+      "precision": 1.0,
+      "F1": 1.0,
+      "MPJPE-p_mm": 11.191642790507707,
+      "PA-p_mm": 4.90133858467951,
+      "GO-p_deg": 7.739700426569213,
+      "CT-p_m": 0.1177955529404681,
+      "EPE2D-p_px": 7.77171724650015,
+      "FAcc": 1.0,
+      "frames": 150,
+      "per_side": {
+        "left": {
+          "TP": 150,
+          "FP": 0,
+          "FN": 0,
+          "recall": 1.0,
+          "precision": 1.0,
+          "F1": 1.0
+        },
+        "right": {
+          "TP": 150,
+          "FP": 0,
+          "FN": 0,
+          "recall": 1.0,
+          "precision": 1.0,
+          "F1": 1.0
+        }
+      },
+      "bbox_scale": 1.1,
+      "same_side_first": false,
+      "author_evaluator_parity_verified": false,
+      "matched_only": {
+        "MPJPE_mm": 11.191642790507707,
+        "PA_mm": 4.90133858467951,
+        "GO_deg": 7.739700426569213,
+        "CT_m": 0.1177955529404681,
+        "EPE2D_px": 7.77171724650015
+      }
+    },
+    "clip-000838": {
+      "TP": 252,
+      "FP": 0,
+      "FN": 48,
+      "recall": 0.84,
+      "precision": 1.0,
+      "F1": 0.9130434782608695,
+      "MPJPE-p_mm": 42.15842999740284,
+      "PA-p_mm": 8.556158589213153,
+      "GO-p_deg": 34.98044458794696,
+      "CT-p_m": 0.1830696536796062,
+      "EPE2D-p_px": 29.10660212212036,
+      "FAcc": 0.68,
+      "frames": 150,
+      "per_side": {
+        "left": {
+          "TP": 150,
+          "FP": 0,
+          "FN": 0,
+          "recall": 1.0,
+          "precision": 1.0,
+          "F1": 1.0
+        },
+        "right": {
+          "TP": 102,
+          "FP": 0,
+          "FN": 48,
+          "recall": 0.68,
+          "precision": 1.0,
+          "F1": 0.8095238095238095
+        }
+      },
+      "bbox_scale": 1.1,
+      "same_side_first": false,
+      "author_evaluator_parity_verified": false,
+      "matched_only": {
+        "MPJPE_mm": 16.99418880779982,
+        "PA_mm": 7.21588162568106,
+        "GO_deg": 10.20487443737774,
+        "CT_m": 0.11909460311240823,
+        "EPE2D_px": 7.268490009779007
+      }
+    },
+    "clip-001119": {
+      "TP": 65,
+      "FP": 0,
+      "FN": 108,
+      "recall": 0.37572254335260113,
+      "precision": 1.0,
+      "F1": 0.5462184873949579,
+      "MPJPE-p_mm": 84.88759464759025,
+      "PA-p_mm": 17.265412672946983,
+      "GO-p_deg": 111.07665461635328,
+      "CT-p_m": 0.35140978497519204,
+      "EPE2D-p_px": 546.0189190748981,
+      "FAcc": 0.32,
+      "frames": 150,
+      "per_side": {
+        "left": {
+          "TP": 65,
+          "FP": 0,
+          "FN": 85,
+          "recall": 0.43333333333333335,
+          "precision": 1.0,
+          "F1": 0.6046511627906976
+        },
+        "right": {
+          "TP": 0,
+          "FP": 0,
+          "FN": 23,
+          "recall": 0.0,
+          "precision": null,
+          "F1": 0.0
+        }
+      },
+      "bbox_scale": 1.1,
+      "same_side_first": false,
+      "author_evaluator_parity_verified": false,
+      "matched_only": {
+        "MPJPE_mm": 17.15126481211878,
+        "PA_mm": 9.565338821152181,
+        "GO_deg": 12.102848879515271,
+        "CT_m": 0.06217302151260313,
+        "EPE2D_px": 10.953596322914803
+      }
+    }
+  },
+  "pooled": {
+    "TP": 617,
+    "FP": 0,
+    "FN": 156,
+    "recall": 0.7981888745148771,
+    "precision": 1.0,
+    "F1": 0.8877697841726618,
+    "MPJPE-p_mm": 39.70320273015042,
+    "PA-p_mm": 9.086889449660578,
+    "GO-p_deg": 41.43894534668043,
+    "CT-p_m": 0.19541197255721932,
+    "EPE2D-p_px": 139.1707737247482,
+    "FAcc": 0.6666666666666666,
+    "frames": 450,
+    "per_side": {
+      "left": {
+        "TP": 365,
+        "FP": 0,
+        "FN": 85,
+        "recall": 0.8111111111111111,
+        "precision": 1.0,
+        "F1": 0.8957055214723927
+      },
+      "right": {
+        "TP": 252,
+        "FP": 0,
+        "FN": 71,
+        "recall": 0.7801857585139319,
+        "precision": 1.0,
+        "F1": 0.8765217391304347
+      }
+    },
+    "bbox_scale": 1.1,
+    "same_side_first": false,
+    "author_evaluator_parity_verified": false,
+    "matched_only": {
+      "MPJPE_mm": 14.189401344417483,
+      "PA_mm": 6.338007728444687,
+      "GO_deg": 9.206197185345943,
+      "CT_m": 0.11246637320062643,
+      "EPE2D_px": 7.917847053841929
+    }
+  },
+  "sensitivity_bbox_1_2": {
+    "TP": 617,
+    "FP": 0,
+    "FN": 156,
+    "recall": 0.7981888745148771,
+    "precision": 1.0,
+    "F1": 0.8877697841726618,
+    "MPJPE-p_mm": 39.70320273015042,
+    "PA-p_mm": 9.086889449660578,
+    "GO-p_deg": 41.43894534668043,
+    "CT-p_m": 0.19541197255721932,
+    "EPE2D-p_px": 139.1707737247482,
+    "FAcc": 0.6666666666666666,
+    "frames": 450,
+    "per_side": {
+      "left": {
+        "TP": 365,
+        "FP": 0,
+        "FN": 85,
+        "recall": 0.8111111111111111,
+        "precision": 1.0,
+        "F1": 0.8957055214723927
+      },
+      "right": {
+        "TP": 252,
+        "FP": 0,
+        "FN": 71,
+        "recall": 0.7801857585139319,
+        "precision": 1.0,
+        "F1": 0.8765217391304347
+      }
+    },
+    "bbox_scale": 1.2,
+    "same_side_first": false,
+    "author_evaluator_parity_verified": false,
+    "matched_only": {
+      "MPJPE_mm": 14.189401344417483,
+      "PA_mm": 6.338007728444687,
+      "GO_deg": 9.206197185345943,
+      "CT_m": 0.11246637320062643,
+      "EPE2D_px": 7.917847053841929
+    }
+  },
+  "sensitivity_same_side_first": {
+    "TP": 617,
+    "FP": 0,
+    "FN": 156,
+    "recall": 0.7981888745148771,
+    "precision": 1.0,
+    "F1": 0.8877697841726618,
+    "MPJPE-p_mm": 39.70320273015042,
+    "PA-p_mm": 9.086889449660578,
+    "GO-p_deg": 41.43894534668043,
+    "CT-p_m": 0.19541197255721932,
+    "EPE2D-p_px": 139.1707737247482,
+    "FAcc": 0.6666666666666666,
+    "frames": 450,
+    "per_side": {
+      "left": {
+        "TP": 365,
+        "FP": 0,
+        "FN": 85,
+        "recall": 0.8111111111111111,
+        "precision": 1.0,
+        "F1": 0.8957055214723927
+      },
+      "right": {
+        "TP": 252,
+        "FP": 0,
+        "FN": 71,
+        "recall": 0.7801857585139319,
+        "precision": 1.0,
+        "F1": 0.8765217391304347
+      }
+    },
+    "bbox_scale": 1.1,
+    "same_side_first": true,
+    "author_evaluator_parity_verified": false,
+    "matched_only": {
+      "MPJPE_mm": 14.189401344417483,
+      "PA_mm": 6.338007728444687,
+      "GO_deg": 9.206197185345943,
+      "CT_m": 0.11246637320062643,
+      "EPE2D_px": 7.917847053841929
+    }
+  },
+  "canonical_convention": "zero MANO pose parameters with ACE flat_hand_mean=False",
+  "sensitivity_flat_hand_canonical": {
+    "TP": 617,
+    "FP": 0,
+    "FN": 156,
+    "recall": 0.7981888745148771,
+    "precision": 1.0,
+    "F1": 0.8877697841726618,
+    "MPJPE-p_mm": 43.52935081561373,
+    "PA-p_mm": 9.684751443680232,
+    "GO-p_deg": 41.43894534668043,
+    "CT-p_m": 0.19541197255721932,
+    "EPE2D-p_px": 139.1707737247482,
+    "FAcc": 0.6666666666666666,
+    "frames": 450,
+    "per_side": {
+      "left": {
+        "TP": 365,
+        "FP": 0,
+        "FN": 85,
+        "recall": 0.8111111111111111,
+        "precision": 1.0,
+        "F1": 0.8957055214723927
+      },
+      "right": {
+        "TP": 252,
+        "FP": 0,
+        "FN": 71,
+        "recall": 0.7801857585139319,
+        "precision": 1.0,
+        "F1": 0.8765217391304347
+      }
+    },
+    "bbox_scale": 1.1,
+    "same_side_first": false,
+    "author_evaluator_parity_verified": false,
+    "matched_only": {
+      "MPJPE_mm": 14.189401344417483,
+      "PA_mm": 6.338007728444687,
+      "GO_deg": 9.206197185345943,
+      "CT_m": 0.11246637320062643,
+      "EPE2D_px": 7.917847053841929
+    }
+  },
+  "coordinate_checks": {
+    "ground_truth_decoder": "official hand_tracking_toolkit MANOHandModel, including left shapedirs correction",
+    "prediction_decoder": "official ACE MANO conventions unchanged",
+    "right_hand_frames": 450,
+    "gt_match_max_m": 1.26715340775167e-07,
+    "mano_transform_max_m": 1.4530972940008595e-07
+  }
+}

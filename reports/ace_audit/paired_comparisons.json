@@ -1,0 +1,48 @@
+{
+  "fresh_480_81 minus fresh_640_81": {
+    "delta_mm": 34.45263141676205,
+    "ci95_sequence_bootstrap_mm": [
+      20.37487020133172,
+      78.97745865603632
+    ],
+    "per_sequence": {
+      "clip-000648": {
+        "delta_mm": 31.253018270526766,
+        "paired_joints": 1575
+      },
+      "clip-001035": {
+        "delta_mm": 20.374870201331724,
+        "paired_joints": 1701
+      },
+      "clip-001168": {
+        "delta_mm": 78.9774586560363,
+        "paired_joints": 651
+      }
+    },
+    "paired_joints": 3927,
+    "sequences": 3
+  },
+  "fresh_640_81 minus saved_decode_first81": {
+    "delta_mm": 0.3556885784317419,
+    "ci95_sequence_bootstrap_mm": [
+      -1.5651257290962854,
+      2.1318015899784903
+    ],
+    "per_sequence": {
+      "clip-000648": {
+        "delta_mm": -1.565125729096285,
+        "paired_joints": 1575
+      },
+      "clip-001035": {
+        "delta_mm": 1.4325460684947802,
+        "paired_joints": 1701
+      },
+      "clip-001168": {
+        "delta_mm": 2.1318015899784903,
+        "paired_joints": 672
+      }
+    },
+    "paired_joints": 3948,
+    "sequences": 3
+  }
+}

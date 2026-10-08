@@ -1,0 +1,26 @@
+{
+  "ace_commit": "59da83b58d58c3041b9ee0b35b5054866e33a990",
+  "checkpoint_revision": "6fb3decade1b0331048fa9d02df605e95a0575c2",
+  "checkpoint_sha256": "33f328624ca532942b12d10c59b648bb9fc0801bcdfe59f35ba92645e51fc3ad",
+  "files": {
+    "outputs/ace-upright-held_out/clip-001168/left/left.pkl": "6113e34d5a9a082cd7873b7c9314aabd9b17029a527f2cc3236300a98c990d04",
+    "outputs/ace-upright-held_out/clip-000648/left/left.pkl": "bbfefe25364e127628c17aece4ace9ddb74b6c4a859df3fafe3950b9676fc388",
+    "outputs/ace-upright-held_out/clip-001035/left/left.pkl": "6143534acad87b176c20f2369fea677fd809dcf8525626ce829ee30c9c8bd1a2",
+    "third_party/ace/options/ace_ego_hand_k.yml": "493fb308727704ec3f05ce8db63185510e3bac404038ff8dbce3440011de7c63",
+    "third_party/ace/infer_video.py": "67a131bcd6526ec7fdafe3f6d29acb427a0fa67b7a3e1a4549c8809121156d7b",
+    "third_party/ace/ace_ego_hand/mano_utils.py": "7157be805847b6751113dde5a87eb66d6b6b366add5c7f28f816ff63b26b2e41",
+    "data/hot3d/manifest.json": "bd46faa63e957c6d287c8c30f508c2ecbbb0ada112298b5e4a630f1d3f87dc1b",
+    "outputs/ace-upright-development/clip-000175/left/left.pkl": "51781655ac15dcbf810adcd53e7115b98612c937bc746eace8abed584e7c2af5",
+    "outputs/ace-upright-development/clip-000838/left/left.pkl": "b00ea96a4d8f23aa88146a5e22ba0521d5a5d117000cbd7e00c7c1c20f33bff4",
+    "outputs/ace-upright-development/clip-001119/left/left.pkl": "c95ca15bd5511248355cb5888abbbe8096f994138d89a22b92ef77ec53b99db6",
+    "src/handpose/evaluation/ace_protocol.py": "dca623f257b14d8191b4910f6b1c6629112a6c4782fda4474cc3dcce0a488378",
+    "scripts/score_ace_paper.py": "7e18ad621e729cd85d0da4af28f5beec27ceb00ae5c4bd05addc6e3c73f4872a",
+    "scripts/run_ace_audit.py": "1d5ee2f267defefce2f74a7b02f1166ff0ad1720dd3340cd65e6a2d638396467"
+  },
+  "videox_commit": "4b7b6402a1e0f0406bd6801fb66c0a00bd922621",
+  "hand_tracking_toolkit_commit": "bc628e9286c18444b47a0971a89d075ea6f00747",
+  "upstream_head_checked": "2026-10-08",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "python": "3.12.14",
+  "torch": "2.11.0+cu128"
+}

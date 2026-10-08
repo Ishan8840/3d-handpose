@@ -1,0 +1,212 @@
+[
+  {
+    "track": "HOT3D MANO-21",
+    "model": "WiLoR stereo",
+    "sequences": 3,
+    "frames": 450,
+    "metrics": {
+      "absolute_mpjpe_mm": 22.891606405407604,
+      "joint_coverage": 0.5811640211640212,
+      "wrist_mm": 21.384206893979663,
+      "fingertips_mm": 30.961635769922434,
+      "p90_mm": 40.9309431685451,
+      "p95_mm": 55.83473794304122,
+      "capped_error_with_missing_penalty_mm": 53.745272002109616
+    },
+    "files": [
+      {
+        "path": "outputs/wilor-held/stereo/clip-000648/predictions.npz",
+        "sha256": "4198bb0d9f6bafb81b0874c31839bd24c1da15ce8cb0ea5f3f722aa1693765b9"
+      },
+      {
+        "path": "outputs/wilor-held/stereo/clip-000648/ground_truth_mano21.npz",
+        "sha256": "9a31a9280e0bee6d3e1025231ecddb87339dfe9585e4fb3085a1f582f08c3aa4"
+      },
+      {
+        "path": "outputs/wilor-held/stereo/clip-001035/predictions.npz",
+        "sha256": "9aecf3339c4053d01b678ea9c591559fdaa24ca2e9cf78bca9f5acb6d2f01369"
+      },
+      {
+        "path": "outputs/wilor-held/stereo/clip-001035/ground_truth_mano21.npz",
+        "sha256": "bb3ce98af2915a11dd5f35d0d7e0d80be6afe83d695776e25af6218b97b59a1a"
+      },
+      {
+        "path": "outputs/wilor-held/stereo/clip-001168/predictions.npz",
+        "sha256": "e106e68db3f48ff3a531432927da36c73fbaf532e5f57823d2ae432fd5f636f4"
+      },
+      {
+        "path": "outputs/wilor-held/stereo/clip-001168/ground_truth_mano21.npz",
+        "sha256": "b7af447cf3b5ca631c1b0c3da86ed09f16d5d4116a1ccbe83f53628727fed665"
+      }
+    ],
+    "status": "reproduced from archived predictions; not yet fresh model inference"
+  },
+  {
+    "track": "HOT3D MANO-21",
+    "model": "HaMeR stereo",
+    "sequences": 3,
+    "frames": 450,
+    "metrics": {
+      "absolute_mpjpe_mm": 23.05014533268159,
+      "joint_coverage": 0.5722751322751323,
+      "wrist_mm": 18.744372956971112,
+      "fingertips_mm": 24.90435003595038,
+      "p90_mm": 44.87330486435116,
+      "p95_mm": 61.43341137314316,
+      "capped_error_with_missing_penalty_mm": 55.367529026136175
+    },
+    "files": [
+      {
+        "path": "outputs/hamer-held/stereo/clip-000648/predictions.npz",
+        "sha256": "4574dae2982e7b13de79d0d0c060e412a2752b86317fb6c6f9681eaa8437e7c3"
+      },
+      {
+        "path": "outputs/hamer-held/stereo/clip-000648/ground_truth_mano21.npz",
+        "sha256": "9a31a9280e0bee6d3e1025231ecddb87339dfe9585e4fb3085a1f582f08c3aa4"
+      },
+      {
+        "path": "outputs/hamer-held/stereo/clip-001035/predictions.npz",
+        "sha256": "60b3e666a2ad5654257969c8aae3eb2ce6fd8f4dd135b88524d9c6aeafedd3c7"
+      },
+      {
+        "path": "outputs/hamer-held/stereo/clip-001035/ground_truth_mano21.npz",
+        "sha256": "bb3ce98af2915a11dd5f35d0d7e0d80be6afe83d695776e25af6218b97b59a1a"
+      },
+      {
+        "path": "outputs/hamer-held/stereo/clip-001168/predictions.npz",
+        "sha256": "a164a7666de252d9bda85220f4218ef47f8264c7791a177cf12ac0dcdba16e01"
+      },
+      {
+        "path": "outputs/hamer-held/stereo/clip-001168/ground_truth_mano21.npz",
+        "sha256": "b7af447cf3b5ca631c1b0c3da86ed09f16d5d4116a1ccbe83f53628727fed665"
+      }
+    ],
+    "status": "reproduced from archived predictions; not yet fresh model inference"
+  },
+  {
+    "track": "HOT3D MANO-21",
+    "model": "ACE hybrid",
+    "sequences": 3,
+    "frames": 450,
+    "metrics": {
+      "absolute_mpjpe_mm": 27.176237826988203,
+      "joint_coverage": 0.5801058201058201,
+      "wrist_mm": 30.89519832305901,
+      "fingertips_mm": 25.821227095385275,
+      "p90_mm": 52.08988397282097,
+      "p95_mm": 67.0967084097936,
+      "capped_error_with_missing_penalty_mm": 57.414185622909805
+    },
+    "files": [
+      {
+        "path": "outputs/ace-hybrid-held-out/clip-000648/predictions.npz",
+        "sha256": "485e362f500d54c10d72605b4db8167fc5c6fa017cb2821ffb659caed8010c82"
+      },
+      {
+        "path": "outputs/ace-hybrid-held-out/clip-000648/ground_truth_mano21.npz",
+        "sha256": "9a31a9280e0bee6d3e1025231ecddb87339dfe9585e4fb3085a1f582f08c3aa4"
+      },
+      {
+        "path": "outputs/ace-hybrid-held-out/clip-001035/predictions.npz",
+        "sha256": "c9aad2a9e742b44f377b5704a8533b34926fed64fa84a951fee223e8e9406951"
+      },
+      {
+        "path": "outputs/ace-hybrid-held-out/clip-001035/ground_truth_mano21.npz",
+        "sha256": "bb3ce98af2915a11dd5f35d0d7e0d80be6afe83d695776e25af6218b97b59a1a"
+      },
+      {
+        "path": "outputs/ace-hybrid-held-out/clip-001168/predictions.npz",
+        "sha256": "e734267667f3cb4d4e6dcd4dc7c2adff524dc0a9ae648a04f5fea7a4f5fca60f"
+      },
+      {
+        "path": "outputs/ace-hybrid-held-out/clip-001168/ground_truth_mano21.npz",
+        "sha256": "b7af447cf3b5ca631c1b0c3da86ed09f16d5d4116a1ccbe83f53628727fed665"
+      }
+    ],
+    "status": "reproduced from archived predictions; not yet fresh model inference"
+  },
+  {
+    "track": "HOT3D MANO-21",
+    "model": "WiLoR MANO Adam temporal",
+    "sequences": 3,
+    "frames": 450,
+    "metrics": {
+      "absolute_mpjpe_mm": 24.26656354950765,
+      "joint_coverage": 0.6733333333333333,
+      "wrist_mm": 29.940087831543238,
+      "fingertips_mm": 26.983429634023675,
+      "p90_mm": 35.63645675764548,
+      "p95_mm": 47.66912011320474,
+      "capped_error_with_missing_penalty_mm": 45.691699657973835
+    },
+    "files": [
+      {
+        "path": "outputs/adam-temporal-held/clip-000648/predictions.npz",
+        "sha256": "2042f6a5f90a5349013f5bfffd3fc7d58757b8653d55ed7cce67fd594a77522d"
+      },
+      {
+        "path": "outputs/adam-temporal-held/clip-000648/ground_truth_mano21.npz",
+        "sha256": "9a31a9280e0bee6d3e1025231ecddb87339dfe9585e4fb3085a1f582f08c3aa4"
+      },
+      {
+        "path": "outputs/adam-temporal-held/clip-001035/predictions.npz",
+        "sha256": "9c00be7ad55d8bd94153820c2417209dce4cacb54b6fb83f5b6012db7b161424"
+      },
+      {
+        "path": "outputs/adam-temporal-held/clip-001035/ground_truth_mano21.npz",
+        "sha256": "bb3ce98af2915a11dd5f35d0d7e0d80be6afe83d695776e25af6218b97b59a1a"
+      },
+      {
+        "path": "outputs/adam-temporal-held/clip-001168/predictions.npz",
+        "sha256": "c979c8ce151e89b06606127e9c5daf83829ba2442781de9176c270731e11591c"
+      },
+      {
+        "path": "outputs/adam-temporal-held/clip-001168/ground_truth_mano21.npz",
+        "sha256": "b7af447cf3b5ca631c1b0c3da86ed09f16d5d4116a1ccbe83f53628727fed665"
+      }
+    ],
+    "status": "reproduced from archived predictions; not yet fresh model inference"
+  },
+  {
+    "track": "SHOW3D common19",
+    "model": "WiLoR MANO Adam temporal",
+    "sequences": 3,
+    "frames": 900,
+    "metrics": {
+      "absolute_mpjpe_mm": 19.526627751355665,
+      "joint_coverage": 0.8277777777777777,
+      "wrist_mm": null,
+      "fingertips_mm": 20.465084906223083,
+      "p90_mm": 35.57161004888105,
+      "p95_mm": 44.52754195614235,
+      "capped_error_with_missing_penalty_mm": 32.79039798816395
+    },
+    "files": [
+      {
+        "path": "outputs/adam-temporal-show3d/aria_pick-up-put-down_3b63/predictions.npz",
+        "sha256": "2303d0fa955159f53f0ded89aaff2cc5c5d512c7c91f3470e47e672ae2c17e2e"
+      },
+      {
+        "path": "outputs/adam-temporal-show3d/aria_pick-up-put-down_3b63/ground_truth.npz",
+        "sha256": "91c845325d4f24b65a9eeea37f0dd8d1c456d5ac0e0571d5b9e1a92c1283abb9"
+      },
+      {
+        "path": "outputs/adam-temporal-show3d/aria_pick-up-put-down_b700/predictions.npz",
+        "sha256": "ca8d327f7cb0f9c2f5aa1252a80f192f895678324442e23467cc0550626966da"
+      },
+      {
+        "path": "outputs/adam-temporal-show3d/aria_pick-up-put-down_b700/ground_truth.npz",
+        "sha256": "076e61740f81386e3930802de753a5e97e18b78683dfefbc0de7acb31d08665b"
+      },
+      {
+        "path": "outputs/adam-temporal-show3d/aria_pick-up-put-down_d4b6/predictions.npz",
+        "sha256": "9e8ff6b5189e4242dc9cfd5cc76601eb182742b17c6295e93d0fc401f651f5eb"
+      },
+      {
+        "path": "outputs/adam-temporal-show3d/aria_pick-up-put-down_d4b6/ground_truth.npz",
+        "sha256": "40ae876baba3fb3ead1df2868adf27447574f60d3568a0b3aae52f37c94239a2"
+      }
+    ],
+    "status": "reproduced from archived predictions; not yet fresh model inference"
+  }
+]

@@ -16,6 +16,12 @@ class ACEExport:
         if self.upright: points=np.c_[points[:,1],self.width-1-points[:,0]]
         return [Observation(points,np.full(21,self.data['exists_2d'][index,1]))]
     def direct(self,index):
+        """Auxiliary direct-3D diagnostic, NOT the official final MANO output.
+
+        For final monocular output use the official MANO decoder as demonstrated
+        in scripts/audit_ace_decode.py. This method remains unchanged to preserve
+        historical experiments and their provenance.
+        """
         x=self.data['joints_cam_direct'][index,1].copy()
         if self.upright: x=x@np.array([[0,-1,0],[1,0,0],[0,0,1.]])
         return x

@@ -1,0 +1,386 @@
+[
+  {
+    "sequence": "P0003_01a10066",
+    "split": "development",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 480,
+    "target_K": [
+      [
+        240.0,
+        0.0,
+        239.5
+      ],
+      [
+        0.0,
+        240.0,
+        239.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 1.7053025658242404e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0003_01a10066",
+    "split": "development",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 640,
+    "target_K": [
+      [
+        320.0,
+        0.0,
+        319.5
+      ],
+      [
+        0.0,
+        320.0,
+        319.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 3.457650183405701e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0010_086ff32a",
+    "split": "held_out",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 480,
+    "target_K": [
+      [
+        240.0,
+        0.0,
+        239.5
+      ],
+      [
+        0.0,
+        240.0,
+        239.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 1.7053025658242404e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0010_086ff32a",
+    "split": "held_out",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 640,
+    "target_K": [
+      [
+        320.0,
+        0.0,
+        319.5
+      ],
+      [
+        0.0,
+        320.0,
+        319.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 3.457650183405701e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0013_0ec32d10",
+    "split": "development",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 480,
+    "target_K": [
+      [
+        240.0,
+        0.0,
+        239.5
+      ],
+      [
+        0.0,
+        240.0,
+        239.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 2.1316282072803006e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0013_0ec32d10",
+    "split": "development",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 640,
+    "target_K": [
+      [
+        320.0,
+        0.0,
+        319.5
+      ],
+      [
+        0.0,
+        320.0,
+        319.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 3.595093471822542e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0017_1a07e9e7",
+    "split": "held_out",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 480,
+    "target_K": [
+      [
+        240.0,
+        0.0,
+        239.5
+      ],
+      [
+        0.0,
+        240.0,
+        239.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 2.5421149729252077e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0017_1a07e9e7",
+    "split": "held_out",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 640,
+    "target_K": [
+      [
+        320.0,
+        0.0,
+        319.5
+      ],
+      [
+        0.0,
+        320.0,
+        319.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 3.2155493553843715e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0018_15ad9743",
+    "split": "development",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 480,
+    "target_K": [
+      [
+        240.0,
+        0.0,
+        239.5
+      ],
+      [
+        0.0,
+        240.0,
+        239.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 3.410605131648481e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0018_15ad9743",
+    "split": "development",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 640,
+    "target_K": [
+      [
+        320.0,
+        0.0,
+        319.5
+      ],
+      [
+        0.0,
+        320.0,
+        319.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 5.084229945850415e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0021_03d537b2",
+    "split": "held_out",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 480,
+    "target_K": [
+      [
+        240.0,
+        0.0,
+        239.5
+      ],
+      [
+        0.0,
+        240.0,
+        239.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 3.4224270219716276e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  },
+  {
+    "sequence": "P0021_03d537b2",
+    "split": "held_out",
+    "source_model": "OVR624CameraModel",
+    "source_size": [
+      1280,
+      1024
+    ],
+    "inverse_method": "numerical inversion of official forward projection; 49 rays",
+    "target_size": 640,
+    "target_K": [
+      [
+        320.0,
+        0.0,
+        319.5
+      ],
+      [
+        0.0,
+        320.0,
+        319.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fisheye_pinhole_roundtrip_max_px": 4.0990372275064023e-13,
+    "clockwise_rotation_max_px": 5.684341886080802e-14,
+    "median_frame_period_ns": 33333333.0,
+    "timestamps_strictly_increasing": true
+  }
+]

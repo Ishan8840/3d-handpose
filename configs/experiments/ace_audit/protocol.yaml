@@ -1,0 +1,27 @@
+source: https://arxiv.org/html/2608.20308v3#A1
+checkpoint: ace_ego_hand_k.pt
+checkpoint_sha256: 33f328624ca532942b12d10c59b648bb9fc0801bcdfe59f35ba92645e51fc3ad
+reference: anatomical_MANO_21
+inference_inputs: [rgb_video, pinhole_intrinsics]
+frames_per_sequence: 81
+image_size: [480, 480]
+controlled_comparison_image_size: [640, 640]
+pinhole_focal_px: 240
+orientation: clockwise_90_degrees_from_Quest_native
+inference_mode: tiled
+sequences: [clip-000648, clip-001035, clip-001168]
+pretraining_overlap: unknown_recording_overlap_with_ACE_HOT3D_training
+detection:
+  existence_threshold_exclusive: 0.5
+  joint_positive_depth_m_exclusive: 0.01
+  matching: best_mesh_bbox_IoU_then_side_rejection
+  bbox_total_scale: 1.1
+  sensitivity_bbox_total_scale: 1.2
+  sensitivity_same_side_first: true
+missing_penalty:
+  pose: mean_shape_MANO_zero_pose_parameters_identity_orientation_zero_translation
+  flat_hand_mean: false
+  sensitivity_flat_hand_mean: true
+  epe2d: image_diagonal_per_visible_GT_joint
+author_evaluator_parity_verified: false
+baseline_policy: preserve_all_prior_WiLoR_predictions_and_configuration

@@ -1,3 +1,8 @@
+"""Historical stereo comparison; A1_monocular is ACE's auxiliary direct head.
+
+Use score_ace_paper.py and audit_ace_decode.py for final MANO reproduction.
+The historical key is retained so previous experiments remain reproducible.
+"""
 import argparse,json
 from pathlib import Path
 import numpy as np
