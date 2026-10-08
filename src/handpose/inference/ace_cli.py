@@ -47,7 +47,7 @@ def main(argv=None):
         with (side_dir/'inference.log').open('w') as log:
             subprocess.run([str(Path(a.ace_python).resolve()),'infer_video.py','--video',str(video),'--camera',str(camera_file.resolve()),'--opt','options/ace_ego_hand_k.yml','--ckpt','checkpoints/ace_ego_hand_k.pt','--out',str(result),'--encode_w','640'],cwd=Path(a.ace_root).resolve(),stdout=log,stderr=subprocess.STDOUT,check=True)
         exports.append(ACEExport(result/(video.stem+'.pkl'),in_size,a.rotate_cw))
-    if counts[0]!=counts[1] or counts[0]==0 or abs(fps_values[0]-fps_values[1])>1e-4:raise ValueError('Mismatched stereo streams')
+    if counts[0]!=counts[1] or counts[0]==0 or min(fps_values)<=0 or abs(fps_values[0]-fps_values[1])>1e-4:raise ValueError('Mismatched stereo streams')
     ts=np.arange(counts[0],dtype=float)/fps_values[0]*1e9
     if a.timestamps:
         data=np.load(a.timestamps)

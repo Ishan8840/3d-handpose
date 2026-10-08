@@ -99,3 +99,25 @@
   same timestamps and metric frame, rejects discrepancies >5 cm. Dev run ongoing.
 - Interim measured report and diagnostic plots generated; final selection remains
   pending. Environment snapshots and13 checkpoint hashes captured from VM.
+
+## Frozen held-out evaluation in progress
+
+- Commit3ee7b9d freezes three pipelines before held-out prediction execution.
+  Participants:P0010/P0017/P0021,150 frames each, both common19 and MANO21 tracks.
+- ACE hybrid development aggregate:25.971mm observed,50.42% joint coverage,
+  capped61.439mm. MP rotations:120.185mm/55.13%/63.815mm;
+  UmeTrack:86.648mm/49.33%/65.285mm; POEM:163.703mm/60.89%/68.580mm.
+  Large MP/POEM errors include genuine wrong-hand failures. All paired95% cluster
+  intervals reach zero with only three sequences; no statistical superiority claim.
+- ACE hybrid uses anatomy weight1,0.1-second temporal window,0.1-second max gap.
+  It improves the two observable development clips to20.169 and35.411mm.
+- Required ACE CLI output files generated from stereo videos without GT;
+  trusted-export reuse regression agrees with benchmark within6.03e-7m and
+  identical validity. Added rectangular rotation regression:16 tests pass.
+- Official UmeTrack smoke successfully executed30 native example frames:
+  4 available cameras,2 selected GT-guided crops,known GT skeleton;
+  error9.662 native units. Excluded from fair two-view results.
+  Initial Git clone contained LFS video pointers; fetched and SHA-verified actual
+  73MB example video before running. Missing PyAV dependency installed av16.0.1.
+- Additional model release audit saved; these are unexecuted candidates, not
+  fabricated scores or claimed hard blockers.

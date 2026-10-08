@@ -8,16 +8,22 @@ p=argparse.ArgumentParser();p.add_argument('--manifest',default='data/hot3d/mani
 entries=[e for e in json.load(open(a.manifest)) if e['split']==a.split];runs=json.load(open(a.runs));reference={};predictions={};summary={};ids=[]
 for e in entries:ids.extend([e['sequence']]*e['max_frames'])
 for name,root in runs.items():
-    ps=[];gs=[];persequence=[]
+    ps=[];gs=[];persequence=[];provenance_counts={'direct_stereo_initial':0,'multiview_model':0,'temporal_fill_only':0};eligible_count=0
     for e in entries:
         folder=Path(root)/Path(e['path']).stem;pred=np.load(folder/'predictions.npz');gt=np.load(folder/('ground_truth_mano21.npz' if a.mano21 else 'ground_truth.npz'))
         if len(pred['timestamps'])!=e['max_frames'] or not np.array_equal(pred['timestamps'],gt['timestamps']) or not np.array_equal(pred['frame_ids'],gt['frame_ids']):raise ValueError('Mismatched frames')
+        eligible=np.isfinite(gt['joints_3d']).all(-1);eligible_count+=int(eligible.sum())
+        original=pred['original_observation_type'] if 'original_observation_type' in pred else pred['observation_type']
+        provenance_counts['direct_stereo_initial']+=int(((original==1)&eligible&pred['validity']).sum())
+        provenance_counts['multiview_model']+=int(((original==4)&eligible&pred['validity']).sum())
+        provenance_counts['temporal_fill_only']+=int(((original==0)&eligible&pred['validity']).sum())
         key=e['sequence'];r=(gt['joints_3d'],gt['timestamps'])
         if key in reference:
             if not np.allclose(reference[key][0],r[0],equal_nan=True) or not np.array_equal(reference[key][1],r[1]):raise ValueError('Ground truth differs between methods')
         else:reference[key]=r
         xyz=np.where(pred['validity'][...,None],pred['joints_3d'],np.nan);ps.append(xyz);gs.append(gt['joints_3d']);persequence.append(evaluate(xyz,gt['joints_3d'],timestamps_ns=pred['timestamps']))
     P=np.concatenate(ps);G=np.concatenate(gs);m=evaluate(P,G);m['tracking_discontinuities']=sum(v['tracking_discontinuities'] for v in persequence)
+    m['provenance_coverage']={k:v/eligible_count if eligible_count else None for k,v in provenance_counts.items()}
     m['per_sequence']=dict(zip([e['sequence'] for e in entries],persequence));eligible=np.isfinite(G).all(-1);err=np.linalg.norm(P-G,axis=-1)*1000
     loss=np.where(np.isfinite(err),np.minimum(err,100),100);perframe=np.divide(np.where(eligible,loss,0).sum(1),eligible.sum(1),out=np.full(len(P),np.nan),where=eligible.sum(1)>0)
     m['capped_score_sequence_bootstrap_95ci']=sequence_bootstrap(perframe,ids);summary[name]=m;predictions[name]=P

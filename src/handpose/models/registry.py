@@ -7,3 +7,14 @@ def create(name):
     if name not in REGISTRY:
         raise ValueError(f'{name} is not integrated. Available: {list(REGISTRY)}')
     return REGISTRY[name]()
+
+# Offline and multiview runners use separate environments/interfaces but share
+# this discoverable catalog. Registration does not imply successful execution.
+MODEL_SPECS = {
+    **{name: {'interface':'image_2d','environment':'baseline','executable':True} for name in REGISTRY},
+    'ace': {'interface':'stereo_video','environment':'.venv-ace','runner':'handpose.inference.ace_cli','executable':True},
+    'poem': {'interface':'predicted_crop_multiview','environment':'.venv-poem','runner':'scripts/benchmark_poem.py','executable':True},
+    'umetrack': {'interface':'stereo_initialized','environment':'.venv','runner':'scripts/benchmark_hot3d.py --model umetrack','executable':True},
+    'foundationstereo': {'interface':'rectified_stereo_depth','environment':'.venv','runner':'scripts/benchmark_dense.py','executable':True},
+    'uafit': {'interface':'analytical_mano','executable':False,'reason':'Released uncertainty checkpoint not located in inspected official checkpoint instructions'},
+}

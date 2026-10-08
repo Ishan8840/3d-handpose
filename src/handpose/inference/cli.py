@@ -16,11 +16,11 @@ def save_predictions(predictions, output, metadata):
     xyz=np.stack([p.joints_3d_camera for p in predictions]); valid=np.stack([p.joint_validity for p in predictions])
     wrist=np.full((len(predictions),4,4),np.nan)
     wrist[:,:3,3]=xyz[:,0]; wrist[:,:3,:3]=np.stack([p.wrist_rotation for p in predictions]); wrist[:,3]=[0,0,0,1]
-    arrays=dict(joints_3d=xyz,timestamps=np.array([p.timestamp_ns for p in predictions],np.int64),confidence=np.stack([p.joint_confidence for p in predictions]),validity=valid,wrist_poses=wrist,frame_ids=np.arange(len(predictions)),joints_2d_left=np.stack([p.joints_2d_left for p in predictions]),joints_2d_right=np.stack([p.joints_2d_right for p in predictions]),observation_type=np.where(valid,metadata.get("observation_code",1),0).astype(np.uint8))
+    arrays=dict(joints_3d=xyz,timestamps=np.array([p.timestamp_ns for p in predictions],np.int64),confidence=np.stack([p.joint_confidence for p in predictions]),validity=valid,wrist_poses=wrist,frame_ids=np.arange(len(predictions)),joints_2d_left=np.stack([p.joints_2d_left for p in predictions]),joints_2d_right=np.stack([p.joints_2d_right for p in predictions]),observation_type=np.where(valid,metadata.get("observation_code",4 if metadata.get("model") in ("umetrack","POEM-v2-large") else 1),0).astype(np.uint8))
     for name in ('joints_3d','timestamps','confidence','validity','wrist_poses'):
         np.save(out/f'{name}.npy',arrays[name])
     np.savez_compressed(out/'predictions.npz',**arrays)
-    metadata.update(units='meters',coordinate_frame='left_camera_optical',axes='+x right,+y down,+z forward',joint_order=JOINT_NAMES,observation_types={'0':'missing','1':'stereo_observed','2':'single_view_inferred','3':'temporal','4':'multiview_model_inferred','5':'anatomical_fit'},wrist_rotation='unavailable: NaN',confidence_semantics=metadata.get('confidence_semantics','model observation score, gated by validity; not calibrated joint probability'))
+    metadata.update(units='meters',hand_side='right',coordinate_frame='left_camera_optical',axes='+x right,+y down,+z forward',joint_order=JOINT_NAMES,observation_types={'0':'missing','1':'stereo_observed','2':'single_view_inferred','3':'temporal','4':'multiview_model_inferred','5':'anatomical_fit'},wrist_rotation='unavailable: NaN',confidence_semantics=metadata.get('confidence_semantics','model observation score, gated by validity; not calibrated joint probability'))
     (out/'metadata.json').write_text(json.dumps(metadata,indent=2,allow_nan=False))
 
 
