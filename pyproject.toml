@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools==75.8.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "stereo-hand-pose"
+version = "0.1.0"
+requires-python = ">=3.10,<3.13"
+dependencies = ["numpy==1.26.4", "scipy==1.14.1", "opencv-contrib-python==4.11.0.86", "PyYAML==6.0.2", "matplotlib==3.9.4"]
+[project.optional-dependencies]
+baseline = ["mediapipe==0.10.21"]
+test = ["pytest==8.3.5"]
+[project.scripts]
+handpose-infer = "handpose.inference.cli:main"
+handpose-evaluate = "handpose.evaluation.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,8 @@
+model: mediapipe
+hand_side: right
+coordinate_frame: left_camera_optical
+units: meters
+max_epipolar_px: 5.0
+min_ray_angle_deg: 0.5
+max_reprojection_px: 8.0
+temporal: false
