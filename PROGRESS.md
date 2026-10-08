@@ -287,3 +287,32 @@ Object-aware work remains paused for this audit. No WiLoR model or output change
   on the original held-out MANO21 track. No replacement justified.
 - Remaining: author-level parity needs original prepared inputs, recording
   manifests and evaluator. Object-aware optimization has not been started.
+
+
+## ACE stereo global alignment (completed, 2026-10-08)
+
+- Implemented robust wrist/palm triangulation anchoring and six-DOF global fitting.
+  Both preserve ACE final MANO articulation and shape; no GT enters fitting.
+- Three configurations evaluated on3 development sequences/450frames. Selection
+  minimizes capped100mm error including missing joints;40mm consensus/all stereo
+  landmarks selected for both. One development sequence has no valid stereo fits
+  and remains in coverage/selection denominators.
+- Held-out3sequences/450frames: anchored25.8407mm, wrist21.4054mm, tips27.4429mm,
+  coverage58.8889%; SE(3)32.0194mm, wrist32.8165mm, tips35.5492mm, samecoverage.
+  Unchanged ACE111.0816mm; WiLoR22.8916mm; WiLoR MANO-temporal24.2666mm.
+- Paired anchoring vs ACE -90.2532mm. SE(3) vs anchoring +6.1788mm with broad
+  three-sequence interval[-5.1670,30.7427]. SE(3) reduces reprojection residual
+  in all held-out clips but worsens clip001168 from28.63 to59.38mm absolute.
+- Observed-population fingertip advantage is not paired: anchoring vs rawWiLoR
+  +2.5849mm on shared fingertips. Anchoring vs WiLoR MANO-temporal +8.3253mm
+  on shared joints, sequence-bootstrap95%CI[6.4506,12.7001]. No baseline replacement.
+- Added GT-free final-MANO decoder and anchored/SE3 inference CLI. Decoder tested
+  in the existing VM environment; both CLI modes match benchmark output on a
+  real150frame clip. Synthetic tests cover pose recovery, articulation preservation,
+  outlier rejection, missing stereo and both CLI modes.37 tests passed.
+- Saved per-sequence metrics, paired intervals, raw predictions, support/inlier masks,
+  status/rotation deltas, configurations, depth plots and artifact hashes.
+- Report: reports/ace_rigid/report.md. Baseline outputs and architecture untouched.
+- Next hypothesis: stronger stereo-depth trust regions/uncertainty, evaluated on
+  additional sequences. Do not use current held-out failures to tune and then
+  claim an independent confirmation on the same frames.

@@ -147,6 +147,32 @@ its undisclosed split or rectification. Dataset/pretraining overlap is unknown;
 exact parity with the unreleased author evaluator is not claimed.
 [Full ACE audit, published-metric comparisons, coordinate checks and limitations](reports/ace_audit/report.md).
 
+## ACE stereo anchoring and rigid fitting
+
+Both variants preserve ACE's finger articulation and use stereo observations to
+correct global placement. Three configurations were compared on 450 development
+frames, then frozen before scoring the same 450 held-out MANO-21 frames:
+
+| Method | Absolute MPJPE mm | Wrist mm | Fingertips mm | Joint coverage % |
+|---|---:|---:|---:|---:|
+| ACE final MANO | 111.08 | 114.01 | 110.32 | 72.00 |
+| ACE + robust stereo wrist/palm anchoring | 25.84 | 21.41 | 27.44 | 58.89 |
+| ACE + stereo SE(3), fixed articulation | 32.02 | 32.82 | 35.55 | 58.89 |
+| WiLoR stereo, unchanged | 22.89 | 21.38 | 30.96 | 58.12 |
+| WiLoR + MANO + temporal, unchanged | 24.27 | 29.94 | 26.98 | 67.33 |
+
+Anchoring improves ACE by **90.25 mm on shared observed joints**. SE(3) reduces
+2D reprojection residual but creates a held-out failure: one clip worsens from
+28.63 to 59.38 mm. Neither variant establishes an improvement over WiLoR.
+The apparent fingertip advantage in the table does **not** hold under paired
+comparison: anchoring is 2.58 mm worse than raw WiLoR on shared fingertips.
+Against WiLoR+MANO+temporal, anchoring is 8.33 mm worse on shared joints
+(three-sequence bootstrap 95% interval: +6.45 to +12.70 mm).
+
+[Full report, paired comparisons, failures and GT-free inference commands](reports/ace_rigid/report.md).
+All output joints are model-inferred; direct stereo support is recorded separately.
+WiLoR remains the baseline.
+
 ## All executed expanded held-out variants: common19
 
 | Method | Abs MPJPE mm | Wrist mm | Tips mm | Coverage % | P90 mm | Capped 100 mm |

@@ -1,0 +1,92 @@
+{
+  "clip-000648": {
+    "reprojection_px_on_same_stereo_support": {
+      "anchored": 5.718032342909074,
+      "se3": 2.8975121141387565
+    },
+    "metrics": {
+      "ace_final": {
+        "observed_mpjpe_mm": 125.9309452327844,
+        "catastrophic_joint_error_over100mm_fraction": 0.6276455026455027
+      },
+      "anchored": {
+        "observed_mpjpe_mm": 23.933642477227682,
+        "catastrophic_joint_error_over100mm_fraction": 0.005782312925170068
+      },
+      "se3": {
+        "observed_mpjpe_mm": 24.083235855112434,
+        "catastrophic_joint_error_over100mm_fraction": 0.01598639455782313
+      },
+      "wilor": {
+        "observed_mpjpe_mm": 21.989280652990402,
+        "catastrophic_joint_error_over100mm_fraction": 0.010085917071348524
+      }
+    },
+    "wrist_signed_depth_mm": {
+      "ace_final": 104.557520399491,
+      "anchored": -5.018382285911164,
+      "se3": 11.290483772414412,
+      "wilor": 12.390959647685126
+    }
+  },
+  "clip-001035": {
+    "reprojection_px_on_same_stereo_support": {
+      "anchored": 14.618789925041835,
+      "se3": 7.263030680772062
+    },
+    "metrics": {
+      "ace_final": {
+        "observed_mpjpe_mm": 90.19755286825779,
+        "catastrophic_joint_error_over100mm_fraction": 0.3787878787878788
+      },
+      "anchored": {
+        "observed_mpjpe_mm": 27.30870351585987,
+        "catastrophic_joint_error_over100mm_fraction": 0.0
+      },
+      "se3": {
+        "observed_mpjpe_mm": 22.14167061467787,
+        "catastrophic_joint_error_over100mm_fraction": 0.0
+      },
+      "wilor": {
+        "observed_mpjpe_mm": 29.955968506812724,
+        "catastrophic_joint_error_over100mm_fraction": 0.018471337579617834
+      }
+    },
+    "wrist_signed_depth_mm": {
+      "ace_final": 75.5815717307004,
+      "anchored": -21.838164725336046,
+      "se3": 9.519278680454038,
+      "wilor": -0.40874108741359116
+    }
+  },
+  "clip-001168": {
+    "reprojection_px_on_same_stereo_support": {
+      "anchored": 14.01409071230909,
+      "se3": 6.977654244670478
+    },
+    "metrics": {
+      "ace_final": {
+        "observed_mpjpe_mm": 113.35205323603468,
+        "catastrophic_joint_error_over100mm_fraction": 0.7700680272108843
+      },
+      "anchored": {
+        "observed_mpjpe_mm": 28.63373458776692,
+        "catastrophic_joint_error_over100mm_fraction": 0.0
+      },
+      "se3": {
+        "observed_mpjpe_mm": 59.37644479559885,
+        "catastrophic_joint_error_over100mm_fraction": 0.1307634164777022
+      },
+      "wilor": {
+        "observed_mpjpe_mm": 15.923315272889386,
+        "catastrophic_joint_error_over100mm_fraction": 0.00321285140562249
+      }
+    },
+    "wrist_signed_depth_mm": {
+      "ace_final": 91.74436096634183,
+      "anchored": -16.510783359380987,
+      "se3": 47.880819076614166,
+      "wilor": 6.791601828180715
+    }
+  }
+}

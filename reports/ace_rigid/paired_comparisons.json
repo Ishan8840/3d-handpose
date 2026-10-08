@@ -1,0 +1,140 @@
+{
+  "anchored minus ace_final": {
+    "mean_delta_mm": -90.25321277695163,
+    "ci95_sequence_bootstrap_mm": [
+      -101.82832369319192,
+      -63.653416128804295
+    ],
+    "sequences": {
+      "clip-000648": {
+        "mean_delta_mm": -101.82832369319192,
+        "paired_joints": 2940
+      },
+      "clip-001035": {
+        "mean_delta_mm": -63.65341612880429,
+        "paired_joints": 1302
+      },
+      "clip-001168": {
+        "mean_delta_mm": -90.7083217279277,
+        "paired_joints": 1323
+      }
+    },
+    "paired_fingertip_delta_mm": -88.70438656131316,
+    "paired_wrist_delta_mm": -95.56761236420384
+  },
+  "se3 minus ace_final": {
+    "mean_delta_mm": -84.07442871610637,
+    "ci95_sequence_bootstrap_mm": [
+      -101.67873031530718,
+      -59.96561152009574
+    ],
+    "sequences": {
+      "clip-000648": {
+        "mean_delta_mm": -101.67873031530719,
+        "paired_joints": 2940
+      },
+      "clip-001035": {
+        "mean_delta_mm": -68.82044902998629,
+        "paired_joints": 1302
+      },
+      "clip-001168": {
+        "mean_delta_mm": -59.96561152009575,
+        "paired_joints": 1323
+      }
+    },
+    "paired_fingertip_delta_mm": -80.59809057887891,
+    "paired_wrist_delta_mm": -84.15646973742982
+  },
+  "se3 minus anchored": {
+    "mean_delta_mm": 6.1787840608452544,
+    "ci95_sequence_bootstrap_mm": [
+      -5.167032901182004,
+      30.742710207831944
+    ],
+    "sequences": {
+      "clip-000648": {
+        "mean_delta_mm": 0.14959337788474647,
+        "paired_joints": 2940
+      },
+      "clip-001035": {
+        "mean_delta_mm": -5.167032901182004,
+        "paired_joints": 1302
+      },
+      "clip-001168": {
+        "mean_delta_mm": 30.742710207831944,
+        "paired_joints": 1323
+      }
+    },
+    "paired_fingertip_delta_mm": 8.106295982434244,
+    "paired_wrist_delta_mm": 11.411142626774028
+  },
+  "anchored minus wilor": {
+    "mean_delta_mm": 5.021514553455202,
+    "ci95_sequence_bootstrap_mm": [
+      -0.28767637740019636,
+      14.060292289161035
+    ],
+    "sequences": {
+      "clip-000648": {
+        "mean_delta_mm": -0.2876763774001963,
+        "paired_joints": 2614
+      },
+      "clip-001035": {
+        "mean_delta_mm": 8.324195318463131,
+        "paired_joints": 1011
+      },
+      "clip-001168": {
+        "mean_delta_mm": 14.060292289161032,
+        "paired_joints": 1166
+      }
+    },
+    "paired_fingertip_delta_mm": 2.5848681802883844,
+    "paired_wrist_delta_mm": -1.1856859028009552
+  },
+  "se3 minus wilor": {
+    "mean_delta_mm": 8.616169018276306,
+    "ci95_sequence_bootstrap_mm": [
+      -2.24842878685276,
+      38.863042919455495
+    ],
+    "sequences": {
+      "clip-000648": {
+        "mean_delta_mm": -2.248428786852761,
+        "paired_joints": 2614
+      },
+      "clip-001035": {
+        "mean_delta_mm": 1.8230965097030583,
+        "paired_joints": 1011
+      },
+      "clip-001168": {
+        "mean_delta_mm": 38.8630429194555,
+        "paired_joints": 1166
+      }
+    },
+    "paired_fingertip_delta_mm": 7.456436710660673,
+    "paired_wrist_delta_mm": 9.584737307223245
+  },
+  "anchored minus wilor_temporal": {
+    "mean_delta_mm": 8.325331857460663,
+    "ci95_sequence_bootstrap_mm": [
+      6.450583598137933,
+      12.700112021216887
+    ],
+    "sequences": {
+      "clip-000648": {
+        "mean_delta_mm": 6.450583598137933,
+        "paired_joints": 2772
+      },
+      "clip-001035": {
+        "mean_delta_mm": 7.922457282506668,
+        "paired_joints": 1239
+      },
+      "clip-001168": {
+        "mean_delta_mm": 12.700112021216889,
+        "paired_joints": 1302
+      }
+    },
+    "paired_fingertip_delta_mm": 7.065956567202424,
+    "paired_wrist_delta_mm": -0.06603177217844824
+  }
+}
