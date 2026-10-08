@@ -1,0 +1,15 @@
+seed: 42
+units: meters
+frame: left_camera_optical
+primary_selection_metric: capped_error_with_missing_penalty_mm
+missing_penalty_mm: 100
+secondary_metrics: [absolute_mpjpe_mm, fingertips_mm, joint_coverage, p90_mm]
+gt: public_training_annotations_only
+split_unit: participant
+hot3d_joint_mask: [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+notes:
+  - HOT3D UmeTrack wrist is not anatomically interchangeable with MANO/MediaPipe wrist.
+  - Thumb CMC is missing from the official common landmark set.
+  - Internal held-out public training data is not the official hidden test benchmark.
+  - ACE lists HOT3D among training datasets; treat its HOT3D scores as potentially contaminated.
+  - Confidence fusion weights are heuristics, not calibrated cross-model probabilities.

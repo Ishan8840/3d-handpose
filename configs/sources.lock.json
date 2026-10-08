@@ -1,0 +1,42 @@
+{
+  "hot3d": {
+    "url": "https://github.com/facebookresearch/hot3d",
+    "commit": "146b34afef8c1a32adeef7e981c070109f225c87"
+  },
+  "hand_tracking_toolkit": {
+    "url": "https://github.com/facebookresearch/hand_tracking_toolkit",
+    "commit": "bc628e9286c18444b47a0971a89d075ea6f00747"
+  },
+  "ace": {
+    "url": "https://github.com/ggxxii/ACE-Ego-Hand",
+    "commit": "59da83b58d58c3041b9ee0b35b5054866e33a990"
+  },
+  "poem": {
+    "url": "https://github.com/JubSteven/POEM-v2",
+    "commit": "2a047294569efacaa3cb770e454a1dd3b680b7e9"
+  },
+  "uafit": {
+    "url": "https://github.com/marcilzakour/ua-fit-code",
+    "commit": "b4f6a604e0c66f2d0869c3ba962121adcc7e998c"
+  },
+  "umetrack": {
+    "url": "https://github.com/facebookresearch/UmeTrack",
+    "commit": "e263ec0844abf73457468a050a75853444d33d69"
+  },
+  "rtmlib": {
+    "url": "https://github.com/Tau-J/rtmlib",
+    "commit": "03a1693e59e4f7cd84582c0fb30459b3bf18ad42"
+  },
+  "videox": {
+    "url": "https://github.com/aigc-apps/VideoX-Fun",
+    "commit": "4b7b6402a1e0f0406bd6801fb66c0a00bd922621"
+  },
+  "pytorch3d": {
+    "url": "https://github.com/facebookresearch/pytorch3d",
+    "commit": "88e182f989c80836f4bd744e0d9cb1852762ce01"
+  },
+  "umetrack_data": {
+    "url": "https://github.com/facebookresearch/UmeTrack_data",
+    "commit": "950bda2ab602d0ca5591476e04c993ec6f3cac4f"
+  }
+}

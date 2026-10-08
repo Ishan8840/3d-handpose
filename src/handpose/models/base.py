@@ -2,7 +2,7 @@ from dataclasses import dataclass
 import numpy as np
 
 JOINT_NAMES = ['wrist'] + [f'{finger}_{joint}' for finger in ('thumb','index','middle','ring','pinky') for joint in ('mcp','pip','dip','tip')]
-# Thumb names are convention labels: mcp corresponds to CMC, pip to MCP, dip to IP.
+JOINT_NAMES[1:5] = ['thumb_cmc', 'thumb_mcp', 'thumb_ip', 'thumb_tip']
 FINGERTIPS = [4, 8, 12, 16, 20]
 EDGES = [(0, start) for start in (1,5,9,13,17)] + [(i,i+1) for start in (1,5,9,13,17) for i in range(start,start+3)]
 

@@ -25,3 +25,17 @@ class MediaPipeAdapter:
 
     def close(self):
         self.model.close()
+
+class RotatedMediaPipeAdapter(MediaPipeAdapter):
+    """Four orientation hypotheses, inverse mapped before stereo matching."""
+    def predict(self,image):
+        h,w=image.shape[:2]; observations=[]
+        for turns in range(4):
+            rotated=np.ascontiguousarray(np.rot90(image,turns))
+            for observation in super().predict(rotated):
+                x,y=observation.pixels.T.copy()
+                if turns==1: observation.pixels=np.c_[w-1-y,x]
+                elif turns==2: observation.pixels=np.c_[w-1-x,h-1-y]
+                elif turns==3: observation.pixels=np.c_[y,h-1-x]
+                observations.append(observation)
+        return observations
