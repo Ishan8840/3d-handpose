@@ -47,7 +47,7 @@ for i,s in enumerate(iter_clip(str(clip),a.frames)):
         pred.joints_3d_camera=xyz;pred.joint_validity=valid;pred.joint_confidence=valid.astype(float)
     preds.append(pred);truths.append(s['ground_truth']);meshes.append(vertices);latencies.append(time.perf_counter()-start)
     if i%10==0:print('frame',i,'valid',int(pred.joint_validity.sum()),flush=True)
-save_predictions(preds,out,{'model':'POEM-v2-large','crop_source':str(a.observations),'predicted_crops':True,'two_views':True,'seconds_per_frame':float(np.mean(latencies))})
+save_predictions(preds,out,{'model':'POEM-v2-large','observation_code':4,'confidence_semantics':'binary finite positive-depth output; no uncertainty calibration','crop_source':str(a.observations),'predicted_crops':True,'two_views':True,'seconds_per_frame':float(np.mean(latencies))})
 np.save(out/'mesh_vertices.npy',meshes)
 gt=np.array(truths);ts=np.array([x.timestamp_ns for x in preds]);np.savez_compressed(out/'ground_truth.npz',joints_3d=gt,validity=np.isfinite(gt).all(-1),timestamps=ts,frame_ids=np.arange(len(gt)))
 metrics=evaluate(np.array([x.joints_3d_camera for x in preds]),gt,np.array([x.joint_validity for x in preds]),timestamps_ns=ts);metrics['seconds_per_frame']=float(np.mean(latencies));(out/'metrics.json').write_text(json.dumps(metrics,indent=2,allow_nan=False));print(json.dumps(metrics))

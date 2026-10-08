@@ -39,3 +39,12 @@ class RotatedMediaPipeAdapter(MediaPipeAdapter):
                 elif turns==3: observation.pixels=np.c_[y,h-1-x]
                 observations.append(observation)
         return observations
+
+class UprightMediaPipeAdapter(MediaPipeAdapter):
+    """HOT3D Quest native sensor orientation: clockwise to upright, then inverse map."""
+    def predict(self,image):
+        h,w=image.shape[:2]
+        observations=super().predict(cv2.rotate(image,cv2.ROTATE_90_CLOCKWISE))
+        for obs in observations:
+            x,y=obs.pixels.T.copy();obs.pixels=np.c_[y,h-1-x]
+        return observations

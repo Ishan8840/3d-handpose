@@ -77,3 +77,25 @@
   annotation provenance still require verification before any accuracy score.
 - Primary models' environments differ from some upstream versions; exact
   dependency/weight locks and portable setup still need consolidation.
+
+## EgoStandard integration and expanded failures
+
+- User confirms approved EgoStandard access but has no additional convention docs.
+  Decoded 547 paired RGB frames, exported video/calibration/timestamps and native
+  poses. Ran the actual inference CLI:547 outputs,20.632% valid joint slots,
+  missing joints verified NaN. This is an inference integration result, not GT
+  tracking coverage. Translation scale1 is explicitly marked unverified.
+- Added strict explicit-convention conversion and timestamp matching tests;
+  15 total tests pass including robust optimizer rejection of misaligned priors.
+- POEM large smoke completed:24.568 mm observed/30% coverage/capped77.370 mm.
+  Batch-view count and upstream relative BPS asset path incompatibilities fixed.
+- Expanded MP development exposed wrong-hand selection on P0018:~630 mm at
+  25.47% coverage. Known upright orientation also fails (~638 mm at9.44%).
+  Inspected overlay confirms visible left hand selected while right is cropped.
+- UmeTrack cannot repair erroneous side initialization (P0018~703 mm at14%).
+- Upright ACE first dev: A3 21.307 mm/93.40% coverage/capped26.498 mm;
+  A2 ungated22.419 mm/100% coverage/capped22.416 mm. Broader ACE run ongoing.
+- Robust reprojection/stereo/anatomy/prior ablation implemented; prior requires
+  same timestamps and metric frame, rejects discrepancies >5 cm. Dev run ongoing.
+- Interim measured report and diagnostic plots generated; final selection remains
+  pending. Environment snapshots and13 checkpoint hashes captured from VM.

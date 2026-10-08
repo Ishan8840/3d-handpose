@@ -1,0 +1,17 @@
+{
+  "hand_tracking_toolkit": {
+    "commit": "bc628e9286c18444b47a0971a89d075ea6f00747",
+    "url": "https://github.com/facebookresearch/hand_tracking_toolkit",
+    "dirty": false
+  },
+  "rtmlib": {
+    "commit": "03a1693e59e4f7cd84582c0fb30459b3bf18ad42",
+    "url": "https://github.com/Tau-J/rtmlib",
+    "dirty": false
+  },
+  "ace": {
+    "commit": "59da83b58d58c3041b9ee0b35b5054866e33a990",
+    "url": "https://github.com/ggxxii/ACE-Ego-Hand",
+    "dirty": false
+  }
+}

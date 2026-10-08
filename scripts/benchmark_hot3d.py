@@ -14,8 +14,8 @@ from handpose.evaluation.metrics import evaluate
 
 
 def main():
-    p=argparse.ArgumentParser(); p.add_argument('--manifest',default='data/hot3d/manifest.json'); p.add_argument('--split',choices=['smoke','development','held_out'],default='smoke'); p.add_argument('--model',default='mediapipe'); p.add_argument('--output',required=True)
-    a=p.parse_args(); manifest=json.load(open(a.manifest)); model=create('mediapipe' if a.model=='umetrack' else a.model); direct=None
+    p=argparse.ArgumentParser(); p.add_argument('--manifest',default='data/hot3d/manifest.json'); p.add_argument('--split',choices=['smoke','development','held_out'],default='smoke'); p.add_argument('--model',default='mediapipe'); p.add_argument('--output',required=True); p.add_argument('--seed-model',default='mediapipe')
+    a=p.parse_args(); manifest=json.load(open(a.manifest)); model=create(a.seed_model if a.model=='umetrack' else a.model); direct=None
     if a.model=='umetrack':
         from handpose.models.umetrack_adapter import UmeTrackAdapter
         direct=UmeTrackAdapter()
@@ -40,7 +40,7 @@ def main():
             if writer is None: writer=cv2.VideoWriter(str(destination/'visualization.mp4'),cv2.VideoWriter_fourcc(*'mp4v'),60 if 'annotations' in entry else 30,(image.shape[1],image.shape[0]))
             writer.write(image)
         if writer: writer.release()
-        save_predictions(preds,destination,dict(model=a.model,split=a.split,dataset=entry,ground_truth_convention='HOT3D UmeTrack 19 comparable joints; wrist and thumb CMC excluded',seconds_per_frame=float(np.mean(latencies))))
+        save_predictions(preds,destination,dict(model=a.model,observation_code=4 if direct else 1,split=a.split,dataset=entry,ground_truth_convention='HOT3D UmeTrack 19 comparable joints; wrist and thumb CMC excluded',seconds_per_frame=float(np.mean(latencies))))
         gt=np.stack(truths); prediction=np.stack([x.joints_3d_camera for x in preds]); valid=np.stack([x.joint_validity for x in preds]); timestamps=np.array([x.timestamp_ns for x in preds])
         np.savez_compressed(destination/'ground_truth.npz',joints_3d=gt,validity=np.isfinite(gt).all(-1),timestamps=timestamps,frame_ids=np.arange(len(gt)),T_world_from_left=world)
         metrics=evaluate(prediction,gt,valid,timestamps_ns=timestamps)

@@ -1,0 +1,94 @@
+[
+  {
+    "path": "outputs/ace-upright-development/clip-000175/metrics.json",
+    "sha256": "7534269cae5268f28e57b50eae25476b8cb35f109913369b2c619a7debb980e1"
+  },
+  {
+    "path": "outputs/ace-upright-development/clip-000838/metrics.json",
+    "sha256": "651a482c4a69c0de4e8337108b91d045f14fe045420a7dbf4aa53f5743385a3a"
+  },
+  {
+    "path": "outputs/ace-upright-smoke/metrics.json",
+    "sha256": "6b8b61703ceb266b3a72f1264c3cf53c143c251cd74b1322782234b39dedc67e"
+  },
+  {
+    "path": "outputs/b0-dev/clip-000175/metrics.json",
+    "sha256": "65363b652b7277c5d37525066900100aec1a0941979827c4605e5cc6f8579699"
+  },
+  {
+    "path": "outputs/b0-rotated-dev/clip-000175/metrics.json",
+    "sha256": "718a3019ff6549878a193a8b98c65f95a263414ac10f1dff9a41680f350eb4db"
+  },
+  {
+    "path": "outputs/b0-rotated-expanded-dev/clip-000175/metrics.json",
+    "sha256": "6e0a629e0d8ecbf9a584aa95720dcfbc9aa1ff41b1fc978f815a574d5f2940bd"
+  },
+  {
+    "path": "outputs/b0-rotated-expanded-dev/clip-000838/metrics.json",
+    "sha256": "d394b993320d21b42ebee6f565c3cad2536520484945ba06e224799015ed33d0"
+  },
+  {
+    "path": "outputs/b0-rotated-expanded-dev/clip-001119/metrics.json",
+    "sha256": "f60adc09a9a08ff52a63d40ea07ff826f804a8d80c2379ca52bbd1156f42bc7d"
+  },
+  {
+    "path": "outputs/b0-smoke/clip-000000/metrics.json",
+    "sha256": "f7369ea6951965919317716563de6d98cdfe990ac614913f90c16975a3ea695a"
+  },
+  {
+    "path": "outputs/b0-upright-expanded-dev/clip-000175/metrics.json",
+    "sha256": "59f4c31809da19296178647500ac5d819f6bf32a8e74f67cf6a01ac8b0bdbd45"
+  },
+  {
+    "path": "outputs/b0-upright-expanded-dev/clip-000838/metrics.json",
+    "sha256": "b90833d29fe9acbc8b327d6a16ea1363830f2e15fda5b917469054926c7ac151"
+  },
+  {
+    "path": "outputs/b0-upright-expanded-dev/clip-001119/metrics.json",
+    "sha256": "533c7a6e835288d8af8ed89bf1c3fad94752798a1466adc62ddab49c06ee2e01"
+  },
+  {
+    "path": "outputs/b1-mpcrop-dev/clip-000175/metrics.json",
+    "sha256": "4be6981b9be220cd740aa4763e413367efea1b3b17d432120862ed5207f626b0"
+  },
+  {
+    "path": "outputs/b1-smoke/clip-000000/metrics.json",
+    "sha256": "ef87391a873fad462b5791007fc7bcd516f9602278ee9db8cf3ad6e8842e1493"
+  },
+  {
+    "path": "outputs/b2-dev/clip-000175/metrics.json",
+    "sha256": "3cbef214ffdc3025ea33df7113ef4e5afd30677bc111c8ff379a082e243f908e"
+  },
+  {
+    "path": "outputs/poem-smoke/metrics.json",
+    "sha256": "0e5c1bed525ef4f1a66105a791644b135313296140ad16d48f0fe1e428c418f3"
+  },
+  {
+    "path": "outputs/show3d-b0-rotated-dev/aria_pick-up-put-down_3b63/metrics.json",
+    "sha256": "d0ab9b60d60e2f41d9ac934121760740835434bcde1eff4c08eb342acd8b66fb"
+  },
+  {
+    "path": "outputs/show3d-b0-smoke/aria_pick-up-put-down_2170/metrics.json",
+    "sha256": "68406eb07986c173d382f87ffd0de76cdd12a134a1f42f9d93b2d42711a2d8e3"
+  },
+  {
+    "path": "outputs/ume-upright-expanded-dev/clip-000175/metrics.json",
+    "sha256": "3d8f0904345033273981298002287c09756706556c5794fc4061a0858d01e85c"
+  },
+  {
+    "path": "outputs/ume-upright-expanded-dev/clip-000838/metrics.json",
+    "sha256": "0085e9d5fb1e488a2386dea5031b1b586a46eb0ae87afb0cc546530ae8b6ae03"
+  },
+  {
+    "path": "outputs/ume-upright-expanded-dev/clip-001119/metrics.json",
+    "sha256": "b9f886879f282c26600aea75b81a80148a9d75fbf3d027b466a890fc054d4f1d"
+  },
+  {
+    "path": "outputs/umetrack-dev/clip-000175/metrics.json",
+    "sha256": "982c3f8a5357fa0a26af7524092df3eb821ce01bc73740c2bd8b140f832f6d94"
+  },
+  {
+    "path": "outputs/umetrack-smoke/clip-000000/metrics.json",
+    "sha256": "2d29d937b107365b1be9caa47d964b8094fc12befb177a8dcbc62dbdf6de27a0"
+  }
+]

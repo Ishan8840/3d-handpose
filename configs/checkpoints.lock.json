@@ -1,0 +1,67 @@
+[
+  {
+    "file": "checkpoints/mano_converted/MANO_RIGHT.pkl",
+    "bytes": 5228858,
+    "sha256": "0b13a00a05ece8e23fe31fbe433d8602ebe67e7bf7de32ccb0eae72b5e7c699d"
+  },
+  {
+    "file": "checkpoints/mano_converted/MANO_LEFT.pkl",
+    "bytes": 5240290,
+    "sha256": "7c55befe7c5bc6a152d60e65724b47272afd33a105014e68f5870b8a43b21865"
+  },
+  {
+    "file": "checkpoints/poem/large.pth.tar",
+    "bytes": 610252782,
+    "sha256": "6dcc5805f236956d92ea0318e7661c800049b3289794005e191e59643e6b7fe6"
+  },
+  {
+    "file": "checkpoints/poem/medium_MANO.pth.tar",
+    "bytes": 400680586,
+    "sha256": "12ac2638a65713427ae9b9621b6ace05ae217a01bd9879d138e70c6fc0493cd9"
+  },
+  {
+    "file": "checkpoints/mano/MANO_RIGHT.pkl",
+    "bytes": 3821356,
+    "sha256": "45d60aa3b27ef9107a7afd4e00808f307fd91111e1cfa35afd5c4a62de264767"
+  },
+  {
+    "file": "checkpoints/mano/MANO_LEFT.pkl",
+    "bytes": 3821391,
+    "sha256": "c4022f7083f2ca7c78b2b3d595abbab52debd32b09d372b16923a801f0ea6a30"
+  },
+  {
+    "file": "checkpoints/foundationstereo/11-33-40/model_best_bp2.pth",
+    "bytes": 787711942,
+    "sha256": "8d7850b9dc68d1366722a02a39745704b1db41471211be6abd93ef463727e6be"
+  },
+  {
+    "file": "checkpoints/foundationstereo/23-51-11/model_best_bp2.pth",
+    "bytes": 3298527334,
+    "sha256": "60e79bde9c6a00acea551625ff814fe06e5a6806e2c0c9829baee248de87c5f1"
+  },
+  {
+    "file": "checkpoints/foundationstereo/onnx/foundation_stereo_23-51-11.onnx",
+    "bytes": 752408107,
+    "sha256": "ced69db6250a3c410f0db0d17c215bfba9a34189f85af8f205d1c909ee209fb6"
+  },
+  {
+    "file": "third_party/ace/checkpoints/ace_ego_hand_k.pt",
+    "bytes": 736254554,
+    "sha256": "33f328624ca532942b12d10c59b648bb9fc0801bcdfe59f35ba92645e51fc3ad"
+  },
+  {
+    "file": "third_party/umetrack/pretrained_models/pretrained_weights.torch",
+    "bytes": 17128329,
+    "sha256": "72eab0ea2c5c4518188ede4cf62e98f62eb1e4ef13628c0f20ad3fc56d1bf18d"
+  },
+  {
+    "file": "rtmlib-cache/rtmdet_nano_8xb32-300e_hand-267f9c8f.onnx",
+    "bytes": 4010667,
+    "sha256": "568d3ea97a5b142488366b67e036b6a5cb0a1fef9087a710cb8e66b6979fbac2"
+  },
+  {
+    "file": "rtmlib-cache/rtmpose-m_simcc-hand5_pt-aic-coco_210e-256x256-74fb594_20230320.onnx",
+    "bytes": 55080248,
+    "sha256": "39e858936bca0f94c09847d4e70b68a51d6c0adac61f36b457fcadb54621cd29"
+  }
+]

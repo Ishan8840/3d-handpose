@@ -21,4 +21,5 @@ raw=[]
 for i,s in enumerate(iter_clip(a.clip,a.frames)):
     raw.append(reconstruct(*s['cameras'],l.observations(i),r.observations(i),s['timestamp_ns'],max_epipolar_px=float('inf'),max_reprojection_px=float('inf')).joints_3d_camera)
 result['A2_stereo_ungated']=evaluate(raw,gt,timestamps_ns=t)
+np.savez_compressed(out/'ungated.npz',joints_3d=raw,validity=np.isfinite(raw).all(-1),timestamps=t,frame_ids=np.arange(len(gt)))
 (out/'metrics.json').write_text(json.dumps(result,indent=2,allow_nan=False));print(json.dumps(result),flush=True)
