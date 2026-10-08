@@ -1,0 +1,16 @@
+{
+  "sequence": "pour__2025_0325_1117_56",
+  "frames": 30,
+  "views": 3,
+  "provided_demo_crops": true,
+  "checkpoint": "POEM-v2 large",
+  "hand_side": "right",
+  "metric_accuracy_evaluated": false,
+  "upstream_functions": [
+    "format_batch",
+    "extract_pred"
+  ],
+  "io_changes": "OpenCV sequential RGB decoding and disabled GUI display",
+  "seconds": 6.024252102710307,
+  "positive_master_depth_fraction": 1.0
+}

@@ -91,6 +91,14 @@ surface-depth fusion at unchanged coverage; depth-only samples were worse at
 34.298mm. Neither component was included in the frozen pipelines. These are
 single-sequence ablations, not conclusive universal comparisons.
 
+A post-freeze development diagnostic fitted MANO to the MediaPipe observations
+with and without gated dense surface points. Absolute error changed
+23.865→23.771mm at identical85.33% joint coverage over150 frames. The depth term
+uses nearest mesh-surface distance for points within3cm of triangulated joints;
+it does not assume that skin depth equals an anatomical joint center. This
+single-clip0.094mm difference does not establish a reliable gain. It did not
+change the frozen configurations or held-out selection.
+
 ## Architecture and failure analysis
 
 The ACE hybrid runs released calibrated monocular inference on each view,
@@ -173,8 +181,13 @@ subject skeleton. Its native-unit error 9.662 is a reproduction diagnostic only,
 excluded from our two-camera predicted-crop leaderboard.
 
 UA-Fit's inspected checkpoint instructions say its uncertainty checkpoint is
-forthcoming; its analytical solver was not reproduced. POEM's adapted inference
-executed, but an independent official-demo reproduction remains incomplete.
+forthcoming; its analytical solver was not reproduced. POEM's official
+`format_batch` and `extract_pred` functions also executed on30 usable frames of
+its supplied three-camera demonstration with the released large checkpoint.
+All21 joints and778 vertices were finite, with positive master-camera joint
+depth. OpenCV sequential RGB decoding and disabled GUI display allowed headless
+execution. Provided demo crops and three views make this a reproduction
+diagnostic, excluded from the fair stereo leaderboard; no demo accuracy is claimed.
 Additional candidates and learned temporal priors are documented in
 [additional_candidates.md](additional_candidates.md); none has a claimed score.
 No new model was trained or paid infrastructure provisioned.

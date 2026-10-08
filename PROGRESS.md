@@ -2,6 +2,11 @@
 
 ## Current phase: Phase 7–8 research round delivered; remaining scope below
 
+Entries below are chronological; early pending items are superseded by later
+measured milestones. See the delivered comparison and remaining-work sections.
+
+## Initial bootstrap record
+
 - Phase 0: Python 3.12 isolated environment installed; package imports; 8 tests pass.
 - Hardware: supplied VM is an A100-SXM4 40 GB container, ~50 GB available disk;
   preinstalled PyTorch 2.11.0+cu128 reports CUDA available. Local machine has no nvidia-smi.
@@ -154,9 +159,25 @@
 
 - Authoritative EgoStandard joint/coordinate conventions and quantitative evaluation.
 - Full three-model SHOW3D comparison; more participants and manipulation activities.
-- UA-Fit analytical solver/checkpoint; independent POEM official-demo reproduction.
+- UA-Fit analytical solver/checkpoint.
 - Additional candidate models and learned temporal priors (see release audit).
 - Fully automated clean heavy-model installs; pin FoundationStereo's transient
   torch-hub dependency if revisiting that excluded pilot.
 - Controlled comparative steady-state runtime/peak-memory measurements.
 - Exhaustive pretrained benchmark-contamination and annotation-uncertainty audits.
+
+## Post-freeze development and reproduction diagnostics
+
+- Dense surface constraints plus MANO executed on150 development frames:
+  stereo MANO23.865mm versus stereo+depth MANO23.771mm, both85.33% joint coverage.
+  This small single-sequence difference did not change any frozen settings.
+- Official POEM demo preprocessing/output conversion executed with the large
+  released checkpoint on30 usable three-view frames with provided demo crops.
+  Finite21-joint/778-vertex outputs and positive master-camera depth verified.
+  This is separate from the predicted-crop two-camera accuracy comparison.
+  The2.68GB official archive was downloaded and SHA256 verified; only one
+  sequence's RGB videos, crops and calibration were extracted.
+- User confirmed no additional EgoStandard convention documentation is available.
+  Preserve native annotations and keep anatomical accuracy evaluation blocked;
+  the supplied dataset card does not resolve joint ordering or transform units.
+- Final local regression run:21 tests passed.

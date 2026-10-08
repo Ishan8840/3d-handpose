@@ -58,7 +58,18 @@ PYTHONPATH=src:third_party/hand_tracking_toolkit .venv-poem/bin/python scripts/b
 ```
 
 The observation file supplies predicted crops only. Ground truth is used after
-inference for evaluation. Full official-demo reproduction remains outstanding.
+inference for evaluation.
+
+The official three-view demo was also executed with the large checkpoint using
+`scripts/poem_official_demo.py`. Download the archive from
+`kelvin34501/POEM-v2_example_data` (Hugging Face model repository), verify the hash
+in `configs/datasets/poem_official_demo.json`, and extract under
+`data/poem-official/`. The script requires calibration, hand_labels.json, and the
+RGB videos and crops for `pour__2025_0325_1117_56`. Additional demo imports require
+`ffmpeg-python==0.2.0` and `open3d==0.19.0`; preserve `numpy==1.26.4` and
+`scipy==1.14.1`. Run `.venv-poem/bin/python scripts/poem_official_demo.py`.
+Thirty usable frames passed finite-joint/mesh checks. Supplied demo crops and
+three views exclude this diagnostic from the fair two-camera leaderboard.
 
 ## UmeTrack and FoundationStereo
 

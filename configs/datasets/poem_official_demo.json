@@ -1,0 +1,10 @@
+{
+  "repository": "kelvin34501/POEM-v2_example_data",
+  "repository_type": "model",
+  "filename": "example_data.tar.xz",
+  "sha256": "d0a3da34d48f1dc3148ecc99b1971131d9ee36a8dc53e7819e7b95760081a318",
+  "sequence": "pour__2025_0325_1117_56",
+  "views": 3,
+  "provided_demo_crops": true,
+  "purpose": "official preprocessing/inference reproduction, no accuracy claim"
+}

@@ -6,7 +6,7 @@ losses. This is an experimental ablation, not a claim of improved accuracy.
 import numpy as np
 
 
-def fit_sequence(xyz,valid,uv_left,uv_right,K_left,K_right,T_right_from_left,model_path,steps=200,lr=.02,device='cuda'):
+def fit_sequence(xyz,valid,uv_left,uv_right,K_left,K_right,T_right_from_left,model_path,steps=200,lr=.02,device='cuda',dense_points=None,depth_weight=.1):
     import torch
     import smplx
     xyz=np.asarray(xyz); valid=np.asarray(valid)&np.isfinite(xyz).all(-1)
@@ -26,6 +26,11 @@ def fit_sequence(xyz,valid,uv_left,uv_right,K_left,K_right,T_right_from_left,mod
     uv_mask=[tensor(np.isfinite(x[eligible]).all(-1)) for x in (uv_left,uv_right)]
     Ks=[tensor(np.broadcast_to(k,(len(xyz),3,3))[eligible]) for k in (K_left,K_right)]
     Ts=tensor(np.broadcast_to(T_right_from_left,(len(xyz),4,4))[eligible])
+    depth_target=depth_mask=None
+    if dense_points is not None:
+        depth=np.asarray(dense_points)[eligible]
+        depth_mask=tensor(np.isfinite(depth).all(-1))
+        depth_target=tensor(np.nan_to_num(depth))
     optimizer=torch.optim.Adam([pose,orient,beta,translation],lr=lr)
     # MANO regressor ordering + surface tips -> MediaPipe anatomical ordering.
     order=[0,13,14,15,16,1,2,3,17,4,5,6,18,10,11,12,19,7,8,9,20]
@@ -36,7 +41,7 @@ def fit_sequence(xyz,valid,uv_left,uv_right,K_left,K_right,T_right_from_left,mod
     def robust(error,delta):return delta**2*(torch.sqrt(1+(error/delta)**2)-1)
     history=[]
     for step in range(steps):
-        optimizer.zero_grad(); joints,_=forward()
+        optimizer.zero_grad(); joints,mesh=forward()
         loss3=(robust(joints-target,.01).sum(-1)*mask).sum()/mask.sum().clamp_min(1)
         reproj=0
         for view in range(2):
@@ -44,7 +49,11 @@ def fit_sequence(xyz,valid,uv_left,uv_right,K_left,K_right,T_right_from_left,mod
             h=camera@Ks[view].transpose(1,2); pixels=h[...,:2]/h[...,2:].clamp_min(.05)
             w=uv_mask[view]*mask
             reproj+=(robust((pixels-uv[view])/500,.01).sum(-1)*w).sum()/w.sum().clamp_min(1)
-        loss=loss3+reproj*.1+1e-5*pose.square().mean()+1e-5*beta.square().mean()
+        loss_depth=0
+        if depth_target is not None:
+            distance=torch.cdist(mesh.vertices,depth_target).min(dim=1).values
+            loss_depth=(robust(distance,.005)*depth_mask).sum()/depth_mask.sum().clamp_min(1)
+        loss=loss3+reproj*.1+depth_weight*loss_depth+1e-5*pose.square().mean()+1e-5*beta.square().mean()
         loss.backward(); optimizer.step(); history.append(float(loss.detach()))
     joints,output=forward(); result[eligible]=joints.detach().cpu().numpy()
     return result,dict(eligible_frames=eligible.tolist(),loss=history,betas=beta.detach().cpu().numpy().tolist(),pose=pose.detach().cpu().numpy().tolist(),orientation=orient.detach().cpu().numpy().tolist(),translation=translation.detach().cpu().numpy().tolist())
